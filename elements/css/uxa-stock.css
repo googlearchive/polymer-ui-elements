@@ -1,0 +1,95 @@
+@host {
+  * {
+    display:block;
+    font-family: 'Helvetica Neue Medium', arial,sans-serif;
+    width: 300px;
+  }
+}
+#widget-title {
+  font-size: 21px;
+  color: rgba(0,0,0,0.8);
+  line-height: 15px;
+  margin-bottom: 35px;
+}
+.stock-label {
+  font-family: arial,sans-serif;
+  font-size: medium;
+  font-weight: lighter;
+  color: #878787;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.large {
+  font-size: x-large;
+}
+
+.small {
+  font-size: small;
+}
+
+.stock-desc {
+  text-transform: uppercase;
+}
+
+.quote {
+  margin-top: 10px;
+}
+
+x-stock-legend-item {
+  line-height:30px;
+  display:block;
+}
+
+.more {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.chart {
+  margin-right: 20px;
+}
+
+.details {
+  width: 120px;
+}
+
+.details > * {
+  line-height: 1.4;
+}
+
+.details > * > :first-child {
+  display: inline-block;
+  width: 60px;
+}
+
+#stock-chart {
+  border:0;
+  width:300px;
+  height:150px;
+  overflow:hidden;
+}
+
+#chart {
+  position:relative;
+}
+
+#bg {
+  background: rgba(242, 242, 238, 0.2);
+  width:298px;
+  height:120px;
+  position:absolute;
+  top:0;
+  left:0;
+  border-left: 1px solid #E6E6E6;
+  border-right: 1px solid #E6E6E6;
+}
+
+@media screen and (max-width: 520px) {
+  .details {
+    display: none;
+  }
+}

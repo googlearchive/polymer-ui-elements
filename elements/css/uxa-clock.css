@@ -14,6 +14,10 @@ color: rgba(0,0,0,0.8);
 line-height: 15px;
 }
 
+#time {
+	display: none;
+}
+
 #clock {
 	position: relative;
 	width: 200px;

@@ -27,6 +27,9 @@ license that can be found in the LICENSE file.
       seconds: 0,
       minutes: 0,
       hours: 0,
+			ready: function() {
+				this.insertedCallback();
+			},
       insertedCallback: function() {
         // when we are inserted into DOM, start watching the time
         this.updateTime();

@@ -6,14 +6,14 @@ license that can be found in the LICENSE file.
 <!DOCTYPE html>
 <html>
   <head>
-    <title>UXA Stock</title>
+    <title>UXA Weather</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!-- load toolkit -->
     <script src="../../toolkit/toolkit.js"></script>
     <!-- import some toolkit elements-->
     <link rel="import" href="../../toolkit-ui/elements/g-app.html">
-		<link rel="import" href="../elements/uxa-clock.html">
+		<link rel="import" href="../elements/uxa-weather.html">
     <!-- salt to taste -->
     <style>
 		body { margin:0; padding:0; }
@@ -23,9 +23,9 @@ license that can be found in the LICENSE file.
   <body>
 
     <g-app>
-			<uxa-clock>
-			</uxa-clock>
-    </g-app>
 
+			<uxa-weather autoupdate="true"></uxa-weather>
+
+    </g-app>
   </body>
 </html>
