@@ -12,14 +12,10 @@ license that can be found in the LICENSE file.
 	<link rel="stylesheet" href="css/uxa-stock.css">
 
   <template>
-
     <div id="widget-title">Market Summary</div>
 
     <template repeat="{{symbols}}">
       <x-stock-legend-item id="legend-{{name}}" label="{{name}}" data="{{jsonpResponse}}" color="{{color}}"></x-stock-legend-item>
-    </template>
-
-    <template repeat="{{symbols}}">
       <g-jsonp id="jsonp" on-response="jsonpResponseHandler" name="{{name}}" symbol="{{symbol}}" url="https://clients1.google.com/finance/info?q={{symbol}}&client=ob&infotype=infoonebox&callback="></g-jsonp>
     </template>
 
@@ -148,7 +144,6 @@ license that can be found in the LICENSE file.
             position: 'none'
           }
         };
-
 
         for(var i=0;i<this.symbols.length;i++){
           this.symbols[i].color = options.colors[i];

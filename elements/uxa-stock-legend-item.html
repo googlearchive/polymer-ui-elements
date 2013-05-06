@@ -12,7 +12,6 @@
       .change {
         color: #3d9400;
       }
-
       .change.down {
         color: #dd4b39;
       }
@@ -33,9 +32,6 @@
         margin-top:1px;
         border-radius: 3px;
       }
-      .symbol {
-
-      }
       .data {
         float:right;
       }
@@ -53,19 +49,6 @@
   </template>
 
   <script>
-    Toolkit.register(this, {
-      color: '',
-      colorChanged: function(){
-        console.log('colorChanged');
-        if(this.color) {
-          console.log(this.color);
-          // this.styleSheets[0].insertRule('.label:before { background-color: ' + this.color + '; }', 0);
-        }
-
-      },
-      ready: function(){
-        console.log(this.color);
-      }
-    });
+    Toolkit.register(this);
   </script>
 </element>
