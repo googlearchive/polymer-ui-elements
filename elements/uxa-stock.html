@@ -39,7 +39,7 @@ license that can be found in the LICENSE file.
       jsonpResponse:null,
       ready: function() {
         var symbols = this.symbols.split(',');
-        this.symbols = []
+        this.symbols = [];
         for(var i=0;i<symbols.length;i++){
           var symbol = {
             'name': symbols[i].replace('.', ''),
@@ -48,18 +48,10 @@ license that can be found in the LICENSE file.
           }
           this.symbols.push(symbol);
         }
-
-
-        var mq = window.matchMedia('(max-width: 400px)');
-        mq.addListener(this.layoutChange.bind(this));
-        this.layoutChange(mq);
       },
       symbolsChanged: function() {
         console.log('symbolsChanged');
         console.log(this.symbols);
-      },
-      layoutChange: function(inQuery) {
-        this.chartWidth = inQuery.matches ? 256 : 327;
       },
       autoupdateChanged: function() {
         console.log('autoupdateChanged');
@@ -112,7 +104,6 @@ license that can be found in the LICENSE file.
           for(var x=0; x<8;x++) {
             var time = rows[x][0];
             var value = parseFloat(json.results[symbol][time]['percent']);
-            // if(value) value = value.toFixed(2);
             rows[x].push(value);
           }
         }
