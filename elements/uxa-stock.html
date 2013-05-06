@@ -4,15 +4,13 @@ Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 -->
 
-<script src="../../toolkit/toolkit.js"></script>
-
 <link rel="import" href="../../toolkit-ui/elements/g-jsonp.html">
 <link rel="import" href="../../toolkit-ui/elements/g-ajax.html">
 <link rel="import" href="uxa-stock-legend-item.html">
 
 <element name="uxa-stock" attributes="symbols autoupdate">
 	<link rel="stylesheet" href="css/uxa-stock.css">
-		
+
   <template>
 
     <div id="widget-title">Market Summary</div>
@@ -32,7 +30,7 @@ license that can be found in the LICENSE file.
       </div>
     </div>
 
-    <g-ajax id="ajax" on-response="ajaxResponse" handleAs="json" auto="true" url="/stocks/market-summary"></g-ajax>
+    <g-ajax id="ajax" on-response="ajaxResponse" handleAs="json" auto="true" url="https://spec-staging.googplex.com/stocks/market-summary"></g-ajax>
   </template>
   <script>
     Toolkit.register(this, {
