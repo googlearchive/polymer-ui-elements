@@ -3,7 +3,7 @@ Copyright 2013 The Toolkitchen Authors. All rights reserved.
 Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 -->
-<link rel="import" href="../../google-elements/google-jsonp.html"/>
+<link rel="import" href="../../toolkit-elements/toolkit-jsonp.html"/>
 	<element name="uxa-weather" attributes="autoupdate">
 		<link rel="stylesheet" href="uxa-weather.css">
   	<template>
@@ -26,8 +26,8 @@ license that can be found in the LICENSE file.
 				</template>
 			</div>
 
-			<google-jsonp id="jsonp_current" response="{{currentConditionsResponse}}"></google-jsonp>
-	    <google-jsonp id="jsonp_forecast" handleAs="json" response="{{forecastResponse}}"></google-jsonp>
+			<toolkit-jsonp id="jsonp_current" response="{{currentConditionsResponse}}"></toolkit-jsonp>
+	    <toolkit-jsonp id="jsonp_forecast" handleAs="json" response="{{forecastResponse}}"></toolkit-jsonp>
   </template>
   <script>
 		Toolkit.register(this, {

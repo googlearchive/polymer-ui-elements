@@ -7,7 +7,7 @@ license that can be found in the LICENSE file.
 <link rel="import" href="uxa-stock-data.html">
 <link rel="import" href="uxa-stock-legend-item.html">
 <link rel="import" href="../uxa-line-chart/uxa-line-chart.html">
-<link rel="import" href="../../google-elements/google-ajax.html">
+<link rel="import" href="../../toolkit-elements/toolkit-ajax.html">
 
 <element name="uxa-stock" attributes="symbols autoupdate">
   <link rel="stylesheet" href="css/uxa-stock.css">
@@ -20,7 +20,7 @@ license that can be found in the LICENSE file.
     <div class="more">
       <uxa-line-chart series="{{series}}"></uxa-line-chart>
     </div>
-    <google-ajax response="{{timeData}}" auto url="mock/uxa-stock-test-data.json"></google-ajax>
+    <toolkit-ajax response="{{timeData}}" auto url="mock/uxa-stock-test-data.json"></toolkit-ajax>
   </template>
 
   <script>
@@ -45,7 +45,8 @@ license that can be found in the LICENSE file.
       // update on interval, if desired
       autoupdateChanged: function() {
         if (this.autoupdate) {
-          this.interval = setInterval(this.update.bind(this), this.updateinterval);
+          this.interval = setInterval(this.update.bind(this), 
+              this.updateinterval);
         } else if (this.intervalId) {
           clearInterval(this.interval);
         }

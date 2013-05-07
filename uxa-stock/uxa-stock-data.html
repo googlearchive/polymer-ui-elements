@@ -4,12 +4,12 @@ Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 -->
 
-<link rel="import" href="../../google-elements/google-jsonp.html">
+<link rel="import" href="../../toolkit-elements/toolkit-jsonp.html">
 
 <element name="uxa-stock-data" attributes="symbol name data color">
   <template>
-    <google-jsonp id="jsonp" response="{{rawData}}" url="https://clients1.google.com/finance/info?q={{symbol}}&client=ob&infotype=infoonebox&callback="
-    ></google-jsonp>
+    <toolkit-jsonp id="jsonp" response="{{rawData}}" url="https://clients1.google.com/finance/info?q={{symbol}}&client=ob&infotype=infoonebox&callback="
+    ></toolkit-jsonp>
   </template>
   <script>
     UXAStockData = function(symbol, color) {
