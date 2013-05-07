@@ -1,16 +1,18 @@
 @host {
   * {
-    display:block;
-    font-family: 'Helvetica Neue Medium', arial,sans-serif;
+    display: block;
+    font-family: 'Helvetica Neue Medium', Arial, sans-serif;
     width: 300px;
   }
 }
+
 #widget-title {
   font-size: 21px;
   color: rgba(0,0,0,0.8);
   line-height: 15px;
   margin-bottom: 35px;
 }
+
 .stock-label {
   font-family: arial,sans-serif;
   font-size: medium;
@@ -37,9 +39,9 @@
   margin-top: 10px;
 }
 
-x-stock-legend-item {
-  line-height:30px;
-  display:block;
+uxa-stock-legend-item {
+  line-height: 30px;
+  display: block;
 }
 
 .more {
@@ -49,6 +51,7 @@ x-stock-legend-item {
   display: flex;
 }
 
+/*
 .chart {
   margin-right: 20px;
 }
@@ -72,21 +75,7 @@ x-stock-legend-item {
   height:150px;
   overflow:hidden;
 }
-
-#chart {
-  position:relative;
-}
-
-#bg {
-  background: rgba(242, 242, 238, 0.2);
-  width:298px;
-  height:120px;
-  position:absolute;
-  top:0;
-  left:0;
-  border-left: 1px solid #E6E6E6;
-  border-right: 1px solid #E6E6E6;
-}
+*/
 
 @media screen and (max-width: 520px) {
   .details {

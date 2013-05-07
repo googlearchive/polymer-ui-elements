@@ -1,31 +1,20 @@
+<!DOCTYPE html>
 <!--
 Copyright 2013 The Toolkitchen Authors. All rights reserved.
 Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 -->
-<!DOCTYPE html>
 <html>
   <head>
-    <title>UXA Stock</title>
+    <title>UXA Weather</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!-- load toolkit -->
     <script src="../../toolkit/toolkit.js"></script>
-    <!-- import some toolkit elements-->
-    <link rel="import" href="../../toolkit-ui/elements/g-app.html">
-		<link rel="import" href="../elements/uxa-clock.html">
-    <!-- salt to taste -->
-    <style>
-		body { margin:0; padding:0; }
-
-    </style>
+    <!-- import element-->
+		<link rel="import" href="../uxa-weather/uxa-weather.html">
   </head>
   <body>
-
-    <g-app>
-			<uxa-clock>
-			</uxa-clock>
-    </g-app>
-
+  	<uxa-weather autoupdate></uxa-weather>
   </body>
 </html>

@@ -1,0 +1,18 @@
+<element name="uxa-stock-legend-item" attributes="label data color">
+  <link rel="stylesheet" href="css/uxa-stock-legend.css">
+  <template>
+    <div class="item">
+      <span class="label">
+        <span class="color" style="background-color: {{color}}"></span>
+        <span class="symbol">{{label}}</span>
+      </span>
+      <div class="data">
+        <span class="price">{{data.l}}</span>
+        <span class="change {{data.change}}">{{data.c}} ({{data.cp}}%)</span>
+      </div>
+    </div>
+  </template>
+  <script>
+    Toolkit.register(this);
+  </script>
+</element>

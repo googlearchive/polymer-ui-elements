@@ -1,0 +1,85 @@
+<!--
+Copyright 2013 The Toolkitchen Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+
+<link rel="import" href="uxa-stock-data.html">
+<link rel="import" href="uxa-stock-legend-item.html">
+<link rel="import" href="../uxa-line-chart/uxa-line-chart.html">
+<link rel="import" href="../../google-elements/google-ajax.html">
+
+<element name="uxa-stock" attributes="symbols autoupdate">
+  <link rel="stylesheet" href="css/uxa-stock.css">
+
+  <template>
+    <div id="widget-title">Market Summary</div>
+    <template repeat="{{stocks}}">
+      <uxa-stock-legend-item id="legend-{{name}}" label="{{name}}" data="{{data}}" color="{{color}}"></uxa-stock-legend-item>
+    </template>
+    <div class="more">
+      <uxa-line-chart series="{{series}}"></uxa-line-chart>
+    </div>
+    <google-ajax response="{{timeData}}" auto url="mock/uxa-stock-test-data.json"></google-ajax>
+  </template>
+
+  <script>
+    Toolkit.register(this, {
+      symbols: '',
+      autoupdate: false,
+      updateinterval: 60000,
+      // when our symbol listing changes, generate new data objects
+      symbolsChanged: function() {
+        var list = [];
+        this.symbols.split(',').forEach(function(s, i) {
+          list.push(new UXAStockData(s, colors[i % 3]));
+        });
+        this.stocks = list;
+      },
+      // demand-update the stock data
+      update: function() {
+        this.stocks.forEach(function(s) {
+          s.update();
+        });
+      },
+      // update on interval, if desired
+      autoupdateChanged: function() {
+        if (this.autoupdate) {
+          this.interval = setInterval(this.update.bind(this), this.updateinterval);
+        } else if (this.intervalId) {
+          clearInterval(this.interval);
+        }
+      },
+      timeDataChanged: function(){
+        if (!this.stocks || !this.timeData) {
+          return;
+        }
+        // init columns
+        var cols = [{type:'string', id:'Time'}];
+        // init rows
+        var rows = [
+          {c:[{v:'9:30'}]},
+          {c:[{v:'10am'}]},
+          {c:[{v:'11'}]},
+          {c:[{v:'12'}]},
+          {c:[{v:'1'}]},
+          {c:[{v:'2'}]},
+          {c:[{v:'3'}]},
+          {c:[{v:'4pm'}]}
+        ];
+        // construct rows/columns from series data
+        var data = this.timeData.results;
+        this.stocks.forEach(function(s) {
+          cols.push({type: 'number', id: s.name});
+          for(var i=0; i<8; i++) {
+            var value = parseFloat(data[s.symbol][rows[i].c[0].v].percent) || 0;
+            rows[i].c.push({v: value});
+          }
+        });
+        this.series = {cols: cols, rows: rows};
+      }
+    });
+    // static color palette
+    colors = ['#4E8DF5', '#DB4743', '#F4C138'];
+  </script>
+</element>

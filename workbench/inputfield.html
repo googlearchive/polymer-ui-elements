@@ -11,10 +11,11 @@ license that can be found in the LICENSE file.
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!-- load toolkit -->
     <script src="../../toolkit/toolkit.js"></script>
-    <!-- import some toolkit elements-->
-      <link rel="import" href="../elements/g-app.html">
     <!-- salt to taste -->
     <style>
+      body {
+        margin: 0;
+      }
       .widget {
 				color: white;
 				margin: 0px;
@@ -75,16 +76,12 @@ license that can be found in the LICENSE file.
     </style>
   </head>
   <body>
-
-    <g-app>
-			<div style="z-index:-1;position:absolute;top:0;left:0;background:url(mocks/Widget_Stickersheet_input_1.png);width:1480px;height:700px;background-position:0 -500px;background-size:1480px auto;"></div>
+		<div style="z-index:-1;position:absolute;top:0;left:0;background:url(mocks/Widget_Stickersheet_input_1.png);width:1480px;height:700px;background-position:0 -500px;background-size:1480px auto;"></div>
 			
-			<input id="input-inset" type="text" name="input-filed" placeholder="search keyword">
+		<input id="input-inset" type="text" name="input-filed" placeholder="search keyword">
 
-			<span class="input-wrapper">
-				<input id="input-inset2" type="text" name="input-filed" placeholder="search keyword" />
-    	</span>
-
-			</g-app>
+		<span class="input-wrapper">
+			<input id="input-inset2" type="text" name="input-filed" placeholder="search keyword" />
+    </span>
   </body>
 </html>

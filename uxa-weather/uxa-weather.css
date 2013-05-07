@@ -1,5 +1,6 @@
 @host {
 	* {
+    display: inline-block;
 		padding: 20px;
 		white-space: nowrap;
 		max-width: 340px;
@@ -35,7 +36,7 @@
 	line-height: 20px;
 }
 #current-wind:before {
-	background: url(../images/uxa-weather/wind.svg);
+	background: url(images/wind.svg);
 	background-size: cover;
 	height: 19px;
 	width: 19px;
@@ -70,12 +71,12 @@
 	height: 64px;
 	background-size: cover;
 }
-.rainy { background: url(../images/uxa-weather/rainy.svg); }
-.clear { background: url(../images/uxa-weather/clear.svg); }
-.sunny { background: url(../images/uxa-weather/sunny.svg); }
-.cloudy { background: url(../images/uxa-weather/cloudy.svg); }
-.partlycloudy { background: url(../images/uxa-weather/partlycloudy.svg); }
-.mostlysunny { background: url(../images/uxa-weather/mostlysunny.svg); }
+.rainy { background: url(images/rainy.svg); }
+.clear { background: url(images/clear.svg); }
+.sunny { background: url(images/sunny.svg); }
+.cloudy { background: url(images/cloudy.svg); }
+.partlycloudy { background: url(images/partlycloudy.svg); }
+.mostlysunny { background: url(images/mostlysunny.svg); }
 
 #latest {
 	margin-top: 40px;
