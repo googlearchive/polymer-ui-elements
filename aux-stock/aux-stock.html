@@ -4,23 +4,23 @@ Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 -->
 
-<link rel="import" href="uxa-stock-data.html">
-<link rel="import" href="uxa-stock-legend-item.html">
-<link rel="import" href="../uxa-line-chart/uxa-line-chart.html">
+<link rel="import" href="aux-stock-data.html">
+<link rel="import" href="aux-stock-legend-item.html">
+<link rel="import" href="../aux-line-chart/aux-line-chart.html">
 <link rel="import" href="../../toolkit-elements/toolkit-ajax.html">
 
-<element name="uxa-stock" attributes="symbols autoupdate">
-  <link rel="stylesheet" href="css/uxa-stock.css">
+<element name="aux-stock" attributes="symbols autoupdate">
+  <link rel="stylesheet" href="css/aux-stock.css">
 
   <template>
     <div id="widget-title">Market Summary</div>
     <template repeat="{{stocks}}">
-      <uxa-stock-legend-item id="legend-{{name}}" label="{{name}}" data="{{data}}" color="{{color}}"></uxa-stock-legend-item>
+      <aux-stock-legend-item id="legend-{{name}}" label="{{name}}" data="{{data}}" color="{{color}}"></aux-stock-legend-item>
     </template>
     <div class="more">
-      <uxa-line-chart series="{{series}}"></uxa-line-chart>
+      <aux-line-chart series="{{series}}"></aux-line-chart>
     </div>
-    <toolkit-ajax response="{{timeData}}" auto url="mock/uxa-stock-test-data.json"></toolkit-ajax>
+    <toolkit-ajax response="{{timeData}}" auto url="mock/aux-stock-test-data.json"></toolkit-ajax>
   </template>
 
   <script>
@@ -32,7 +32,7 @@ license that can be found in the LICENSE file.
       symbolsChanged: function() {
         var list = [];
         this.symbols.split(',').forEach(function(s, i) {
-          list.push(new UXAStockData(s, colors[i % 3]));
+          list.push(new AUXStockData(s, colors[i % 3]));
         });
         this.stocks = list;
       },

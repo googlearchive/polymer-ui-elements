@@ -1,2 +1,2 @@
-uxa-elements
+aux-elements
 ============

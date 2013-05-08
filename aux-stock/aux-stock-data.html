@@ -6,14 +6,14 @@ license that can be found in the LICENSE file.
 
 <link rel="import" href="../../toolkit-elements/toolkit-jsonp.html">
 
-<element name="uxa-stock-data" attributes="symbol name data color">
+<element name="aux-stock-data" attributes="symbol name data color">
   <template>
     <toolkit-jsonp id="jsonp" response="{{rawData}}" url="https://clients1.google.com/finance/info?q={{symbol}}&client=ob&infotype=infoonebox&callback="
     ></toolkit-jsonp>
   </template>
   <script>
-    UXAStockData = function(symbol, color) {
-      var usd = document.createElement('uxa-stock-data');
+    AUXStockData = function(symbol, color) {
+      var usd = document.createElement('aux-stock-data');
       usd.symbol = symbol;
       usd.color = color;
       return usd;
