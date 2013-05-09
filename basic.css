@@ -1,0 +1,61 @@
+﻿/*
+Copyright 2013 The Toolkitchen Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+*/
+.aux-full-bleed {
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+    
+.aux-gradient {
+  background: -webkit-linear-gradient(-60deg, #3d3d3d, #353535);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+}
+
+.aux-body-text {
+  font: 14px Arial, Roboto, Helvetica Neue;
+}
+
+.aux-bg-gray {
+  background-color: #d9d9d9;      
+}
+
+.aux-bg-jl-dark-theme {
+  background-color: #4d4d4d;
+}
+
+.aux-header-gray {
+  background-color: #262626;
+}
+
+.aux-header-jl-dark-theme {
+  background-color: #262626;
+}
+
+.aux-header {
+  background-color: #f3f3f0;
+}
+
+.aux-toolbar-bg {
+  background: url(assets/toolbar.png) repeat no-repeat;
+}
+
+.aux-toolbar-bg-0 {
+  background: url(assets/toolbar.png) repeat no-repeat;
+}
+
+.aux-toolbar-bg-1 {
+  background: url(assets/toolbar.png) 0 -61px repeat no-repeat;
+}
+
+.aux-toolbar-bg-2 {
+  background: url(assets/toolbar.png) 0 -122px repeat no-repeat;
+}
+
+.aux-toolbar-bg-3 {
+  background: url(assets/toolbar.png) 0 -183px repeat no-repeat ;
+}
+

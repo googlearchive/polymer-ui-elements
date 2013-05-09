@@ -1,0 +1,66 @@
+<!--
+Copyright 2013 The Toolkitchen Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<!--
+/**
+* Aux Elements
+*
+* @module Aux Elements
+*/  
+/**
+ * aux-icon is a 24x24 glyph expressed as a background-image.
+ *
+ * Example:
+ *
+ *     <aux-icon src="star.png"></aux-icon>
+ *
+ * Optionally can use other size like 32x32 by setting the attribute "size" to "32":
+ *
+ *     <aux-icon src="big_star.png" size="32"></aux-icon>
+ *
+ * @class aux-icon
+ */
+-->
+<element name="aux-icon" attributes="src size">
+  <template>
+    <style>
+      @host {
+        * {
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+
+      #icon {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        background: center no-repeat;
+        background-size: 100% 100%;
+      }
+    </style>
+    <div id="icon" style="background-image:url({{src}}); width:{{size}}px; height:{{size}}px"></div>
+  </template>
+  <script>
+    Toolkit.register(this, {
+      /**
+       * The URL of an image for the icon.
+       *
+       * @attribute src
+       * @type string
+       * @default ''
+       */
+      src: '',
+      /**
+       * Specifies the size of the icon.
+       *
+       * @attribute size
+       * @type string
+       * @default 24
+       */
+      size: 24
+    });
+  </script>
+</element>

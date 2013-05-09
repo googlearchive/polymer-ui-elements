@@ -1,0 +1,53 @@
+<!--
+Copyright 2013 The Toolkitchen Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<!--
+/**
+ * @module Aux Elements
+ */
+/**
+ * aux-toolbar is a horizontal bar containing elements that can perform actions.
+ *
+ * Example:
+ *
+ *     <aux-toolbar>
+ *       <aux-icon-button src="menu.png" on-click="menuAction"></aux-icon-button>
+ *       <div fit>Title</div>
+ *       <aux-icon-button src="more.png" on-click="moreAction"></aux-icon-button>
+ *     </aux-toolbar>
+ *
+ * @class aux-toolbar
+ */
+-->
+
+<link rel="import" href="../../toolkit-elements/toolkit-layout/toolkit-layout.html">
+
+<element name="aux-toolbar" attributes="responsive">
+  <template>
+    <style>
+      @host {
+        * {
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          min-height: 60px;
+          padding: 8px 7px 9px;
+          background-color: whitesmoke;
+          box-shadow: inset 0px 0px 3px rgba(255, 255, 255, 1);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.28);        
+        }
+      }
+    </style>
+    <content></content>
+  </template>
+  <script>
+    Toolkit.register(this, {
+      responsive: false,
+      ready: function() {
+        this.setAttribute('touch-action', 'none');
+        this.appendChild(document.createElement('toolkit-layout'));
+      }
+    });
+  </script>
+</element>
