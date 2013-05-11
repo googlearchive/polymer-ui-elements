@@ -1,17 +1,21 @@
 ﻿@host {
   * {
+    display: inline-block;
 	  padding: 20px;
-    white-space: nowrap;
 	  max-width: 340px;
-	  width: 100%;
-	  box-sizing: border-box;
+    white-space: nowrap;
+    background: url(../assets/glass.png) no-repeat;
+    background-size: cover;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: top;
+    overflow: hidden;
   }
 }
 
 #widget-title { 
-font-size: 21px;
-color: rgba(0,0,0,0.8);
-line-height: 15px;
+  font-size: 21px;
+  line-height: 15px;
 }
 
 #time {

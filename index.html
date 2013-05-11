@@ -1,0 +1,38 @@
+<!doctype html>
+<!--
+Copyright 2013 The Toolkitchen Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<html>
+  <head>
+    <title>AUX</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- load toolkit -->
+    <script src="../toolkit/toolkit.js"></script>
+    <!-- import elements-->
+    <link rel="import" href="aux-clock/aux-clock.html">
+    <link rel="import" href="aux-weather/aux-weather.html">
+    <link rel="import" href="aux-stock/aux-stock.html">
+    <!-- -->
+    <link rel="stylesheet" href="basic.css">
+    <style>
+      body {
+        xbackground-color: #333;
+      }
+      .pane {
+        color: rgba(250, 250, 250, 0.8);
+        background-color: #555 !important;
+        width: 320px;
+        height: 320px;
+        border: 2px solid rgba(32, 32, 32, 0.6);
+      }
+    </style>
+  </head>
+  <body class="aux-body-text">
+    <aux-stock class="pane"></aux-stock>
+    <aux-clock class="pane"></aux-clock>
+    <aux-weather class="pane"></aux-weather>
+  </body>
+</html>

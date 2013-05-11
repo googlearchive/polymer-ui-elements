@@ -6,7 +6,6 @@ license that can be found in the LICENSE file.
 
 @host {
   * {
-    font-family: 'Helvetica Neue Medium', arial,sans-serif;
   }
 }
 
@@ -23,7 +22,7 @@ license that can be found in the LICENSE file.
 }
 
 .price {
-  color: rgba(0, 0, 0, 0.4);
+  xcolor: rgba(0, 0, 0, 0.4);
   margin-right: 10px;
 }
 

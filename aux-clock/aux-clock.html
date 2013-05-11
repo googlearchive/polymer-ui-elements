@@ -3,7 +3,7 @@ Copyright 2013 The Toolkitchen Authors. All rights reserved.
 Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 -->
-<element name="aux-clock" attributes="">
+<element name="aux-clock">
   <link rel="stylesheet" href="aux-clock.css">
   <template>
 
@@ -23,9 +23,9 @@ license that can be found in the LICENSE file.
       // properties that need observation (e.g. we observe 'time' via 'timeChanged') must be declared
       time: null,
       dateStr: '',
-      seconds: 0,
-      minutes: 0,
-      hours: 0,
+      seconds: -1,
+      minutes: -1,
+      hours: -1,
       insertedCallback: function() {
         // when we are inserted into DOM, start watching the time
         this.updateTime();

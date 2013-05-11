@@ -6,7 +6,8 @@ license that can be found in the LICENSE file.
 
 <link rel="import" href="aux-stock-data.html">
 <link rel="import" href="aux-stock-legend-item.html">
-<link rel="import" href="../aux-line-chart/aux-line-chart.html">
+<!--<link rel="import" href="../aux-line-chart/aux-line-chart.html">-->
+<link rel="import" href="../../pantry/Chart.js/chart-js.html">
 <link rel="import" href="../../toolkit-elements/toolkit-ajax.html">
 
 <element name="aux-stock" attributes="symbols autoupdate">
@@ -18,16 +19,26 @@ license that can be found in the LICENSE file.
       <aux-stock-legend-item id="legend-{{name}}" label="{{name}}" data="{{data}}" color="{{color}}"></aux-stock-legend-item>
     </template>
     <div class="more">
-      <aux-line-chart series="{{series}}"></aux-line-chart>
+      <!--<aux-line-chart series="{{auxChartSeries}}"></aux-line-chart>-->
+      <chart-js style="height: 150px;" kind="line" data="{{chartJsSeries}}"></chart-js>
     </div>
-    <toolkit-ajax response="{{timeData}}" auto url="mock/aux-stock-test-data.json"></toolkit-ajax>
+    <!--<toolkit-ajax id="ajax" response="{{timeData}}" auto></toolkit-ajax>-->
   </template>
 
   <script>
     Toolkit.register(this, {
       symbols: '',
+      stocks: null,
+      timeData: null,
       autoupdate: false,
       updateinterval: 60000,
+      ready: function() {
+        //this.$.ajax.url = this.resolvePath('mock/aux-stock-test-data.json');
+        if (this.symbols === '') {
+          this.symbols = '.INX,NDAQ,.DJI';
+        }
+        this.timeData = {results: []};
+      },
       // when our symbol listing changes, generate new data objects
       symbolsChanged: function() {
         var list = [];
@@ -51,10 +62,35 @@ license that can be found in the LICENSE file.
           clearInterval(this.interval);
         }
       },
-      timeDataChanged: function(){
-        if (!this.stocks || !this.timeData) {
-          return;
+      stocksChanged: function() {
+        this.updateChart();
+      },
+      timeDataChanged: function() {
+        this.updateChart();
+      },
+      updateChart: function() {
+        if (this.stocks && this.timeData) {
+          this.parseTimeData();
+          this.generateAuxChartSeries();
+          this.generateChartJsSeries();
         }
+      },
+      parseTimeData: function() {
+        var series = [];
+        var data = this.timeData.results;
+        var pts = ['9:30', '10am', '11', '12', '1', '2', '3', '4pm'];
+        this.stocks.forEach(function(s) {
+          var ss = {label: s.name, data: []};
+          for(var i=0; i<8; i++) {
+            //var value = parseFloat(data[s.symbol][pts[i]].percent) || 0;
+            value = Math.random();
+            ss.data.push(value);
+          }
+          series.push(ss);
+        });
+        this.series = series;
+      },
+      generateAuxChartSeries: function(){
         // init columns
         var cols = [{type:'string', id:'Time'}];
         // init rows
@@ -69,18 +105,36 @@ license that can be found in the LICENSE file.
           {c:[{v:'4pm'}]}
         ];
         // construct rows/columns from series data
-        var data = this.timeData.results;
-        this.stocks.forEach(function(s) {
-          cols.push({type: 'number', id: s.name});
-          for(var i=0; i<8; i++) {
-            var value = parseFloat(data[s.symbol][rows[i].c[0].v].percent) || 0;
-            rows[i].c.push({v: value});
+        this.series.forEach(function(s) {
+          cols.push({type: 'number', id: s.label});
+          for(var i=0; i<s.data.length; i++) {
+            rows[i].c.push({v: s.data[i]});
           }
         });
-        this.series = {cols: cols, rows: rows};
+        this.auxChartSeries = {cols: cols, rows: rows};
+      },
+      generateChartJsSeries: function() {
+        var labels = [];
+        var sets = []
+        this.series.forEach(function(s) {
+          labels.push(s.label);
+          sets.push({data: s.data});
+        });
+        sets.forEach(function(s, i) {
+          s.fillColor = 'rgba(' + rgb[i%3] + ', 0.2)';
+          s.strokeColor = 'rgba(' + rgb[i%3] + ',1)';
+          s.pointColor = 'rgba(' + rgb[i%3] + ',1)';
+          s.pointStrokeColor = '#fff';
+        });
+        var labels = ['9:30', '10am', '11', '12', '1', '2', '3', '4pm'];
+        this.chartJsSeries = {
+          labels: labels,
+          datasets: sets
+        };
       }
     });
     // static color palette
+    rgb = ['78, 141, 245', '219, 71, 67', '244, 193, 56'];
     colors = ['#4E8DF5', '#DB4743', '#F4C138'];
   </script>
 </element>
