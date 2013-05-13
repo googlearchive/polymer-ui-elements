@@ -11,6 +11,7 @@ license that can be found in the LICENSE file.
     
 .aux-gradient {
   background: -webkit-linear-gradient(-60deg, #3d3d3d, #353535);
+  background: linear-gradient(-60deg, #3d3d3d, #353535);
   border: 1px solid rgba(0, 0, 0, 0.15);
   box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
 }

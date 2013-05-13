@@ -23,25 +23,10 @@ license that can be found in the LICENSE file.
  * @class aux-icon
  */
 -->
-<element name="aux-icon" attributes="src size">
+<element name="aux-icon" attributes="src size index theme">
+  <link rel="stylesheet" href="aux-icon.css">
   <template>
-    <style>
-      @host {
-        * {
-          display: inline-block;
-          vertical-align: middle;
-        }
-      }
-
-      #icon {
-        width: 24px;
-        height: 24px;
-        cursor: pointer;
-        background: center no-repeat;
-        background-size: 100% 100%;
-      }
-    </style>
-    <div id="icon" style="background-image:url({{src}}); width:{{size}}px; height:{{size}}px"></div>
+    <div id="icon"></div>
   </template>
   <script>
     Toolkit.register(this, {
@@ -60,7 +45,21 @@ license that can be found in the LICENSE file.
        * @type string
        * @default 24
        */
-      size: 24
+      size: 24,
+      index: -1,
+      theme: '',
+      applyAuthorStyles: true,
+      indexChanged: function() {
+        this.$.icon.classList.add('aux-icons');
+        this.$.icon.setAttribute('style', 'background-position-y: ' +  (-this.size * this.index) + 'px');
+      },
+      srcChanged: function() {
+        this.$.icon.classList.remove('aux-icons');
+        this.$.icon.setAttribute('style', 'background-image:url(' + this.src + ');');
+      },
+      themeChanged: function(old) {
+        this.$.icon.classList.switch(old, this.theme);
+      }
     });
   </script>
 </element>

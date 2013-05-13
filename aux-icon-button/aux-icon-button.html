@@ -20,45 +20,10 @@ license that can be found in the LICENSE file.
 
 <link rel="import" href="../aux-icon/aux-icon.html">
 
-<element name="aux-icon-button" attributes="src active">
+<element name="aux-icon-button" attributes="src index active theme">
+  <link rel="stylesheet" href="aux-icon-button.css">
   <template>
-    <style>
-      @host {
-        * {
-          display: inline-block;
-          /*position: relative;*/
-          box-sizing: border-box;
-          -moz-box-sizing: border-box;
-          width: 44px;
-          height: 44px;
-          padding: 10px;
-          cursor: pointer;
-          background: url(assets/btn_light.png) top left no-repeat;
-          background-size: cover;
-          /*
-          border: none;
-          background-color: rgba(0, 0, 0, 0);
-          background-position: top left;
-          background-repeat: no-repeat;
-          background-image: url("images/btn_light.png");
-          background-position: 0 0;
-          */
-        }
-        
-        *:hover {
-          background-position: 0 -44px;
-        }
-        
-        *.selected {
-          background-position: 0 -88px;
-        }
-        
-        *:active, *.selected:active {
-          background-position: 0 -132px;
-        }
-      }
-    </style>
-    <aux-icon src="{{src}}"></aux-icon>
+    <aux-icon theme="{{theme}}" src="{{src}}" index="{{index}}"></aux-icon>
   </template>
   <script>
     Toolkit.register(this, {
@@ -79,10 +44,22 @@ license that can be found in the LICENSE file.
        * @default false
        */
       active: false,
+      /**
+       * If a theme is applied that includes an icon set, the index of the 
+       * icon to display.
+       *
+       * @attribute index
+       * @type number
+       * @default -1
+       */     
+      index: -1,
+      theme: '',
       activeChanged: function() {
-        // TODO(sjmiles): 'class' attributes should have special handling 
-        //   for this common use case
+        // TODO(sjmiles): sugar this common case
         this.classList.toggle('selected', this.active);
+      },
+      themeChanged: function(old) {
+        this.classList.switch(old, this.theme);
       }
     });
   </script>

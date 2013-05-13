@@ -20,7 +20,7 @@ license that can be found in the LICENSE file.
     </template>
     <div class="more">
       <!--<aux-line-chart series="{{auxChartSeries}}"></aux-line-chart>-->
-      <chart-js style="height: 150px;" kind="line" data="{{chartJsSeries}}"></chart-js>
+      <chart-js id="chartjs" style="height: 150px;" kind="line" data="{{chartJsSeries}}" options="{{chartjsOptions}}"></chart-js>
     </div>
     <!--<toolkit-ajax id="ajax" response="{{timeData}}" auto></toolkit-ajax>-->
   </template>
@@ -38,6 +38,7 @@ license that can be found in the LICENSE file.
           this.symbols = '.INX,NDAQ,.DJI';
         }
         this.timeData = {results: []};
+        this.chartjsOptions = chartjs_options;
       },
       // when our symbol listing changes, generate new data objects
       symbolsChanged: function() {
@@ -79,11 +80,13 @@ license that can be found in the LICENSE file.
         var series = [];
         var data = this.timeData.results;
         var pts = ['9:30', '10am', '11', '12', '1', '2', '3', '4pm'];
-        this.stocks.forEach(function(s) {
+        var vv = [1600, 700, 1300];
+        this.stocks.forEach(function(s, j) {
           var ss = {label: s.name, data: []};
+          var v = vv[j];
           for(var i=0; i<8; i++) {
             //var value = parseFloat(data[s.symbol][pts[i]].percent) || 0;
-            value = Math.random();
+            value = v + Math.random() * (v*0.5);
             ss.data.push(value);
           }
           series.push(ss);
@@ -134,7 +137,13 @@ license that can be found in the LICENSE file.
       }
     });
     // static color palette
-    rgb = ['78, 141, 245', '219, 71, 67', '244, 193, 56'];
-    colors = ['#4E8DF5', '#DB4743', '#F4C138'];
+    var rgb = ['78, 141, 245', '219, 71, 67', '244, 193, 56'];
+    var colors = ['#4E8DF5', '#DB4743', '#F4C138'];
+    // static chartjs options
+    var chartjs_options = {
+      pointDot: false,
+      datasetStrokeWidth: 1,
+      scaleFontColor: '#eee'
+    };
   </script>
 </element>

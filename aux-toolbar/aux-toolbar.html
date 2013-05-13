@@ -24,29 +24,26 @@ license that can be found in the LICENSE file.
 
 <link rel="import" href="../../toolkit-elements/toolkit-layout/toolkit-layout.html">
 
-<element name="aux-toolbar" attributes="responsive">
+<element name="aux-toolbar" attributes="theme">
+  <link rel="stylesheet" href="aux-toolbar.css">
   <template>
-    <style>
-      @host {
-        * {
-          box-sizing: border-box;
-          -moz-box-sizing: border-box;
-          min-height: 60px;
-          padding: 8px 7px 9px;
-          background-color: whitesmoke;
-          box-shadow: inset 0px 0px 3px rgba(255, 255, 255, 1);
-          border-bottom: 1px solid rgba(0, 0, 0, 0.28);        
-        }
-      }
-    </style>
-    <content></content>
+    <div id="inner">
+      <content></content>
+    </div>
   </template>
   <script>
     Toolkit.register(this, {
       responsive: false,
+      theme: '',
       ready: function() {
         this.setAttribute('touch-action', 'none');
         this.appendChild(document.createElement('toolkit-layout'));
+      },
+      themeChanged: function(old) {
+        this.classList.switch(old, this.theme);
+        this.children.forEach(function(e) {
+          e.theme = this.theme;
+        }, this);
       }
     });
   </script>
