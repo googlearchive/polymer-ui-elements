@@ -18,8 +18,8 @@ license that can be found in the LICENSE file.
     <template repeat="{{stocks}}">
       <polymer-ui-stock-legend-item id="legend-{{name}}" label="{{name}}" data="{{data}}" color="{{color}}"></polymer-ui-stock-legend-item>
     </template>
-    <div class="more">
-      <!--<polymer-ui-line-chart series="{{auxChartSeries}}"></polymer-ui-line-chart>-->
+    <div class="stock-more">
+      <!--<polymer-ui-line-chart series="{{polymerChartSeries}}"></polymer-ui-line-chart>-->
       <chart-js id="chartjs" style="height: 150px;" kind="line" data="{{chartJsSeries}}" options="{{chartjsOptions}}"></chart-js>
     </div>
     <!--<polymer-ajax id="ajax" response="{{timeData}}" auto></polymer-ajax>-->
@@ -44,7 +44,7 @@ license that can be found in the LICENSE file.
       symbolsChanged: function() {
         var list = [];
         this.symbols.split(',').forEach(function(s, i) {
-          list.push(new AUXStockData(s, colors[i % 3]));
+          list.push(new PolymerStockData(s, colors[i % 3]));
         });
         this.stocks = list;
       },
@@ -72,7 +72,7 @@ license that can be found in the LICENSE file.
       updateChart: function() {
         if (this.stocks && this.timeData) {
           this.parseTimeData();
-          this.generateAuxChartSeries();
+          this.generatePolymerChartSeries();
           this.generateChartJsSeries();
         }
       },
@@ -93,7 +93,7 @@ license that can be found in the LICENSE file.
         });
         this.series = series;
       },
-      generateAuxChartSeries: function(){
+      generatePolymerChartSeries: function(){
         // init columns
         var cols = [{type:'string', id:'Time'}];
         // init rows
@@ -114,7 +114,7 @@ license that can be found in the LICENSE file.
             rows[i].c.push({v: s.data[i]});
           }
         });
-        this.auxChartSeries = {cols: cols, rows: rows};
+        this.polymerChartSeries = {cols: cols, rows: rows};
       },
       generateChartJsSeries: function() {
         var labels = [];

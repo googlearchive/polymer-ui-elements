@@ -25,11 +25,11 @@
   text-overflow: ellipsis;
 }
 
-.large {
+.stock-large {
   font-size: x-large;
 }
 
-.small {
+.stock-small {
   font-size: small;
 }
 
@@ -37,7 +37,7 @@
   text-transform: uppercase;
 }
 
-.quote {
+.stock-quote {
   margin-top: 10px;
 }
 
@@ -46,6 +46,6 @@ polymer-ui-stock-legend-item {
   display: block;
 }
 
-.more {
+.stock-more {
   margin-top: 10px;
 }
