@@ -6,7 +6,8 @@
 		max-width: 340px;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    background: url(../assets/glass.png) no-repeat;
+    background-image: url(../assets/glass.png);
+    background-repeat: no-repeat;
     background-size: cover;
     vertical-align: top;
     overflow: hidden;
