@@ -1,38 +1,32 @@
-<!--
-Copyright 2013 The Toolkitchen Authors. All rights reserved.
-Use of this source code is governed by a BSD-style
-license that can be found in the LICENSE file.
--->
-
 @host {
   * {
   }
 }
 
-.item {
+.stock-item {
   overflow:hidden;
 }
 
-.change {
+.stock-change {
   color: #5BDB00;
 }
 
-.change.down {
+.stock-change.down {
   color: #dd4b39;
 }
 
-.price {
+.stock-price {
   xcolor: rgba(0, 0, 0, 0.4);
   margin-right: 10px;
 }
 
-.label {
+.stock-label {
   float:left;
   position: relative;
   display:block;
 }
 
-.color {
+.stock-color {
   display:inline-block;
   width:16px;
   height:16px;
@@ -41,6 +35,6 @@ license that can be found in the LICENSE file.
   border-radius: 3px;
 }
 
-.data {
+.stock-data {
   float:right;
 }
