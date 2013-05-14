@@ -1,3 +1,4 @@
+
 <!--
 Copyright 2013 The Polymer Authors. All rights reserved.
 Use of this source code is governed by a BSD-style
@@ -5,9 +6,9 @@ license that can be found in the LICENSE file.
 -->
 <!--
 /**
-* Polymer UI Elements
+* Polymer-UI Elements
 *
-* @module Polymer UI Elements
+* @module Polymer-UI Elements
 */  
 /**
  * polymer-ui-icon is a 24x24 glyph expressed as a background-image.
@@ -23,7 +24,7 @@ license that can be found in the LICENSE file.
  * @class polymer-ui-icon
  */
 -->
-<element name="polymer-ui-icon" attributes="src size index theme">
+<element name="polymer-ui-icon" attributes="src size index icon theme">
   <link rel="stylesheet" href="polymer-ui-icon.css">
   <template>
     <div id="icon"></div>
@@ -46,20 +47,43 @@ license that can be found in the LICENSE file.
        * @default 24
        */
       size: 24,
-      index: -1,
       theme: '',
-      applyAuthorStyles: true,
+      icon: '',
+      bx: 0,
+      by: 0,
+      iconChanged: function() {
+        this.index = this.icon in icons ? icons[this.icon] : -1;
+      },
       indexChanged: function() {
         this.$.icon.classList.add('polymer-ui-icons');
-        this.$.icon.setAttribute('style', 'background-position-y: ' +  (-this.size * this.index) + 'px');
+        this.by = -this.size * this.index;
+        this.updateStyle();
       },
       srcChanged: function() {
         this.$.icon.classList.remove('polymer-ui-icons');
-        this.$.icon.setAttribute('style', 'background-image:url(' + this.src + ');');
+        this.$.icon.setAttribute('style', 'background:url(' + this.src + ') center;');
       },
       themeChanged: function(old) {
+        this.$.icon.style.backgroundPosition = '';
         this.$.icon.classList.switch(old, this.theme);
+        this.bx = parseFloat(getComputedStyle(this.$.icon).backgroundPosition.split(' ').shift());
+        this.updateStyle();
+      },
+      updateStyle: function() {
+        this.$.icon.style.backgroundPosition = (this.bx + 'px') + ' ' + (this.by + 'px');
       }
     });
+    var icons = {
+      drawer: 0,
+      menu: 1,
+      search: 2,
+      dropdown: 3,
+      close: 4,
+      add: 5,
+      trash: 6,
+      refresh: 7,
+      settings: 8,
+      dialog: 9
+    };
   </script>
 </element>

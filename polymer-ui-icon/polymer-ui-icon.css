@@ -10,7 +10,6 @@ license that can be found in the LICENSE file.
     width: 24px;
     height: 24px;
   }
-
 }
 
 #icon {
@@ -20,23 +19,15 @@ license that can be found in the LICENSE file.
   background-repeat: no-repeat;
 }
 
-#icon.polymer-ui-card-theme {
-  background-position-x: -24px !important;
+#icon.polymer-ui-light-theme {
+  background-position: -24px 0;
 }
 
-#icon.polymer-ui-gray-theme {
-  background-position-x: -24px !important;
-}
-
-#icon.polymer-ui-jldark-theme {
-  background-position-x: -72px !important;
-}
-
-#icon.polymer-ui-jadark-theme {
-  background-position-x: -72px !important;
+#icon.polymer-ui-dark-theme {
+  background-position: -72px 0;
 }
 
 .polymer-ui-icons {
   background: url(../assets/action-icons.png) 0 0 no-repeat;
-  background-position: inherit;
 }
+

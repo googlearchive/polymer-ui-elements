@@ -20,10 +20,10 @@ license that can be found in the LICENSE file.
 
 <link rel="import" href="../polymer-ui-icon/polymer-ui-icon.html">
 
-<element name="polymer-ui-icon-button" attributes="src index active theme">
+<element name="polymer-ui-icon-button" attributes="src index icon active theme">
   <link rel="stylesheet" href="polymer-ui-icon-button.css">
   <template>
-    <polymer-ui-icon theme="{{theme}}" src="{{src}}" index="{{index}}"></polymer-ui-icon>
+    <polymer-ui-icon theme="{{theme}}" src="{{src}}" index="{{index}}" icon="{{icon}}"></polymer-ui-icon>
   </template>
   <script>
     Polymer.register(this, {
@@ -53,7 +53,6 @@ license that can be found in the LICENSE file.
        * @default -1
        */     
       index: -1,
-      theme: '',
       activeChanged: function() {
         // TODO(sjmiles): sugar this common case
         this.classList.toggle('selected', this.active);
