@@ -16,55 +16,55 @@ license that can be found in the LICENSE file.
     font-size: 18px;
   }
 
-  .aux-light-theme *, .aux-light-theme {
+  .polymer-ui-light-theme *, .polymer-ui-light-theme {
     background: -webkit-linear-gradient(left to right, rgb(192,197,197), rgb(192,197,197));
     background: linear-gradient(left to right, rgb(192,197,197), rgb(192,197,197));
   }
   
-  .aux-card-theme *, .aux-card-theme {
+  .polymer-ui-card-theme *, .polymer-ui-card-theme {
     background-color: #f0f0ed;
     color: #333333;
   }
   
-  .aux-gray-theme *, .aux-gray-theme {
+  .polymer-ui-gray-theme *, .polymer-ui-gray-theme {
     background-color: #4d4d4d;
     color: #eaeaea;
   }
 
-  .aux-jldark-theme *, .aux-jldark-theme {
+  .polymer-ui-jldark-theme *, .polymer-ui-jldark-theme {
     background-color: #262626;
     color: #eaeaea;
   }
 
-  .aux-jadark-theme *, .aux-jadark-theme {
+  .polymer-ui-jadark-theme *, .polymer-ui-jadark-theme {
     background-color: #272725;
     color: #eaeaea;
   }
 
   /* TODO(sjmiles): need these separated under ShadowDOMPolyfill (no investigation yet)*/
 
-  .aux-light-theme {
+  .polymer-ui-light-theme {
     background: #f2f2f2 -webkit-linear-gradient(left, rgba(197,197,197,0), rgba(197,197,197,0.1));
     background: #f2f2f2 linear-gradient(left, rgba(197,197,197,0), rgba(197,197,197,0.1));
     color: #333333;
   }
 
-  .aux-card-theme {
+  .polymer-ui-card-theme {
     background-color: #f0f0ed;
     color: #333333;
   }
   
-  .aux-gray-theme {
+  .polymer-ui-gray-theme {
     background-color: #4d4d4d;
     color: #eaeaea;
   }
 
-  .aux-jldark-theme {
+  .polymer-ui-jldark-theme {
     background-color: #262626;
     color: #eaeaea;
   }
 
-  .aux-jadark-theme {
+  .polymer-ui-jadark-theme {
     background-color: #272725;
     color: #eaeaea;
   }

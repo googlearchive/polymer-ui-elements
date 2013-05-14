@@ -8,25 +8,25 @@ license that can be found in the LICENSE file.
  * @module Aux Elements
  */
 /**
- * aux-icon-button enables you to place an image centered in a button.
+ * polymer-ui-icon-button enables you to place an image centered in a button.
  *
  * Example:
  *
- *     <aux-icon-button src="star.png"></aux-icon-button>
+ *     <polymer-ui-icon-button src="star.png"></polymer-ui-icon-button>
  *
- * @class aux-icon-button
+ * @class polymer-ui-icon-button
  */
 -->
 
-<link rel="import" href="../aux-icon/aux-icon.html">
+<link rel="import" href="../polymer-ui-icon/polymer-ui-icon.html">
 
-<element name="aux-icon-button" attributes="src index active theme">
-  <link rel="stylesheet" href="aux-icon-button.css">
+<element name="polymer-ui-icon-button" attributes="src index active theme">
+  <link rel="stylesheet" href="polymer-ui-icon-button.css">
   <template>
-    <aux-icon theme="{{theme}}" src="{{src}}" index="{{index}}"></aux-icon>
+    <polymer-ui-icon theme="{{theme}}" src="{{src}}" index="{{index}}"></polymer-ui-icon>
   </template>
   <script>
-    Toolkit.register(this, {
+    Polymer.register(this, {
       /**
        * The URL of an image for the icon.
        *

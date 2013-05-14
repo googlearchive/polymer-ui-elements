@@ -41,7 +41,7 @@
   margin-top: 10px;
 }
 
-aux-stock-legend-item {
+polymer-ui-stock-legend-item {
   line-height: 20px;
   display: block;
 }

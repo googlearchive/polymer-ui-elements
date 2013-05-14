@@ -8,36 +8,36 @@ license that can be found in the LICENSE file.
  * @module Aux Elements
  */
 /**
- * aux-toolbar is a horizontal bar containing elements that can perform actions.
+ * polymer-ui-toolbar is a horizontal bar containing elements that can perform actions.
  *
  * Example:
  *
- *     <aux-toolbar>
- *       <aux-icon-button src="menu.png" on-click="menuAction"></aux-icon-button>
+ *     <polymer-ui-toolbar>
+ *       <polymer-ui-icon-button src="menu.png" on-click="menuAction"></polymer-ui-icon-button>
  *       <div fit>Title</div>
- *       <aux-icon-button src="more.png" on-click="moreAction"></aux-icon-button>
- *     </aux-toolbar>
+ *       <polymer-ui-icon-button src="more.png" on-click="moreAction"></polymer-ui-icon-button>
+ *     </polymer-ui-toolbar>
  *
- * @class aux-toolbar
+ * @class polymer-ui-toolbar
  */
 -->
 
-<link rel="import" href="../../toolkit-elements/toolkit-layout/toolkit-layout.html">
+<link rel="import" href="../../polymer-elements/polymer-layout/polymer-layout.html">
 
-<element name="aux-toolbar" attributes="theme">
-  <link rel="stylesheet" href="aux-toolbar.css">
+<element name="polymer-ui-toolbar" attributes="theme">
+  <link rel="stylesheet" href="polymer-ui-toolbar.css">
   <template>
     <div id="inner">
       <content></content>
     </div>
   </template>
   <script>
-    Toolkit.register(this, {
+    Polymer.register(this, {
       responsive: false,
       theme: '',
       ready: function() {
         this.setAttribute('touch-action', 'none');
-        this.appendChild(document.createElement('toolkit-layout'));
+        this.appendChild(document.createElement('polymer-layout'));
       },
       themeChanged: function(old) {
         this.classList.switch(old, this.theme);

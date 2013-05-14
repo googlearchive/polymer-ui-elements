@@ -1,0 +1,94 @@
+<!doctype html>
+<!--
+Copyright 2013 The Toolkitchen Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<html>
+  <head>
+    <title>polymer-ui-toolbar</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- load polymer -->
+    <script src="../../polymer/polymer.js"></script>
+    <!-- import elements-->
+    <link rel="import" href="polymer-ui-toolbar.html">
+    <link rel="import" href="../polymer-ui-icon-button/polymer-ui-icon-button.html">
+    <!-- -->
+    <link rel="stylesheet" href="../basic.css">
+    <style>
+      polymer-ui-toolbar.custom-toolbar {
+        font-size: 30px !important;
+        background-color: orange;
+      }
+      polymer-ui-icon-button.custom-toolbar  {
+      }
+      /* cannot penetrate polymer-ui-icon-button to reach the polymer-ui-icon */
+      #icon.custom-toolbar div {
+        background: url(star_full.svg);
+      }
+    </style>
+  </head>
+  <body class="polymer-ui-body-text">
+    <polymer-ui-toolbar>
+      <polymer-ui-icon-button index="1"></polymer-ui-icon-button>
+      <polymer-ui-icon-button index="2"></polymer-ui-icon-button>
+      <span fit>Toolbar: naked</span>
+      <polymer-ui-icon-button index="5"></polymer-ui-icon-button>
+    </polymer-ui-toolbar>
+    <br />
+    <polymer-ui-toolbar theme="polymer-ui-light-theme">
+      <polymer-ui-icon-button index="1"></polymer-ui-icon-button>
+      <polymer-ui-icon-button index="2"></polymer-ui-icon-button>
+      <span fit>Toolbar: polymer-ui-light-theme</span>
+      <polymer-ui-icon-button index="5"></polymer-ui-icon-button>
+    </polymer-ui-toolbar>
+    <br />
+    <polymer-ui-toolbar theme="polymer-ui-card-theme">
+      <polymer-ui-icon-button index="1"></polymer-ui-icon-button>
+      <polymer-ui-icon-button index="2"></polymer-ui-icon-button>
+      <span fit>Toolbar: polymer-ui-card-theme</span>
+      <polymer-ui-icon-button index="5"></polymer-ui-icon-button>
+    </polymer-ui-toolbar>
+    <br />
+    <polymer-ui-toolbar theme="polymer-ui-gray-theme">
+      <polymer-ui-icon-button index="1"></polymer-ui-icon-button>
+      <polymer-ui-icon-button index="2"></polymer-ui-icon-button>
+      <span fit>Toolbar: polymer-ui-gray-theme</span>
+      <polymer-ui-icon-button index="5"></polymer-ui-icon-button>
+    </polymer-ui-toolbar>
+    <br />
+    <polymer-ui-toolbar theme="polymer-ui-jldark-theme">
+      <polymer-ui-icon-button index="1"></polymer-ui-icon-button>
+      <polymer-ui-icon-button index="2"></polymer-ui-icon-button>
+      <span fit>Toolbar:  polymer-ui-jldark-theme</span>
+      <polymer-ui-icon-button index="5"></polymer-ui-icon-button>
+    </polymer-ui-toolbar>
+    <br />
+    <polymer-ui-toolbar theme="polymer-ui-jadark-theme">      
+      <polymer-ui-icon-button index="1"></polymer-ui-icon-button>
+      <polymer-ui-icon-button index="2"></polymer-ui-icon-button>
+      <span fit>Toolbar: polymer-ui-jadark-theme</span>
+      <polymer-ui-icon-button index="5"></polymer-ui-icon-button>
+    </polymer-ui-toolbar>
+    <br />
+    <hr>
+    <h3>below here are not so much with the working</h3>
+    <br />
+    <polymer-ui-toolbar theme="custom-toolbar">
+      <polymer-ui-icon-button></polymer-ui-icon-button>
+      <span fit>Toolbar: custom</span>
+    </polymer-ui-toolbar>
+    <br />
+    <div class="polymer-ui-jadark-theme">
+      <div>
+        <polymer-ui-toolbar>
+          <polymer-ui-icon-button index="1"></polymer-ui-icon-button>
+          <polymer-ui-icon-button index="2"></polymer-ui-icon-button>
+          <span fit>Toolbar: container theme</span>
+          <polymer-ui-icon-button index="5"></polymer-ui-icon-button>
+        </polymer-ui-toolbar>
+      </div>
+    </div>
+  </body>
+</html>

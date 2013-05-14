@@ -3,40 +3,40 @@ Copyright 2013 The Toolkitchen Authors. All rights reserved.
 Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 */
-.aux-full-bleed {
+.polymer-ui-full-bleed {
   height: 100%;
   overflow: hidden;
   margin: 0;
 }
     
-.aux-gradient {
+.polymer-ui-gradient {
   background: -webkit-linear-gradient(-60deg, #3d3d3d, #353535);
   background: linear-gradient(-60deg, #3d3d3d, #353535);
   border: 1px solid rgba(0, 0, 0, 0.15);
   box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
 }
 
-.aux-body-text {
+.polymer-ui-body-text {
   font: 14px Arial, Roboto, Helvetica Neue;
 }
 
-.aux-bg-gray {
+.polymer-ui-bg-gray {
   background-color: #d9d9d9;      
 }
 
-.aux-bg-jl-dark-theme {
+.polymer-ui-bg-jl-dark-theme {
   background-color: #4d4d4d;
 }
 
-.aux-header-gray {
+.polymer-ui-header-gray {
   background-color: #262626;
 }
 
-.aux-header-jl-dark-theme {
+.polymer-ui-header-jl-dark-theme {
   background-color: #262626;
 }
 
-.aux-header {
+.polymer-ui-header {
   background-color: #f3f3f0;
 }
 

@@ -4,36 +4,36 @@ Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 -->
 
-<link rel="import" href="aux-stock-data.html">
-<link rel="import" href="aux-stock-legend-item.html">
-<!--<link rel="import" href="../aux-line-chart/aux-line-chart.html">-->
+<link rel="import" href="polymer-ui-stock-data.html">
+<link rel="import" href="polymer-ui-stock-legend-item.html">
+<!--<link rel="import" href="../polymer-ui-line-chart/polymer-ui-line-chart.html">-->
 <link rel="import" href="../../pantry/Chart.js/chart-js.html">
-<link rel="import" href="../../toolkit-elements/toolkit-ajax.html">
+<link rel="import" href="../../polymer-elements/polymer-ajax.html">
 
-<element name="aux-stock" attributes="symbols autoupdate">
-  <link rel="stylesheet" href="css/aux-stock.css">
+<element name="polymer-ui-stock" attributes="symbols autoupdate">
+  <link rel="stylesheet" href="css/polymer-ui-stock.css">
 
   <template>
     <div id="widget-title">Market Summary</div>
     <template repeat="{{stocks}}">
-      <aux-stock-legend-item id="legend-{{name}}" label="{{name}}" data="{{data}}" color="{{color}}"></aux-stock-legend-item>
+      <polymer-ui-stock-legend-item id="legend-{{name}}" label="{{name}}" data="{{data}}" color="{{color}}"></polymer-ui-stock-legend-item>
     </template>
     <div class="more">
-      <!--<aux-line-chart series="{{auxChartSeries}}"></aux-line-chart>-->
+      <!--<polymer-ui-line-chart series="{{auxChartSeries}}"></polymer-ui-line-chart>-->
       <chart-js id="chartjs" style="height: 150px;" kind="line" data="{{chartJsSeries}}" options="{{chartjsOptions}}"></chart-js>
     </div>
-    <!--<toolkit-ajax id="ajax" response="{{timeData}}" auto></toolkit-ajax>-->
+    <!--<polymer-ajax id="ajax" response="{{timeData}}" auto></polymer-ajax>-->
   </template>
 
   <script>
-    Toolkit.register(this, {
+    Polymer.register(this, {
       symbols: '',
       stocks: null,
       timeData: null,
       autoupdate: false,
       updateinterval: 60000,
       ready: function() {
-        //this.$.ajax.url = this.resolvePath('mock/aux-stock-test-data.json');
+        //this.$.ajax.url = this.resolvePath('mock/polymer-ui-stock-test-data.json');
         if (this.symbols === '') {
           this.symbols = '.INX,NDAQ,.DJI';
         }

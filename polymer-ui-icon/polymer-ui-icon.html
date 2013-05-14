@@ -10,26 +10,26 @@ license that can be found in the LICENSE file.
 * @module Aux Elements
 */  
 /**
- * aux-icon is a 24x24 glyph expressed as a background-image.
+ * polymer-ui-icon is a 24x24 glyph expressed as a background-image.
  *
  * Example:
  *
- *     <aux-icon src="star.png"></aux-icon>
+ *     <polymer-ui-icon src="star.png"></polymer-ui-icon>
  *
  * Optionally can use other size like 32x32 by setting the attribute "size" to "32":
  *
- *     <aux-icon src="big_star.png" size="32"></aux-icon>
+ *     <polymer-ui-icon src="big_star.png" size="32"></polymer-ui-icon>
  *
- * @class aux-icon
+ * @class polymer-ui-icon
  */
 -->
-<element name="aux-icon" attributes="src size index theme">
-  <link rel="stylesheet" href="aux-icon.css">
+<element name="polymer-ui-icon" attributes="src size index theme">
+  <link rel="stylesheet" href="polymer-ui-icon.css">
   <template>
     <div id="icon"></div>
   </template>
   <script>
-    Toolkit.register(this, {
+    Polymer.register(this, {
       /**
        * The URL of an image for the icon.
        *
@@ -50,11 +50,11 @@ license that can be found in the LICENSE file.
       theme: '',
       applyAuthorStyles: true,
       indexChanged: function() {
-        this.$.icon.classList.add('aux-icons');
+        this.$.icon.classList.add('polymer-ui-icons');
         this.$.icon.setAttribute('style', 'background-position-y: ' +  (-this.size * this.index) + 'px');
       },
       srcChanged: function() {
-        this.$.icon.classList.remove('aux-icons');
+        this.$.icon.classList.remove('polymer-ui-icons');
         this.$.icon.setAttribute('style', 'background-image:url(' + this.src + ');');
       },
       themeChanged: function(old) {

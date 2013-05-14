@@ -20,23 +20,23 @@ license that can be found in the LICENSE file.
   background-repeat: no-repeat;
 }
 
-#icon.aux-card-theme {
+#icon.polymer-ui-card-theme {
   background-position-x: -24px !important;
 }
 
-#icon.aux-gray-theme {
+#icon.polymer-ui-gray-theme {
   background-position-x: -24px !important;
 }
 
-#icon.aux-jldark-theme {
+#icon.polymer-ui-jldark-theme {
   background-position-x: -72px !important;
 }
 
-#icon.aux-jadark-theme {
+#icon.polymer-ui-jadark-theme {
   background-position-x: -72px !important;
 }
 
-.aux-icons {
+.polymer-ui-icons {
   background: url(../assets/action-icons.png) 0 0 no-repeat;
   background-position: inherit;
 }
