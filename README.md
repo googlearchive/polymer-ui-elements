@@ -1,2 +1,2 @@
-aux-elements
+polymer-ui-elements
 ============

@@ -1,10 +1,10 @@
 <!--
-Copyright 2013 The Toolkitchen Authors. All rights reserved.
+Copyright 2013 The Polymer Authors. All rights reserved.
 Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 -->
-<element name="aux-clock" attributes="">
-  <link rel="stylesheet" href="aux-clock.css">
+<element name="polymer-ui-clock">
+  <link rel="stylesheet" href="polymer-ui-clock.css">
   <template>
 
     <div id="widget-title">{{ dateStr }}</div>
@@ -18,14 +18,14 @@ license that can be found in the LICENSE file.
 
   </template>
   <script>
-    Toolkit.register(this, {
+    Polymer.register(this, {
       // note: properties only used in MDV bindings need not be declared (xSecond, ySecond, rotateSecond, etc.)
       // properties that need observation (e.g. we observe 'time' via 'timeChanged') must be declared
       time: null,
       dateStr: '',
-      seconds: 0,
-      minutes: 0,
-      hours: 0,
+      seconds: -1,
+      minutes: -1,
+      hours: -1,
       insertedCallback: function() {
         // when we are inserted into DOM, start watching the time
         this.updateTime();

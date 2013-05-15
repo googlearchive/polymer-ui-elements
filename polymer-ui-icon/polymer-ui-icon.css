@@ -1,0 +1,33 @@
+/*
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+*/
+@host {
+  * {
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+#icon {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+
+#icon.polymer-ui-light-theme {
+  background-position: -24px 0;
+}
+
+#icon.polymer-ui-dark-theme {
+  background-position: -72px 0;
+}
+
+.polymer-ui-icons {
+  background: url(../assets/action-icons.png) 0 0 no-repeat;
+}
+
