@@ -1,24 +1,24 @@
 <!--
-Copyright 2013 The Toolkitchen Authors. All rights reserved.
+Copyright 2013 The Polymer Authors. All rights reserved.
 Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 -->
 
-<link rel="import" href="../../toolkit-elements/toolkit-jsonp.html">
+<link rel="import" href="../../polymer-elements/polymer-jsonp.html">
 
-<element name="aux-stock-data" attributes="symbol name data color">
+<element name="polymer-ui-stock-data" attributes="symbol name data color">
   <template>
-    <toolkit-jsonp id="jsonp" response="{{rawData}}" url="https://clients1.google.com/finance/info?q={{symbol}}&client=ob&infotype=infoonebox&callback="
-    ></toolkit-jsonp>
+    <polymer-jsonp id="jsonp" response="{{rawData}}" url="https://clients1.google.com/finance/info?q={{symbol}}&client=ob&infotype=infoonebox&callback="
+    ></polymer-jsonp>
   </template>
   <script>
-    AUXStockData = function(symbol, color) {
-      var usd = document.createElement('aux-stock-data');
+    PolymerStockData = function(symbol, color) {
+      var usd = document.createElement('polymer-ui-stock-data');
       usd.symbol = symbol;
       usd.color = color;
       return usd;
     };
-    Toolkit.register(this, {
+    Polymer.register(this, {
       name: '',
       symbol: '',
       color: '',

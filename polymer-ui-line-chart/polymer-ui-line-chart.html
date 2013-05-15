@@ -1,10 +1,10 @@
 <!--
-Copyright 2013 The Toolkitchen Authors. All rights reserved.
+Copyright 2013 The Polymer Authors. All rights reserved.
 Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 -->
-<link rel="import" href="../../toolkit-elements/toolkit-google-jsapi/toolkit-google-jsapi.html">
-<element name="aux-line-chart" attributes="series">
+<link rel="import" href="../../polymer-elements/polymer-google-jsapi/polymer-google-jsapi.html">
+<element name="polymer-ui-line-chart" attributes="series">
   <template>
     <style>
       @host {
@@ -25,10 +25,10 @@ license that can be found in the LICENSE file.
     </style>
     <div id="bg"></div>
     <div id="chart"></div>
-    <toolkit-google-jsapi on-toolkit-google-jsapi-loaded="jsapiLoaded"></toolkit-google-jsapi>
+    <polymer-google-jsapi on-polymer-google-jsapi-loaded="jsapiLoaded"></polymer-google-jsapi>
   </template>
   <script>
-    Toolkit.register(this, {
+    Polymer.register(this, {
       chart: null,
       jsapiLoaded: function() {
         google.load('visualization', '1', {packages:['corechart']});
@@ -62,7 +62,7 @@ license that can be found in the LICENSE file.
         duration: 1000,
         easing: 'out',
       },
-      fontName: 'HelveticaNeue',
+      fontName: 'Arial, HelveticaNeue',
       backgroundColor: {
         fill: 'transparent',
       },

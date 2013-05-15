@@ -1,0 +1,65 @@
+<!--
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<!--
+/**
+ * @module Polymer UI Elements
+ */
+/**
+ * polymer-ui-icon-button enables you to place an image centered in a button.
+ *
+ * Example:
+ *
+ *     <polymer-ui-icon-button src="star.png"></polymer-ui-icon-button>
+ *
+ * @class polymer-ui-icon-button
+ */
+-->
+
+<link rel="import" href="../polymer-ui-icon/polymer-ui-icon.html">
+
+<element name="polymer-ui-icon-button" attributes="src index icon active theme">
+  <link rel="stylesheet" href="polymer-ui-icon-button.css">
+  <template>
+    <polymer-ui-icon theme="{{theme}}" src="{{src}}" index="{{index}}" icon="{{icon}}"></polymer-ui-icon>
+  </template>
+  <script>
+    Polymer.register(this, {
+      /**
+       * The URL of an image for the icon.
+       *
+       * @attribute src
+       * @type string
+       * @default ''
+       */
+      src: '',
+      /**
+       * If true, border is placed around the button to indicate
+       * active state.
+       *
+       * @attribute active
+       * @type boolean
+       * @default false
+       */
+      active: false,
+      /**
+       * If a theme is applied that includes an icon set, the index of the 
+       * icon to display.
+       *
+       * @attribute index
+       * @type number
+       * @default -1
+       */     
+      index: -1,
+      activeChanged: function() {
+        // TODO(sjmiles): sugar this common case
+        this.classList.toggle('selected', this.active);
+      },
+      themeChanged: function(old) {
+        this.classList.switch(old, this.theme);
+      }
+    });
+  </script>
+</element>

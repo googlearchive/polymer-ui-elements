@@ -1,0 +1,50 @@
+<!--
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<!--
+/**
+ * @module Polymer UI Elements
+ */
+/**
+ * polymer-ui-toolbar is a horizontal bar containing elements that can perform actions.
+ *
+ * Example:
+ *
+ *     <polymer-ui-toolbar>
+ *       <polymer-ui-icon-button src="menu.png" on-click="menuAction"></polymer-ui-icon-button>
+ *       <div fit>Title</div>
+ *       <polymer-ui-icon-button src="more.png" on-click="moreAction"></polymer-ui-icon-button>
+ *     </polymer-ui-toolbar>
+ *
+ * @class polymer-ui-toolbar
+ */
+-->
+
+<link rel="import" href="../../polymer-elements/polymer-layout/polymer-layout.html">
+
+<element name="polymer-ui-toolbar" attributes="theme">
+  <link rel="stylesheet" href="polymer-ui-toolbar.css">
+  <template>
+    <div id="inner">
+      <content></content>
+    </div>
+  </template>
+  <script>
+    Polymer.register(this, {
+      responsive: false,
+      theme: '',
+      ready: function() {
+        this.setAttribute('touch-action', 'none');
+        this.appendChild(document.createElement('polymer-layout'));
+      },
+      themeChanged: function(old) {
+        this.classList.switch(old, this.theme);
+        this.children.forEach(function(e) {
+          e.theme = this.theme;
+        }, this);
+      }
+    });
+  </script>
+</element>
