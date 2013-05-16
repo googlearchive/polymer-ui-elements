@@ -9,15 +9,35 @@ license that can be found in the LICENSE file.
   margin: 0;
 }
     
-.polymer-ui-gradient {
-  background: -webkit-linear-gradient(-60deg, #3d3d3d, #353535);
-  background: linear-gradient(-60deg, #3d3d3d, #353535);
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+.polymer-ui-light-bg {
+  background: #f2f2f2 -webkit-linear-gradient(left, rgba(197,197,197,0), rgba(197,197,197,0.05));
+  background: #f2f2f2 -moz-linear-gradient(left, rgba(197,197,197,0), rgba(197,197,197,0.05));
+  background: #f2f2f2 -ms-linear-gradient(left, rgba(197,197,197,0), rgba(197,197,197,0.05));
+  background: #f2f2f2 linear-gradient(left, rgba(197,197,197,0), rgba(197,197,197,0.05));
+  color: #333333;
+}
+
+.polymer-ui-dark-bg {
+  background: #333333 -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.9));
+  background: #333333 -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.9));
+  background: #333333 -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.9));
+  background: #333333 linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.9));
+  color: #ededed;
 }
 
 .polymer-ui-body-text {
   font: 14px Arial, Roboto, Helvetica Neue;
+}
+
+/*
+.polymer-ui-light-bg {
+  background-color: #d9d9d9;      
+  color: #333;
+}
+
+.polymer-ui-dark-bg {
+  background-color: #262626;
+  color: #eee;
 }
 
 .polymer-ui-bg-gray {
@@ -39,5 +59,4 @@ license that can be found in the LICENSE file.
 .polymer-ui-header {
   background-color: #f3f3f0;
 }
-
-
+*/

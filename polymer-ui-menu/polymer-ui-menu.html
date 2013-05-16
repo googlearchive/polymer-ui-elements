@@ -1,0 +1,39 @@
+<!--
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<!--
+/**
+ * @module Polymer UI Elements
+ */
+/**
+ * polymer-ui-menu is a polymer-selector with theme propagation
+ * *
+ * @class polymer-ui-menu
+ * @extends polymer-selector
+ */
+-->
+
+<link rel="import" href="../../polymer-elements/polymer-selector.html">
+<link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
+
+<element name="polymer-ui-menu" extends="polymer-selector" attributes="theme">
+  <link rel="stylesheet" href="polymer-ui-menu.css">
+  <template>
+    <shadow></shadow>
+  </template>
+  <script>
+    Polymer.register(this, {
+      insertedCallback: function() {
+        if (!this.theme) {
+          this.findTheme();
+        }
+      },
+      findTheme: PolymerUI.findTheme,
+      themeChanged: function(old) {
+        this.classList.switch(old, this.theme);
+      }
+    });
+  </script>
+</element>

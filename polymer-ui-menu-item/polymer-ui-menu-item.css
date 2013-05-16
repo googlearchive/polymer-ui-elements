@@ -1,0 +1,34 @@
+/*
+Copyright 2013 The Toolkitchen Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+*/
+
+@host { 
+ * {
+    display: block;
+    padding: 14px 12px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    margin: 8px;
+  }
+
+  .polymer-ui-light-theme {
+    color: #333333;
+  }
+
+  .polymer-ui-dark-theme {
+    color: #b3b3b3;
+  }
+
+  .polymer-ui-dark-theme.polymer-selected {
+    background-color: black;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+#label {
+  margin: 0 12px;
+  vertical-align: middle;
+}
