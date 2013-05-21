@@ -22,12 +22,6 @@ license that can be found in the LICENSE file.
         font-size: 30px !important;
         background-color: orange;
       }
-      polymer-ui-icon-button.custom-toolbar  {
-      }
-      /* cannot penetrate polymer-ui-icon-button to reach the polymer-ui-icon */
-      #icon.custom-toolbar div {
-        background: url(star_full.svg);
-      }
     </style>
   </head>
   <body class="polymer-ui-body-text">
@@ -52,16 +46,7 @@ license that can be found in the LICENSE file.
       <polymer-ui-icon-button icon="add"></polymer-ui-icon-button>
     </polymer-ui-toolbar>
     <br />
-    <hr>
-    <h3>below here are not so much with the working</h3>
-    <br />
-    <polymer-ui-toolbar theme="custom-toolbar">
-      <polymer-ui-icon-button></polymer-ui-icon-button>
-      <span fit>Toolbar: custom</span>
-      <polymer-ui-icon-button icon="add"></polymer-ui-icon-button>
-    </polymer-ui-toolbar>
-    <br />
-    <div class="polymer-ui-dark-theme">
+    <div theme="polymer-ui-dark-theme">
       <div>
         <polymer-ui-toolbar>
           <polymer-ui-icon-button icon="menu"></polymer-ui-icon-button>
@@ -71,5 +56,15 @@ license that can be found in the LICENSE file.
         </polymer-ui-toolbar>
       </div>
     </div>
+    <br />
+    <br />
+    <h3>below here, not so much with the working</h3>
+    <br />
+    <p>color/font work via style inheritance only, cannot affect the icon without some other support ... pseudo?</p>
+    <polymer-ui-toolbar class="custom-toolbar">
+      <polymer-ui-icon-button src="star_full.svg"></polymer-ui-icon-button>
+      <span fit>Toolbar: custom</span>
+      <polymer-ui-icon-button icon="add"></polymer-ui-icon-button>
+    </polymer-ui-toolbar>
   </body>
 </html>

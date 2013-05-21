@@ -13,10 +13,10 @@ license that can be found in the LICENSE file.
  */
 -->
 <link rel="import" href="../polymer-ui-icon/polymer-ui-icon.html">
-<element name="polymer-ui-menu-item" attributes="src label icon theme">
+<element name="polymer-ui-menu-item" extends="polymer-ui-theme-aware" attributes="src label icon">
   <link rel="stylesheet" href="polymer-ui-menu-item.css">
   <template>
-    <polymer-ui-icon theme="{{theme}}" icon="{{icon}}"></polymer-ui-icon><span id="label">{{label}}<content></content></span>
+    <polymer-ui-icon icon="{{icon}}"></polymer-ui-icon><span id="label">{{label}}<content></content></span>
   </template>
   <script>
     Polymer.register(this, {
@@ -43,10 +43,7 @@ license that can be found in the LICENSE file.
        * @type string
        * @default 24
        */
-      iconsize: 24,
-      themeChanged: function(old) {
-        this.classList.switch(old, this.theme);
-      }
+      iconsize: 24
     });
   </script>
 </element>

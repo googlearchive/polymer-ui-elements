@@ -26,9 +26,9 @@ license that can be found in the LICENSE file.
   }
   
   .polymer-ui-dark-theme *, .polymer-ui-dark-theme {
-    background: #333333 -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.9));
-    background: #333333 -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.9));
-    background: #333333 -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.9));
+    background: #333333 -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.35));
+    background: #333333 -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.35));
+    background: #333333 -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.35));
     color: #ededed;
   }
 
@@ -42,11 +42,15 @@ license that can be found in the LICENSE file.
   }
 
   .polymer-ui-dark-theme {
-    background: #333333 -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.9));
-    background: #333333 -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.9));
-    background: #333333 -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.9));
+    background: #333333 -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.35));
+    background: #333333 -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.35));
+    background: #333333 -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.35));
     color: #ededed;
   }
+}
+
+.small {
+  font-size: 2px;
 }
 
 #inner {
