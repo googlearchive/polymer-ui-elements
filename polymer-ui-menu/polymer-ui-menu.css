@@ -10,12 +10,10 @@ license that can be found in the LICENSE file.
     display: block;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
-    /* border/shadow */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.28);
     /* size */
-    height: 60px;
-    font-size: 21px;
-    padding: 0 3px;
+    padding: 10px 0;
+    font-size: 15px;
+    font-weight: bold;
   }
 
   .polymer-ui-light-theme {
@@ -26,14 +24,9 @@ license that can be found in the LICENSE file.
   }
 
   .polymer-ui-dark-theme {
-    background: #333333 -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.35));
-    background: #333333 -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.35));
-    background: #333333 -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.35));
+    background: -webkit-linear-gradient(-60deg, #3d3d3d, #353535);
+    background: -moz-linear-gradient(-60deg, #3d3d3d, #353535);
+    background: -ms-linear-gradient(-60deg, #3d3d3d, #353535);
     color: #ededed;
   }
-}
-
-/*@polyfill @host > * */
-content::-webkit-distributed(> *) {
-  margin: 0 5px;
 }
