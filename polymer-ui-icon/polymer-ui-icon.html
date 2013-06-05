@@ -24,7 +24,8 @@ license that can be found in the LICENSE file.
  * @class polymer-ui-icon
  */
 -->
-<element name="polymer-ui-icon" attributes="src size index icon theme">
+<link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
+<element name="polymer-ui-icon" extends="polymer-ui-theme-aware" attributes="src size index icon theme">
   <link rel="stylesheet" href="polymer-ui-icon.css">
   <template>
     <div id="icon"></div>
@@ -57,7 +58,7 @@ license that can be found in the LICENSE file.
       indexChanged: function() {
         this.$.icon.classList.add('polymer-ui-icons');
         this.by = -this.size * this.index;
-        this.updateStyle();
+        this.updateIcon();
       },
       srcChanged: function() {
         this.$.icon.classList.remove('polymer-ui-icons');
@@ -67,9 +68,9 @@ license that can be found in the LICENSE file.
         this.$.icon.style.backgroundPosition = '';
         this.$.icon.classList.switch(old, this.theme);
         this.bx = parseFloat(getComputedStyle(this.$.icon).backgroundPosition.split(' ').shift());
-        this.updateStyle();
+        this.updateIcon();
       },
-      updateStyle: function() {
+      updateIcon: function() {
         this.$.icon.style.backgroundPosition = (this.bx + 'px') + ' ' + (this.by + 'px');
       }
     });

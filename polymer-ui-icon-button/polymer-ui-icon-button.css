@@ -11,7 +11,7 @@ license that can be found in the LICENSE file.
     width: 44px;
     height: 44px;
     padding: 10px;
-    line-height: normal;
+    vertical-align: middle;
     cursor: pointer;
     background: url(btn_light.png) top left no-repeat;
     background-size: cover;
@@ -28,4 +28,8 @@ license that can be found in the LICENSE file.
   *:active, *.selected:active {
     background-position: 0 -132px;
   }
+}
+
+polymer-ui-icon {
+  display: block !important;
 }

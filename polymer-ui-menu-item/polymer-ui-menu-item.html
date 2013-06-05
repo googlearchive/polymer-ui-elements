@@ -1,0 +1,51 @@
+<!--
+Copyright 2013 The Toolkitchen Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<!--
+/**
+ * @module Polymer UI Elements
+ */
+
+/**
+ * @class polymer-ui-menu-item
+ */
+-->
+<link rel="import" href="../polymer-ui-icon/polymer-ui-icon.html">
+<link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
+
+<element name="polymer-ui-menu-item" extends="polymer-ui-theme-aware" attributes="src label icon">
+  <link rel="stylesheet" href="polymer-ui-menu-item.css">
+  <template>
+    <polymer-ui-icon icon="{{icon}}"></polymer-ui-icon><span id="label">{{label}}<content></content></span>
+  </template>
+  <script>
+    Polymer.register(this, {
+      /**
+       * The URL of an image for the icon.
+       *
+       * @attribute src
+       * @type string
+       * @default ''
+       */
+      src: '',
+      /**
+       * Specifies the label for the menu item.
+       *
+       * @attribute label
+       * @type string
+       * @default ''
+       */
+      label: '',
+      /**
+       * Specifies the size of the icon.
+       *
+       * @attribute size
+       * @type string
+       * @default 24
+       */
+      iconsize: 24
+    });
+  </script>
+</element>
