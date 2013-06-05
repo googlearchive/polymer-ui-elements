@@ -11,28 +11,12 @@ license that can be found in the LICENSE file.
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     /* border/shadow */
-    box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid rgba(0, 0, 0, 0.28);
     /* size */
     height: 60px;
-    font-size: 18px;
+    font-size: 21px;
+    padding: 0 3px;
   }
-
-  .polymer-ui-light-theme *, .polymer-ui-light-theme {
-    background: #f2f2f2 -webkit-linear-gradient(left, rgba(197,197,197,0), rgba(197,197,197,0.05));
-    background: #f2f2f2 -moz-linear-gradient(left, rgba(197,197,197,0), rgba(197,197,197,0.05));
-    background: #f2f2f2 -ms-linear-gradient(left, rgba(197,197,197,0), rgba(197,197,197,0.05));
-    color: #333333;
-  }
-  
-  .polymer-ui-dark-theme *, .polymer-ui-dark-theme {
-    background: #333333 -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.35));
-    background: #333333 -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.35));
-    background: #333333 -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.35));
-    color: #ededed;
-  }
-
-  /* TODO(sjmiles): need these separated under ShadowDOMPolyfill (no investigation yet)*/
 
   .polymer-ui-light-theme {
     background: #f2f2f2 -webkit-linear-gradient(left, rgba(197,197,197,0), rgba(197,197,197,0.05));
@@ -49,17 +33,7 @@ license that can be found in the LICENSE file.
   }
 }
 
-.small {
-  font-size: 2px;
+/*@polyfill @host > * */
+content::-webkit-distributed(> *) {
+  margin: 0 5px;
 }
-
-#inner {
-  position: absolute;
-  top: 8px;
-  right: 7px;
-  bottom: 8px;
-  left: 7px;
-  line-height: 44px;
-}
-
-
