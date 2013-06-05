@@ -1,0 +1,46 @@
+<!--
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<!--
+/**
+ * @module Polymer UI Elements
+ */
+/**
+ * polymer-ui-sidebar-menu is a polymer-menu on the sidebar
+ * *
+ * @class polymer-ui-sidebar-menu
+ * @extends polymer-selector
+ */
+-->
+
+<link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
+<link rel="import" href="../polymer-ui-menu/polymer-ui-menu.html">
+<link rel="import" href="../polymer-ui-toolbar/polymer-ui-toolbar.html">
+<link rel="import" href="../../polymer-elements/polymer-layout/polymer-flex-layout.html">
+<link rel="import" href="polymer-ui-nav-arrow.html">
+
+<element name="polymer-ui-sidebar-menu" extends="polymer-ui-menu" attributes="theme label">
+  <link rel="stylesheet" href="polymer-ui-sidebar-menu.css">
+  <template>
+    <polymer-flex-layout vertical></polymer-flex-layout>
+    <polymer-ui-toolbar theme="sidebar">
+      <content select="[logo]"></content>
+      <div class="title">{{label}}</div>
+    </polymer-ui-toolbar>
+    <div class="menu">
+      <shadow></shadow>
+    </div>
+    <polymer-ui-nav-arrow id="navArrow"></polymer-ui-nav-arrow>
+  </template>
+  <script>
+    Polymer.register(this, {
+      valueattr: 'label',
+      selectionChanged: function() {
+        this.super();
+        this.$.navArrow.target = this.selection;
+      }
+    });
+  </script>
+</element>
