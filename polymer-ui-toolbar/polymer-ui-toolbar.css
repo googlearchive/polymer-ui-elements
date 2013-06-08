@@ -15,7 +15,6 @@ license that can be found in the LICENSE file.
     /* size */
     height: 60px;
     font-size: 21px;
-    padding: 0 3px;
   }
 
   .polymer-ui-light-theme {
@@ -35,5 +34,5 @@ license that can be found in the LICENSE file.
 
 /*@polyfill @host > * */
 content::-webkit-distributed(> *) {
-  margin: 0 5px;
+  margin: 0 8px;
 }
