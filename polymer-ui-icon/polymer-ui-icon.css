@@ -19,11 +19,11 @@ license that can be found in the LICENSE file.
   background-repeat: no-repeat;
 }
 
-#icon.polymer-ui-light-theme {
+#icon.polymer-ui-dark-icon, #icon.polymer-ui-light-theme {
   background-position: -24px 0;
 }
 
-#icon.polymer-ui-dark-theme {
+#icon.polymer-ui-light-icon, #icon.polymer-ui-dark-theme {
   background-position: -72px 0;
 }
 
