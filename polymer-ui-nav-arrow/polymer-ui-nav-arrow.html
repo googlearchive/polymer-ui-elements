@@ -1,0 +1,45 @@
+<!--
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<!--
+/**
+ * @module Polymer UI Elements
+ */
+-->
+
+<element name="polymer-ui-nav-arrow" attributes="target">
+  <template>
+    <style>
+      @host {
+        * {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 0; 
+          height: 0; 
+          margin-top: -8px;
+          border-top: 9px solid transparent;
+          border-bottom: 9px solid transparent; 
+          border-right: 9px solid white;
+          -webkit-transition: -webkit-transform 0.5s;
+          transition: transform 0.5s;
+        }
+      }
+    </style>
+  </template>
+  <script>
+    Polymer.register(this, {
+      targetChanged: function() {
+        var t = this.target;
+        if (t) {
+          var s = this.style;
+          var y = t.offsetTop + t.offsetHeight/2;
+          s.webkitTransform = s.mozTransform = s.msTransform = s.transform = 
+              'translate3d(0,' + y + 'px,0)';
+        }
+      }
+    });
+  </script>
+</element>
