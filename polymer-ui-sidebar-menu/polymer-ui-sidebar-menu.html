@@ -9,17 +9,17 @@ license that can be found in the LICENSE file.
  */
 /**
  * polymer-ui-sidebar-menu is a polymer-menu on the sidebar
- * *
+ * 
  * @class polymer-ui-sidebar-menu
- * @extends polymer-selector
+ * @extends polymer-ui-menu
  */
 -->
 
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
 <link rel="import" href="../polymer-ui-menu/polymer-ui-menu.html">
 <link rel="import" href="../polymer-ui-toolbar/polymer-ui-toolbar.html">
+<link rel="import" href="../polymer-ui-nav-arrow/polymer-ui-nav-arrow.html">
 <link rel="import" href="../../polymer-elements/polymer-layout/polymer-flex-layout.html">
-<link rel="import" href="polymer-ui-nav-arrow.html">
 
 <element name="polymer-ui-sidebar-menu" extends="polymer-ui-menu" attributes="label">
   <link rel="stylesheet" href="polymer-ui-sidebar-menu.css">
@@ -32,7 +32,7 @@ license that can be found in the LICENSE file.
     <div class="menu">
       <shadow></shadow>
     </div>
-    <polymer-ui-nav-arrow id="navArrow" target="{{selectedItem}}"></polymer-ui-nav-arrow>
+    <polymer-ui-nav-arrow target="{{selectedItem}}"></polymer-ui-nav-arrow>
   </template>
   <script>
     Polymer.register(this, {

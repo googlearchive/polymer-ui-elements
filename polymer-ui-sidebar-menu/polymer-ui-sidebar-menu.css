@@ -10,6 +10,10 @@ license that can be found in the LICENSE file.
     box-shadow: inset -8px 0px 8px -4px rgba(0, 0, 0, 0.4);
     padding: 0;
   }
+  
+  .polymer-ui-light-theme {
+    box-shadow: inset -8px 0px 8px -4px rgba(0, 0, 0, 0.15);
+  }
 }
 
 polymer-ui-toolbar {
@@ -21,7 +25,7 @@ polymer-ui-toolbar {
 
 .title {
   font-size: 21px;
-  color: rgba(255, 255, 255, 0.8);
+  opacity: 0.8;
   text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
 }
 
