@@ -6,7 +6,7 @@ license that can be found in the LICENSE file.
 <element name="polymer-ui-theme-aware" attributes="theme">
   <script>
     Polymer.register(this, {
-      insertedCallback: function() {
+      inserted: function() {
         if (!this.theme) {
           this.findTheme();
         }

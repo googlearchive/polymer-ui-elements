@@ -17,9 +17,6 @@ license that can be found in the LICENSE file.
   }
 
   .polymer-ui-light-theme {
-    background: #f2f2f2 -webkit-linear-gradient(left, rgba(197,197,197,0), rgba(197,197,197,0.05));
-    background: #f2f2f2 -moz-linear-gradient(left, rgba(197,197,197,0), rgba(197,197,197,0.05));
-    background: #f2f2f2 -ms-linear-gradient(left, rgba(197,197,197,0), rgba(197,197,197,0.05));
     color: #333333;
   }
 

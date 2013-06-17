@@ -15,7 +15,7 @@ license that can be found in the LICENSE file.
  */
 -->
 
-<link rel="import" href="../../polymer-elements/polymer-selector.html">
+<link rel="import" href="../../polymer-elements/polymer-selector/polymer-selector.html">
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
 
 <element name="polymer-ui-menu" extends="polymer-selector" attributes="theme">
@@ -25,7 +25,7 @@ license that can be found in the LICENSE file.
   </template>
   <script>
     Polymer.register(this, {
-      insertedCallback: function() {
+      inserted: function() {
         if (!this.theme) {
           this.findTheme();
         }

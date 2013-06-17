@@ -26,12 +26,12 @@ license that can be found in the LICENSE file.
       seconds: -1,
       minutes: -1,
       hours: -1,
-      insertedCallback: function() {
+      inserted: function() {
         // when we are inserted into DOM, start watching the time
         this.updateTime();
         this.interval = setInterval(this.updateTime.bind(this), 1000);
       },
-      removedCallback: function() {
+      removed: function() {
         // when we are removed from DOM, stop watching the time
         clearInterval(this.interval);
       },
