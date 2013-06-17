@@ -15,16 +15,16 @@ license that can be found in the LICENSE file.
       @host {
         * {
           position: absolute;
-          margin-top: -8px;
-          top: -100px;
+          top: 0;
           right: 0;
           width: 0; 
           height: 0; 
+          margin-top: -8px;
           border-top: 9px solid transparent;
           border-bottom: 9px solid transparent; 
           border-right: 9px solid white;
-          -webkit-transition: top 0.5s;
-          transition: top 0.5s;
+          -webkit-transition: -webkit-transform 0.5s;
+          transition: transform 0.5s;
         }
       }
     </style>
@@ -32,9 +32,12 @@ license that can be found in the LICENSE file.
   <script>
     Polymer.register(this, {
       targetChanged: function() {
-        var t = this.target
+        var t = this.target;
         if (t) {
-          this.style.top = t.offsetTop + t.offsetHeight/2 + 'px';
+          var s = this.style;
+          var y = t.offsetTop + t.offsetHeight/2;
+          s.webkitTransform = s.mozTransform = s.msTransform = s.transform = 
+              'translate3d(0,' + y + 'px,0)';
         }
       }
     });

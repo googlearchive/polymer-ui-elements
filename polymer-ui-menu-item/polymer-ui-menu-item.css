@@ -23,7 +23,7 @@ license that can be found in the LICENSE file.
   }
 
   .polymer-ui-light-theme {
-    color: #333333;
+    color: #000;
   }
 
   .polymer-ui-dark-theme {
@@ -53,13 +53,20 @@ license that can be found in the LICENSE file.
   }
   
   .polymer-ui-light-theme.polymer-selected {
-    background: #fff;
+    background: #f2f2f2;
     border: 1px solid rgba(0, 0, 0, 0.15);
     color: rgba(0, 0, 0, 0.9);
   }
 }
 
+polymer-ui-icon:not([showing]) {
+  display: none !important;
+}
+
+polymer-ui-icon {
+  margin-right: 20px;
+}
+
 #label {
-  margin: 0 10px 0 14px;
   vertical-align: middle;
 }
