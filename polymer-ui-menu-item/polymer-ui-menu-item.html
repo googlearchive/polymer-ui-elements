@@ -16,8 +16,8 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
 
 <polymer-element name="polymer-ui-menu-item" extends="polymer-ui-theme-aware" attributes="src label icon">
-  <link rel="stylesheet" href="polymer-ui-menu-item.css">
   <template>
+    <link rel="stylesheet" href="polymer-ui-menu-item.css">
     <polymer-ui-icon icon="{{icon}}" showing?="{{icon}}"></polymer-ui-icon><span id="label">{{label}}<content></content></span>
   </template>
   <script>

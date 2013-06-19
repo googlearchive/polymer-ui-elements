@@ -26,8 +26,8 @@ license that can be found in the LICENSE file.
  */
 -->
 <polymer-element name="polymer-ui-ratings" attributes="count value">
-  <link rel="stylesheet" href="polymer-ui-ratings.css">
   <template>
+    <link rel="stylesheet" href="polymer-ui-ratings.css">
     <template repeat="{{stars}}">
       <span id="star" index="{{index}}" class="{{starClass}}" touch-action="none" on-tap="updateValue"></span>
     </template>
