@@ -3,15 +3,10 @@ Copyright 2013 The Polymer Authors. All rights reserved.
 Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 -->
+
 <!--
 /**
  * @module Polymer UI Elements
- */
-/**
- * polymer-ui-sidebar-menu is a polymer-menu on the sidebar
- * 
- * @class polymer-ui-sidebar-menu
- * @extends polymer-ui-menu
  */
 -->
 
@@ -21,7 +16,16 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../polymer-ui-nav-arrow/polymer-ui-nav-arrow.html">
 <link rel="import" href="../../polymer-elements/polymer-layout/polymer-flex-layout.html">
 
-<element name="polymer-ui-sidebar-menu" extends="polymer-ui-menu" attributes="label">
+<!--
+/**
+ * polymer-ui-sidebar-menu is a polymer-menu on the sidebar
+ * 
+ * @class polymer-ui-sidebar-menu
+ * @extends polymer-ui-menu
+ */
+-->
+
+<polymer-element name="polymer-ui-sidebar-menu" extends="polymer-ui-menu" attributes="label">
   <link rel="stylesheet" href="polymer-ui-sidebar-menu.css">
   <template>
     <polymer-flex-layout vertical></polymer-flex-layout>
@@ -35,8 +39,8 @@ license that can be found in the LICENSE file.
     <polymer-ui-nav-arrow target="{{selectedItem}}"></polymer-ui-nav-arrow>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('polymer-ui-sidebar-menu', {
       valueattr: 'label'
     });
   </script>
-</element>
+</polymer-element>

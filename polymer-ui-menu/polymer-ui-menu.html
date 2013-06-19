@@ -18,22 +18,22 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../../polymer-elements/polymer-selector/polymer-selector.html">
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
 
-<element name="polymer-ui-menu" extends="polymer-selector" attributes="theme">
+<polymer-element name="polymer-ui-menu" extends="polymer-selector" attributes="theme">
   <link rel="stylesheet" href="polymer-ui-menu.css">
   <template>
     <shadow></shadow>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('polymer-ui-menu', {
+      findTheme: PolymerUI.findTheme,
       inserted: function() {
         if (!this.theme) {
           this.findTheme();
         }
       },
-      findTheme: PolymerUI.findTheme,
       themeChanged: function(old) {
         this.classList.switch(old, this.theme);
       }
     });
   </script>
-</element>
+</polymer-element>

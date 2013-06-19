@@ -15,13 +15,13 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../polymer-ui-icon/polymer-ui-icon.html">
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
 
-<element name="polymer-ui-menu-item" extends="polymer-ui-theme-aware" attributes="src label icon">
+<polymer-element name="polymer-ui-menu-item" extends="polymer-ui-theme-aware" attributes="src label icon">
   <link rel="stylesheet" href="polymer-ui-menu-item.css">
   <template>
     <polymer-ui-icon icon="{{icon}}" showing?="{{icon}}"></polymer-ui-icon><span id="label">{{label}}<content></content></span>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('polymer-ui-menu-item', {
       /**
        * The URL of an image for the icon.
        *
@@ -48,4 +48,4 @@ license that can be found in the LICENSE file.
       iconsize: 24
     });
   </script>
-</element>
+</polymer-element>

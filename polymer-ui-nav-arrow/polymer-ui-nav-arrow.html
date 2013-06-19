@@ -8,8 +8,7 @@ license that can be found in the LICENSE file.
  * @module Polymer UI Elements
  */
 -->
-
-<element name="polymer-ui-nav-arrow" attributes="target">
+<polymer-element name="polymer-ui-nav-arrow" attributes="target">
   <template>
     <style>
       @host {
@@ -30,7 +29,7 @@ license that can be found in the LICENSE file.
     </style>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('polymer-ui-nav-arrow', {
       targetChanged: function() {
         var t = this.target;
         if (t) {
@@ -42,4 +41,4 @@ license that can be found in the LICENSE file.
       }
     });
   </script>
-</element>
+</polymer-element>

@@ -26,17 +26,17 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../../polymer-elements/polymer-layout/polymer-flex-layout.html">
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
 
-<element name="polymer-ui-toolbar" extends="polymer-ui-theme-aware" attributes="theme">
+<polymer-element name="polymer-ui-toolbar" extends="polymer-ui-theme-aware" attributes="theme">
   <link rel="stylesheet" href="polymer-ui-toolbar.css">
   <template>
     <content></content>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('polymer-ui-toolbar', {
       ready: function() {
         this.setAttribute('touch-action', 'none');
         this.appendChild(document.createElement('polymer-flex-layout')).align = 'center';
       }
     });
   </script>
-</element>
+</polymer-element>
