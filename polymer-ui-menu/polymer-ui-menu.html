@@ -8,8 +8,36 @@ license that can be found in the LICENSE file.
  * @module Polymer UI Elements
  */
 /**
- * polymer-ui-menu is a polymer-selector with theme propagation
- * *
+ * polymer-ui-menu is a polymer-selector with theme propagation.  It styles to look like 
+ * a menu and should be used in conjunction with polymer-ui-menu-item.
+ *
+ * Example:
+ * 
+ *     <polymer-ui-menu selected="Settings">
+ *       <polymer-ui-menu-item icon="settings" label="Settings"></polymer-ui-menu-item>
+ *       <polymer-ui-menu-item icon="dialog" label="Dialog"></polymer-ui-menu-item>
+ *       <polymer-ui-menu-item icon="search" label="Search"></polymer-ui-menu-item>
+ *     </polymer-ui-menu>
+ *
+ * The event "polymer-select" can be used to listen for selection change.
+ *
+ * Example:
+ *
+ *     <polymer-ui-menu selected="Settings" on-polymer-select="selectAction">
+ *       <polymer-ui-menu-item icon="settings" label="Settings"></polymer-ui-menu-item>
+ *       <polymer-ui-menu-item icon="dialog" label="Dialog"></polymer-ui-menu-item>
+ *       <polymer-ui-menu-item icon="search" label="Search"></polymer-ui-menu-item>
+ *     </polymer-ui-menu>
+ *
+ *     ...
+ *
+ *     selectAction: function(e, detail) {
+ *       if (detail.isSelected) {
+ *         var selectedItem = detail.item;
+ *         ...
+ *       }
+ *     }
+ *
  * @class polymer-ui-menu
  * @extends polymer-selector
  */
@@ -18,21 +46,28 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../../polymer-elements/polymer-selector/polymer-selector.html">
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
 
-<polymer-element name="polymer-ui-menu" extends="polymer-selector" attributes="theme">
+<polymer-element name="polymer-ui-menu" extends="polymer-selector"
+    attributes="theme selectedItem" on-polymer-select="selectionChange">
   <template>
     <link rel="stylesheet" href="polymer-ui-menu.css">
     <shadow></shadow>
   </template>
   <script>
     Polymer('polymer-ui-menu', {
-      findTheme: PolymerUI.findTheme,
+      selectedItem: null,
       inserted: function() {
         if (!this.theme) {
           this.findTheme();
         }
       },
+      findTheme: PolymerUI.findTheme,
       themeChanged: function(old) {
         this.classList.switch(old, this.theme);
+      },
+      selectionChange: function(e, detail) {
+        if (detail.isSelected) {
+          this.selectedItem = detail.item;
+        }
       }
     });
   </script>
