@@ -1,6 +1,6 @@
-<element name="polymer-ui-stock-legend-item" attributes="label data color">
-  <link rel="stylesheet" href="css/polymer-ui-stock-legend.css">
+<polymer-element name="polymer-ui-stock-legend-item" attributes="label data color">
   <template>
+    <link rel="stylesheet" href="css/polymer-ui-stock-legend.css">
     <div class="stock-item">
       <span class="stock-label">
         <span class="stock-color" style="background-color: {{color}}"></span>
@@ -13,6 +13,6 @@
     </div>
   </template>
   <script>
-    Polymer.register(this);
+    Polymer('polymer-ui-stock-legend-item');
   </script>
-</element>
+</polymer-element>

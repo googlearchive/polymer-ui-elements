@@ -4,33 +4,33 @@ Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 -->
 <link rel="import" href="../../polymer-elements/polymer-jsonp/polymer-jsonp.html"/>
-	<element name="polymer-ui-weather" attributes="autoupdate">
-		<link rel="stylesheet" href="polymer-ui-weather.css">
-  	<template>
-			<div id="widget-title">{{current.display_location.full}}</div>
+<polymer-element name="polymer-ui-weather" attributes="autoupdate">
+	<template>
+	  <link rel="stylesheet" href="polymer-ui-weather.css">
+		<div id="widget-title">{{current.display_location.full}}</div>
 
-			<template bind="{{current}}" id="current">
-				<div id="current-condition">{{temp_f}}&deg;</div>
-				<div id="current-icon" class="{{icon}}">{{weather}}</div>
-				<div id="current-wind" class="{{wind_dir}}">{{wind_dir}} {{wind_mph}} mph</div>
+		<template bind="{{current}}" id="current">
+			<div id="current-condition">{{temp_f}}&deg;</div>
+			<div id="current-icon" class="{{icon}}">{{weather}}</div>
+			<div id="current-wind" class="{{wind_dir}}">{{wind_dir}} {{wind_mph}} mph</div>
+		</template>
+
+		<div id="latest">
+			<template repeat="{{forecast.forecastday}}">
+				<div class="entry">
+					<div class="day">{{date.weekday_short}}</div>
+					<div class="icon {{icon}}">{{conditions}}</div>
+					<div class="condition high">{{high.fahrenheit}}</div>
+					<div class="condition low">{{low.fahrenheit}}</div>
+				</div>
 			</template>
+		</div>
 
-			<div id="latest">
-				<template repeat="{{forecast.forecastday}}">
-					<div class="entry">
-						<div class="day">{{date.weekday_short}}</div>
-						<div class="icon {{icon}}">{{conditions}}</div>
-						<div class="condition high">{{high.fahrenheit}}</div>
-						<div class="condition low">{{low.fahrenheit}}</div>
-					</div>
-				</template>
-			</div>
-
-			<polymer-jsonp id="jsonp_current" response="{{currentConditionsResponse}}"></polymer-jsonp>
-	    <polymer-jsonp id="jsonp_forecast" handleAs="json" response="{{forecastResponse}}"></polymer-jsonp>
+		<polymer-jsonp id="jsonp_current" response="{{currentConditionsResponse}}"></polymer-jsonp>
+    <polymer-jsonp id="jsonp_forecast" handleAs="json" response="{{forecastResponse}}"></polymer-jsonp>
   </template>
   <script>
-		Polymer.register(this, {
+		Polymer('polymer-ui-weather', {
       position: null,
       currentConditionsResponse: null,
       forecastResponse: null,
@@ -135,4 +135,4 @@ license that can be found in the LICENSE file.
       }
     });
   </script>
-</element>
+</polymer-element>
