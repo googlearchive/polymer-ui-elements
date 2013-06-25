@@ -13,7 +13,7 @@ license that can be found in the LICENSE file.
  *
  * Example:
  * 
- *     <polymer-ui-menu selected="Settings">
+ *     <polymer-ui-menu selected="0">
  *       <polymer-ui-menu-item icon="settings" label="Settings"></polymer-ui-menu-item>
  *       <polymer-ui-menu-item icon="dialog" label="Dialog"></polymer-ui-menu-item>
  *       <polymer-ui-menu-item icon="search" label="Search"></polymer-ui-menu-item>
@@ -23,7 +23,7 @@ license that can be found in the LICENSE file.
  *
  * Example:
  *
- *     <polymer-ui-menu selected="Settings" on-polymer-select="selectAction">
+ *     <polymer-ui-menu selected="0" on-polymer-select="selectAction">
  *       <polymer-ui-menu-item icon="settings" label="Settings"></polymer-ui-menu-item>
  *       <polymer-ui-menu-item icon="dialog" label="Dialog"></polymer-ui-menu-item>
  *       <polymer-ui-menu-item icon="search" label="Search"></polymer-ui-menu-item>
@@ -67,6 +67,7 @@ license that can be found in the LICENSE file.
       selectionChange: function(e, detail) {
         if (detail.isSelected) {
           this.selectedItem = detail.item;
+          this.updateSelectedModel();
         }
       }
     });
