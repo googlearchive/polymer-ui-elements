@@ -13,7 +13,7 @@ license that can be found in the LICENSE file.
  *
  * Example:
  * 
- *     <polymer-ui-menu selected="Settings">
+ *     <polymer-ui-menu selected="0">
  *       <polymer-ui-menu-item icon="settings" label="Settings"></polymer-ui-menu-item>
  *       <polymer-ui-menu-item icon="dialog" label="Dialog"></polymer-ui-menu-item>
  *       <polymer-ui-menu-item icon="search" label="Search"></polymer-ui-menu-item>
@@ -23,7 +23,7 @@ license that can be found in the LICENSE file.
  *
  * Example:
  *
- *     <polymer-ui-menu selected="Settings" on-polymer-select="selectAction">
+ *     <polymer-ui-menu selected="0" on-polymer-select="selectAction">
  *       <polymer-ui-menu-item icon="settings" label="Settings"></polymer-ui-menu-item>
  *       <polymer-ui-menu-item icon="dialog" label="Dialog"></polymer-ui-menu-item>
  *       <polymer-ui-menu-item icon="search" label="Search"></polymer-ui-menu-item>
@@ -45,13 +45,14 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../../polymer-elements/polymer-selector/polymer-selector.html">
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
 
-<element name="polymer-ui-menu" extends="polymer-selector" attributes="theme selectedItem" on-polymer-select="selectionChange">
-  <link rel="stylesheet" href="polymer-ui-menu.css">
+<polymer-element name="polymer-ui-menu" extends="polymer-selector"
+    attributes="theme selectedItem" on-polymer-select="selectionChange">
   <template>
+    <link rel="stylesheet" href="polymer-ui-menu.css">
     <shadow></shadow>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('polymer-ui-menu', {
       selectedItem: null,
       inserted: function() {
         if (!this.theme) {
@@ -65,8 +66,9 @@ license that can be found in the LICENSE file.
       selectionChange: function(e, detail) {
         if (detail.isSelected) {
           this.selectedItem = detail.item;
+          this.updateSelectedModel();
         }
       }
     });
   </script>
-</element>
+</polymer-element>
