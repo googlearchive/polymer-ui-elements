@@ -11,11 +11,12 @@ license that can be found in the LICENSE file.
  * @class polymer-ui-nav-arrow
  */
 -->
-<element name="polymer-ui-nav-arrow" attributes="target top">
-  <link rel="stylesheet" href="polymer-ui-nav-arrow.css">
-  <template></template>
+<polymer-element name="polymer-ui-nav-arrow" attributes="target top">
+  <template>
+    <link rel="stylesheet" href="polymer-ui-nav-arrow.css">
+  </template>
   <script>
-    Polymer.register(this, {
+    Polymer('polymer-ui-nav-arrow', {
       targetChanged: function() {
         this.classList.toggle('show', this.target);
         if (this.target) {
@@ -38,4 +39,4 @@ license that can be found in the LICENSE file.
       }
     });
   </script>
-</element>
+</polymer-element>
