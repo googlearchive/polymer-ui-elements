@@ -16,10 +16,10 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
 <link rel="import" href="../../polymer-elements/polymer-collapse/polymer-collapse.html">
 
-<polymer-element name="polymer-ui-menu-item" extends="polymer-ui-theme-aware" attributes="src label icon active">
+<polymer-element name="polymer-ui-menu-item" extends="polymer-ui-theme-aware" attributes="src label icon active iconRightAligned">
   <template>
     <link rel="stylesheet" href="polymer-ui-menu-item.css">
-    <div id="item" class="{{theme}}" active?="{{active}}">
+    <div id="item" class="{{theme}}" iconRightAligned?="{{iconRightAligned}}" active?="{{active}}">
       <polymer-ui-icon src="{{src}}" icon="{{icon}}" showing?="{{icon}}"></polymer-ui-icon>
       <span id="label">{{label}}<content select=".item-content"></content></span>
     </div>
@@ -54,6 +54,14 @@ license that can be found in the LICENSE file.
        * @default false
        */
       active: false,
+      /**
+       * If it is true, icon is aligned to the right of label.
+       *
+       * @attribute iconRightAligned
+       * @type boolean
+       * @default false
+       */
+      iconRightAligned: false,
       get items() {
         return this.$.menu.items;
       },
