@@ -24,18 +24,25 @@ license that can be found in the LICENSE file.
 -->
 
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
+<link rel="import" href="../../polymer-elements/polymer-media-query/polymer-media-query.html">
 
-<polymer-element name="polymer-ui-toolbar" extends="polymer-ui-theme-aware" attributes="theme">
+<polymer-element name="polymer-ui-toolbar" extends="polymer-ui-theme-aware" attributes="theme responsiveWidth">
   <template>
     <link rel="stylesheet" href="../../polymer-elements/polymer-flex-layout/polymer-flex-layout.css">
     <link rel="stylesheet" href="polymer-ui-toolbar.css">
+    <polymer-media-query query="max-width: {{responsiveWidth}}" queryMatches="{{mediaQueryMatches}}"></polymer-media-query>
     <content></content>
   </template>
   <script>
     Polymer('polymer-ui-toolbar', {
+      responsiveWidth: '800px',
+      mediaQueryMatches: false,
       ready: function() {
         this.classList.add('flexbox', 'align-center');
         this.setAttribute('touch-action', 'none');
+      },
+      mediaQueryMatchesChanged: function() {
+        this.classList.toggle('narrow-layout', this.mediaQueryMatches);
       }
     });
   </script>
