@@ -38,8 +38,7 @@ license that can be found in the LICENSE file.
     left: 0;
     z-index: 1;
     border: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.28) !important;
-    background: inherit !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.28);
   }
 }
 
@@ -50,7 +49,11 @@ content::-webkit-distributed(> *) {
 
 /*@polyfill @host > polymer-ui-toolbar */
 content::-webkit-distributed(> polymer-ui-toolbar) {
-  border: 0;
   margin: 0;
+}
+
+/*@polyfill @host > polymer-ui-toolbar:not(.narrow-layout[responsive]) */
+content::-webkit-distributed(> polymer-ui-toolbar:not(.narrow-layout[responsive])) {
+  border: 0;
   background: transparent;
 }

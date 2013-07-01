@@ -15,8 +15,24 @@ license that can be found in the LICENSE file.
  *
  *     <polymer-ui-toolbar>
  *       <polymer-ui-icon-button src="menu.png" on-click="menuAction"></polymer-ui-icon-button>
- *       <div fit>Title</div>
+ *       <div flex>Title</div>
  *       <polymer-ui-icon-button src="more.png" on-click="moreAction"></polymer-ui-icon-button>
+ *     </polymer-ui-toolbar>
+ *
+ * polymer-ui-toolbar can adopt to smaller screen size.  If the attribute "responsive" is set
+ * and the screen size is less than the responsiveWidth (default to 800px), the toolbar will
+ * be moved to the bottom of the page.
+ *
+ * Example:
+ *
+ *     <polymer-ui-toolbar>
+ *       <polymer-ui-icon-button icon="menu"></polymer-ui-icon-button>
+ *       <div flex>Title</div>
+ *       <polymer-ui-toolbar responsive>
+ *         <polymer-ui-icon-button icon="add"></polymer-ui-icon-button>
+ *         <polymer-ui-icon-button icon="trash"></polymer-ui-icon-button>
+ *         <polymer-ui-icon-button icon="search"></polymer-ui-icon-button>
+ *       </polymer-ui-toolbar>
  *     </polymer-ui-toolbar>
  *
  * @class polymer-ui-toolbar
@@ -26,7 +42,7 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
 <link rel="import" href="../../polymer-elements/polymer-media-query/polymer-media-query.html">
 
-<polymer-element name="polymer-ui-toolbar" extends="polymer-ui-theme-aware" attributes="theme responsiveWidth">
+<polymer-element name="polymer-ui-toolbar" extends="polymer-ui-theme-aware" attributes="responsiveWidth">
   <template>
     <link rel="stylesheet" href="../../polymer-elements/polymer-flex-layout/polymer-flex-layout.css">
     <link rel="stylesheet" href="polymer-ui-toolbar.css">
