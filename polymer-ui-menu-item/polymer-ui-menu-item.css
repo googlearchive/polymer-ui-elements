@@ -80,7 +80,6 @@ polymer-ui-icon:not([showing]) {
 
 /* menu */
 #menu {
-  overflow: hidden;
   margin-left: 44px;
   height: 0;
   /* override @host style on polymer-ui-menu */
