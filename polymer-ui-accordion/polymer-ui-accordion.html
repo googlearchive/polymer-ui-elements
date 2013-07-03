@@ -1,0 +1,53 @@
+<!--
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<!--
+/**
+ * @module Polymer UI Elements
+ */
+/**
+ * polymer-ui-accordion is a simple accordion style element.  It should 
+ * be used in conjunction with polymer-ui-accordion-group.  By default
+ * only one accordion-group stays open at a time.  To have multiple
+ * accordion-groups open set "multi" property on the accordion element.
+ *
+ * Example:
+ *
+ *     <polymer-ui-accordion selected="0">
+ *       <polymer-ui-accordion-group>
+ *         <div class="polymer-ui-accordion-header">Header 1</div>
+ *         <div>....</div>
+ *       </polymer-ui-accordion-group>
+ *       <polymer-ui-accordion-group>
+ *         <div class="polymer-ui-accordion-header">Header 2</div>
+ *         <div>....</div>
+ *       </polymer-ui-accordion-group>
+ *       <polymer-ui-accordion-group>
+ *         <div class="polymer-ui-accordion-header">Header 3</div>
+ *         <div>....</div>
+ *       </polymer-ui-accordion-group>
+ *     </polymer-ui-accordion>
+ *
+ * @class polymer-ui-accordion
+ */
+-->
+<link rel="import" href="../../polymer-elements/polymer-selector/polymer-selector.html">
+<link rel="import" href="polymer-ui-accordion-group.html">
+
+<polymer-element name="polymer-ui-accordion" extends="polymer-selector">
+  <template>
+    <style>
+      @host {
+        * {
+          display: block;
+        }
+      }
+    </style>
+    <shadow></shadow>
+  </template>
+  <script>
+    Polymer('polymer-ui-accordion');
+  </script>
+</polymer-element>
