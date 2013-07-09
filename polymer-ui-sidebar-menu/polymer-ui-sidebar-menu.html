@@ -37,6 +37,7 @@ license that can be found in the LICENSE file.
   <script>
     Polymer('polymer-ui-sidebar-menu', {
       selectedItemChanged: function() {
+        this.super();
         if (this.selectedItem) {
           this.top = this.calcArrowPos(this.selectedItem);
         }
