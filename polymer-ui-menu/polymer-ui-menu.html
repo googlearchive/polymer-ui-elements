@@ -19,7 +19,19 @@ license that can be found in the LICENSE file.
  *       <polymer-ui-menu-item icon="search" label="Search"></polymer-ui-menu-item>
  *     </polymer-ui-menu>
  *
- * The event "polymer-select" can be used to listen for selection change.
+ * The "selectedItem" property returns the currently selected item.
+ *
+ * Example:
+ *
+ *     <polymer-ui-menu selected="0" selectedItem="{{ selectedElement }}">
+ *       <polymer-ui-menu-item icon="settings" label="Settings"></polymer-ui-menu-item>
+ *       <polymer-ui-menu-item icon="dialog" label="Dialog"></polymer-ui-menu-item>
+ *       <polymer-ui-menu-item icon="search" label="Search"></polymer-ui-menu-item>
+ *     </polymer-ui-menu>
+ *
+ *     <div>selected label: {{ selectedElement.label }}</div>
+ *
+ * The event "polymer-select" can also be used to listen for selection change.
  *
  * Example:
  *
@@ -65,8 +77,12 @@ license that can be found in the LICENSE file.
       },
       selectionChange: function(e, detail) {
         if (detail.isSelected) {
-          this.selectedItem = detail.item;
-          this.updateSelectedModel();
+          var i = detail.item;
+          // find nested selected item
+          while (i.selectedItem) {
+            i = i.selectedItem;
+          }
+          this.selectedItem = i;
         }
       }
     });
