@@ -9,42 +9,36 @@ license that can be found in the LICENSE file.
  */
 /**
  * polymer-ui-accordion is a simple accordion style element.  It should 
- * be used in conjunction with polymer-ui-accordion-group.  By default
- * only one accordion-group stays open at a time.  To have multiple
- * accordion-groups open set "multi" property on the accordion element.
+ * be used in conjunction with polymer-ui-collapsible.  By default
+ * only one collapsible stays open at a time.  To have multiple
+ * collapsibles open set "multi" property on the accordion.
  *
  * Example:
  *
  *     <polymer-ui-accordion selected="0">
- *       <polymer-ui-accordion-group>
- *         <div class="polymer-ui-accordion-header">Header 1</div>
+ *       <polymer-ui-collapsible>
+ *         <div class="polymer-ui-collapsible-header">Header 1</div>
  *         <div>....</div>
- *       </polymer-ui-accordion-group>
- *       <polymer-ui-accordion-group>
- *         <div class="polymer-ui-accordion-header">Header 2</div>
+ *       </polymer-ui-collapsible>
+ *       <polymer-ui-collapsible>
+ *         <div class="polymer-ui-collapsible-header">Header 2</div>
  *         <div>....</div>
- *       </polymer-ui-accordion-group>
- *       <polymer-ui-accordion-group>
- *         <div class="polymer-ui-accordion-header">Header 3</div>
+ *       </polymer-ui-collapsible>
+ *       <polymer-ui-collapsible>
+ *         <div class="polymer-ui-collapsible-header">Header 3</div>
  *         <div>....</div>
- *       </polymer-ui-accordion-group>
+ *       </polymer-ui-collapsible>
  *     </polymer-ui-accordion>
  *
  * @class polymer-ui-accordion
  */
 -->
 <link rel="import" href="../../polymer-elements/polymer-selector/polymer-selector.html">
-<link rel="import" href="polymer-ui-accordion-group.html">
+<link rel="import" href="../polymer-ui-collapsible/polymer-ui-collapsible.html">
 
 <polymer-element name="polymer-ui-accordion" extends="polymer-selector">
   <template>
-    <style>
-      @host {
-        * {
-          display: block;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="polymer-ui-accordion.css">
     <shadow></shadow>
   </template>
   <script>
