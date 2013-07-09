@@ -16,14 +16,14 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
 <link rel="import" href="../../polymer-elements/polymer-collapse/polymer-collapse.html">
 
-<polymer-element name="polymer-ui-menu-item" extends="polymer-ui-theme-aware" attributes="src label icon active iconRightAligned">
+<polymer-element name="polymer-ui-menu-item" extends="polymer-ui-theme-aware" attributes="src label icon active iconRightAligned selected selectedItem">
   <template>
     <link rel="stylesheet" href="polymer-ui-menu-item.css">
     <div id="item" class="{{theme}}" iconRightAligned?="{{iconRightAligned}}" active?="{{active}}">
-      <polymer-ui-icon src="{{src}}" icon="{{icon}}" showing?="{{icon}}"></polymer-ui-icon>
+      <polymer-ui-icon src="{{src}}" icon="{{icon}}" showing?="{{icon || src}}"></polymer-ui-icon>
       <span id="label">{{label}}<content select=".item-content"></content></span>
     </div>
-    <polymer-ui-menu id="menu">
+    <polymer-ui-menu id="menu" selected="{{selected}}" selectedItem="{{selectedItem}}">
       <content></content>
     </polymer-ui-menu>
     <polymer-collapse targetId="menu" closed="{{!active}}"></polymer-collapse>
