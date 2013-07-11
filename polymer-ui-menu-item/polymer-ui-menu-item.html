@@ -7,21 +7,29 @@ license that can be found in the LICENSE file.
 /**
  * @module Polymer UI Elements
  */
-
 /**
  * @class polymer-ui-menu-item
  */
 -->
 <link rel="import" href="../polymer-ui-icon/polymer-ui-icon.html">
+<link rel="import" href="../polymer-ui-menu/polymer-ui-menu.html">
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
+<link rel="import" href="../../polymer-elements/polymer-collapse/polymer-collapse.html">
 
-<element name="polymer-ui-menu-item" extends="polymer-ui-theme-aware" attributes="src label icon">
-  <link rel="stylesheet" href="polymer-ui-menu-item.css">
+<polymer-element name="polymer-ui-menu-item" extends="polymer-ui-theme-aware" attributes="src label icon active selected selectedItem">
   <template>
-    <polymer-ui-icon icon="{{icon}}" showing?="{{icon}}"></polymer-ui-icon><span id="label">{{label}}<content></content></span>
+    <link rel="stylesheet" href="polymer-ui-menu-item.css">
+    <div id="item" class="{{theme}}" active?="{{active}}">
+      <polymer-ui-icon src="{{src}}" icon="{{icon}}" showing?="{{icon || src}}"></polymer-ui-icon>
+      <span id="label">{{label}}<content select=".item-content"></content></span>
+    </div>
+    <polymer-ui-menu id="menu" selected="{{selected}}" selectedItem="{{selectedItem}}">
+      <content></content>
+    </polymer-ui-menu>
+    <polymer-collapse targetId="menu" closed="{{!active}}"></polymer-collapse>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('polymer-ui-menu-item', {
       /**
        * The URL of an image for the icon.
        *
@@ -39,13 +47,22 @@ license that can be found in the LICENSE file.
        */
       label: '',
       /**
-       * Specifies the size of the icon.
+       * Indicates active state.
        *
-       * @attribute size
-       * @type string
-       * @default 24
+       * @attribute active
+       * @type boolean
+       * @default false
        */
-      iconsize: 24
+      active: false,
+      get items() {
+        return this.$.menu.items;
+      },
+      activeChanged: function() {
+        if (!this.active) {
+          this.$.menu.selected = -1;
+        }
+        this.$.item.classList.toggle('no-active-bg', this.$.menu.items.length);
+      }
     });
   </script>
-</element>
+</polymer-element>

@@ -3,10 +3,14 @@ Copyright 2013 The Polymer Authors. All rights reserved.
 Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 -->
+
 <!--
 /**
  * @module Polymer UI Elements
  */
+-->
+
+<!--
 /**
  * polymer-ratings allows users to rate items.
  *
@@ -21,15 +25,15 @@ license that can be found in the LICENSE file.
  * @class g-ratings
  */
 -->
-<element name="polymer-ui-ratings" attributes="count value">
-  <link rel="stylesheet" href="polymer-ui-ratings.css">
+<polymer-element name="polymer-ui-ratings" attributes="count value">
   <template>
+    <link rel="stylesheet" href="polymer-ui-ratings.css">
     <template repeat="{{stars}}">
       <span id="star" index="{{index}}" class="{{starClass}}" touch-action="none" on-tap="updateValue"></span>
     </template>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('polymer-ui-ratings', {
       /**
        * Number of stars to display.
        *
@@ -67,4 +71,4 @@ license that can be found in the LICENSE file.
       }
     });
   </script>
-</element>
+</polymer-element>
