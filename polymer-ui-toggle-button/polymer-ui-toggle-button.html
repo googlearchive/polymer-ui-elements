@@ -18,10 +18,10 @@ license that can be found in the LICENSE file.
  * @class polymer-ui-toggle-button
  */
 -->
-<element name="polymer-ui-toggle-button" attributes="value"
+<polymer-element name="polymer-ui-toggle-button" attributes="value"
     on-tap="toggle" on-trackstart="trackStart" on-track="track" on-trackend="trackEnd" on-flick="flick">
-  <link rel="stylesheet" href="polymer-ui-toggle-button.css" />
   <template>
+    <link rel="stylesheet" href="polymer-ui-toggle-button.css" />
     <div id="toggle" class="toggle">
       <span class="on-label">ON</span>
       <span id="thumb" class="thumb"></span>
@@ -29,7 +29,7 @@ license that can be found in the LICENSE file.
     </div>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('polymer-ui-toggle-button', {
       /**
        * Gets or sets the state, true is ON and false is OFF.
        *
@@ -69,4 +69,4 @@ license that can be found in the LICENSE file.
       }
     });
   </script>
-</element>
+</polymer-element>

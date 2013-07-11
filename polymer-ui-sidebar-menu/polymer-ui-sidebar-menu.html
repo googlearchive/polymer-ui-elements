@@ -14,29 +14,43 @@ license that can be found in the LICENSE file.
  * @extends polymer-ui-menu
  */
 -->
-
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
 <link rel="import" href="../polymer-ui-menu/polymer-ui-menu.html">
 <link rel="import" href="../polymer-ui-toolbar/polymer-ui-toolbar.html">
 <link rel="import" href="../polymer-ui-nav-arrow/polymer-ui-nav-arrow.html">
-<link rel="import" href="../../polymer-elements/polymer-layout/polymer-flex-layout.html">
+<link rel="import" href="../../polymer-elements/polymer-flex-layout/polymer-flex-layout.html">
 
-<element name="polymer-ui-sidebar-menu" extends="polymer-ui-menu" attributes="label">
-  <link rel="stylesheet" href="polymer-ui-sidebar-menu.css">
+<polymer-element name="polymer-ui-sidebar-menu" extends="polymer-ui-menu" attributes="label"
+    on-polymer-select="selectionChange">
   <template>
+    <link rel="stylesheet" href="polymer-ui-sidebar-menu.css">
     <polymer-flex-layout vertical></polymer-flex-layout>
     <polymer-ui-toolbar theme="sidebar">
       <content select="[logo]"></content>
-      <div class="title">{{label}}</div>
+      <div class="sidebar-title">{{label}}</div>
     </polymer-ui-toolbar>
-    <div class="menu">
+    <div class="sidebar-menu" fit>
       <shadow></shadow>
+      <polymer-ui-nav-arrow top="{{top}}"></polymer-ui-nav-arrow>
     </div>
-    <polymer-ui-nav-arrow target="{{selectedItem}}"></polymer-ui-nav-arrow>
   </template>
   <script>
-    Polymer.register(this, {
-      valueattr: 'label'
+    Polymer('polymer-ui-sidebar-menu', {
+      selectedItemChanged: function() {
+        this.super();
+        if (this.selectedItem) {
+          this.top = this.calcArrowPos(this.selectedItem);
+        }
+      },
+      calcArrowPos: function(item) {
+        var p = item.parentNode;
+        var subitems = p.items || this.items;
+        var i = Array.prototype.indexOf.call(subitems, item);
+        if (i >= 0) {
+          var h = subitems[i].$.item.offsetHeight;
+          return i * h + h/2 + subitems[0].offsetTop;
+        }
+      }
     });
   </script>
-</element>
+</polymer-element>

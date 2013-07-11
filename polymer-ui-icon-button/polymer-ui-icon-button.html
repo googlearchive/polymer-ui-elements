@@ -14,19 +14,26 @@ license that can be found in the LICENSE file.
  *
  *     <polymer-ui-icon-button src="star.png"></polymer-ui-icon-button>
  *
+ * Polymer includes an icon set.  The property "icon" can be used
+ * to specify which icon to use.
+ *
+ * Example:
+ *
+ *     <polymer-ui-icon-button icon="menu"></polymer-ui-icon-button>
+ *
  * @class polymer-ui-icon-button
  */
 -->
 
 <link rel="import" href="../polymer-ui-icon/polymer-ui-icon.html">
 
-<element name="polymer-ui-icon-button" attributes="src index icon active">
-  <link rel="stylesheet" href="polymer-ui-icon-button.css">
+<polymer-element name="polymer-ui-icon-button" attributes="src index icon active">
   <template>
+    <link rel="stylesheet" href="polymer-ui-icon-button.css">
     <polymer-ui-icon src="{{src}}" index="{{index}}" icon="{{icon}}"></polymer-ui-icon>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('polymer-ui-icon-button', {
       /**
        * The URL of an image for the icon.
        *
@@ -45,6 +52,14 @@ license that can be found in the LICENSE file.
        */
       active: false,
       /**
+       * Specifies the icon from the Polymer icon set.
+       *
+       * @attribute icon
+       * @type string
+       * @default ''
+       */
+      icon: '',
+      /**
        * If a theme is applied that includes an icon set, the index of the 
        * icon to display.
        *
@@ -59,4 +74,4 @@ license that can be found in the LICENSE file.
       }
     });
   </script>
-</element>
+</polymer-element>

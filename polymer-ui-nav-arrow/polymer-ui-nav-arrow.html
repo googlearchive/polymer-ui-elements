@@ -7,39 +7,36 @@ license that can be found in the LICENSE file.
 /**
  * @module Polymer UI Elements
  */
+/**
+ * @class polymer-ui-nav-arrow
+ */
 -->
-
-<element name="polymer-ui-nav-arrow" attributes="target">
+<polymer-element name="polymer-ui-nav-arrow" attributes="target top">
   <template>
-    <style>
-      @host {
-        * {
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 0; 
-          height: 0; 
-          margin-top: -8px;
-          border-top: 9px solid transparent;
-          border-bottom: 9px solid transparent; 
-          border-right: 9px solid white;
-          -webkit-transition: -webkit-transform 0.5s;
-          transition: transform 0.5s;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="polymer-ui-nav-arrow.css">
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('polymer-ui-nav-arrow', {
       targetChanged: function() {
-        var t = this.target;
-        if (t) {
-          var s = this.style;
-          var y = t.offsetTop + t.offsetHeight/2;
-          s.webkitTransform = s.mozTransform = s.msTransform = s.transform = 
-              'translate3d(0,' + y + 'px,0)';
+        this.classList.toggle('show', this.target);
+        if (this.target) {
+          this.asyncMethod('move');
         }
+      },
+      topChanged: function() {
+        this.classList.add('show');
+        this.translateY(this.top);
+      },
+      translateY: function(y) {
+        var s = this.style;
+        s.webkitTransform = s.mozTransform = s.msTransform = s.transform = 
+          'translate3d(0,' + y + 'px,0)';
+      },
+      move: function() {
+        var t = this.target;
+        var y = t.offsetTop + t.offsetHeight/2;
+        this.translateY(y);
       }
     });
   </script>
-</element>
+</polymer-element>

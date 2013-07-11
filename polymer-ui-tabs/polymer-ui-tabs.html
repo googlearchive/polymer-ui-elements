@@ -7,8 +7,13 @@ license that can be found in the LICENSE file.
 /**
  * @module Polymer UI Elements
  */
+-->
+
+<link rel="import" href="../../polymer-elements/polymer-selector/polymer-selector.html">
+
+<!--
 /**
- * polymer-ui-tabs is a g-selector styled to look like a tab menu.
+ * polymer-ui-tabs is a polymer-selector styled to look like a tab menu.
  *
  * Example:
  *
@@ -20,12 +25,10 @@ license that can be found in the LICENSE file.
  *     </polymer-ui-tabs>
  *
  * @class polymer-ui-tabs
- * @extends g-selector
+ * @extends polymer-selector
  */
 -->
-<link rel="import" href="../../polymer-elements/polymer-selector/polymer-selector.html">
-
-<element name="polymer-ui-tabs" extends="polymer-selector">
+<polymer-element name="polymer-ui-tabs" extends="polymer-selector">
   <template>
     <style>
       @host {
@@ -59,7 +62,4 @@ license that can be found in the LICENSE file.
     </style>
     <shadow></shadow>
   </template>
-  <script>
-    Polymer.register(this);
-  </script>
-</element>
+</polymer-element>
