@@ -62,20 +62,13 @@ polymer-ui-icon:not([showing]) {
   display: none !important;
 }
 
-#item:not([iconRightAligned]) polymer-ui-icon {
+#item polymer-ui-icon {
   margin-right: 16px;
-}
-
-#item[iconRightAligned] polymer-ui-icon {
-  margin-left: 16px;
 }
 
 #label {
   vertical-align: middle;
-}
-
-#item[iconRightAligned] #label {
-  float: left;
+  padding-right: 20px;
 }
 
 /* menu */
