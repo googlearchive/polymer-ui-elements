@@ -14,24 +14,38 @@ license that can be found in the LICENSE file.
  * @extends polymer-ui-menu
  */
 -->
-<link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
+<link rel="import" href="../polymer-ui-sidebar/polymer-ui-sidebar-header.html">
 <link rel="import" href="../polymer-ui-menu/polymer-ui-menu.html">
-<link rel="import" href="../polymer-ui-toolbar/polymer-ui-toolbar.html">
 <link rel="import" href="../polymer-ui-nav-arrow/polymer-ui-nav-arrow.html">
 <link rel="import" href="../../polymer-elements/polymer-flex-layout/polymer-flex-layout.html">
 
-<polymer-element name="polymer-ui-sidebar-menu" extends="polymer-ui-menu" attributes="label"
-    on-polymer-select="selectionChange">
+<polymer-element name="polymer-ui-sidebar-menu" extends="polymer-ui-menu" attributes="label">
   <template>
     <link rel="stylesheet" href="polymer-ui-sidebar-menu.css">
     <polymer-flex-layout vertical></polymer-flex-layout>
-    <polymer-ui-toolbar theme="sidebar">
+    <polymer-ui-sidebar-header label="{{label}}">
       <content select="[logo]"></content>
-      <div class="sidebar-title">{{label}}</div>
-    </polymer-ui-toolbar>
-    <div class="sidebar-menu" fit>
+    </polymer-ui-sidebar-header>
+    <div class="sidebar-menu" flex>
       <shadow></shadow>
       <polymer-ui-nav-arrow item="{{selectedItem}}"></polymer-ui-nav-arrow>
     </div>
   </template>
 </polymer-element>
+
+<!-- 
+<shadow> reprojection is not supported in the polyfill
+https://github.com/Polymer/ShadowDOM/issues/5
+-->
+<!-- <polymer-element name="polymer-ui-sidebar-menu" extends="polymer-ui-menu" attributes="label">
+  <template>
+    <link rel="stylesheet" href="polymer-ui-sidebar-menu.css">
+    <polymer-ui-sidebar label="{{label}}">
+      <content select="[logo]"></content>
+      <div class="sidebar-menu" flex>
+        <shadow></shadow>
+        <polymer-ui-nav-arrow item="{{selectedItem}}"></polymer-ui-nav-arrow>
+      </div>
+    </polymer-ui-sidebar>
+  </template>
+</polymer-element> -->

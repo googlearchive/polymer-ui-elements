@@ -14,17 +14,16 @@ license that can be found in the LICENSE file.
  */
 -->
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
-<link rel="import" href="../polymer-ui-toolbar/polymer-ui-toolbar.html">
 <link rel="import" href="../../polymer-elements/polymer-flex-layout/polymer-flex-layout.html">
+<link rel="import" href="polymer-ui-sidebar-header.html">
 
 <polymer-element name="polymer-ui-sidebar" extends="polymer-ui-theme-aware" attributes="label">
   <template>
     <link rel="stylesheet" href="polymer-ui-sidebar.css">
     <polymer-flex-layout vertical></polymer-flex-layout>
-    <polymer-ui-toolbar theme="sidebar">
+    <polymer-ui-sidebar-header label="{{label}}">
       <content select="[logo]"></content>
-      <div class="sidebar-title">{{label}}</div>
-    </polymer-ui-toolbar>
+    </polymer-ui-sidebar-header>
     <content></content>
   </template>
 </polymer-element>
