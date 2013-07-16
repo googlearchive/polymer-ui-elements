@@ -19,7 +19,7 @@ license that can be found in the LICENSE file.
 <polymer-element name="polymer-ui-menu-item" extends="polymer-ui-theme-aware" attributes="src label icon active selected selectedItem">
   <template>
     <link rel="stylesheet" href="polymer-ui-menu-item.css">
-    <div id="item" class="{{theme}}" active?="{{active}}">
+    <div id="item" class="{{theme}}" active?="{{active}}" on-tap="activate">
       <polymer-ui-icon src="{{src}}" icon="{{icon}}" showing?="{{icon || src}}"></polymer-ui-icon>
       <span id="label">{{label}}<content select=".item-content"></content></span>
     </div>
@@ -57,11 +57,23 @@ license that can be found in the LICENSE file.
       get items() {
         return this.$.menu.items;
       },
+      hasItems: function() {
+        return !!this.items.length;
+      },
+      unselectAllItems: function() {
+        this.$.menu.selected = -1;
+      },
       activeChanged: function() {
         if (!this.active) {
-          this.$.menu.selected = -1;
+          this.unselectAllItems();
         }
-        this.$.item.classList.toggle('no-active-bg', this.$.menu.items.length);
+        this.$.item.classList.toggle('no-active-bg', this.hasItems());
+      },
+      activate: function() {
+        if (this.active && this.hasItems()) {
+          this.unselectAllItems();
+          this.asyncFire("polymer-select", {isSelected: true, item: this});
+        }
       }
     });
   </script>
