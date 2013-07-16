@@ -8,30 +8,23 @@ license that can be found in the LICENSE file.
  * @module Polymer UI Elements
  */
 /**
- * polymer-ui-sidebar-menu is a polymer-menu on the sidebar.
+ * polymer-ui-sidebar is a sidebar usually on the left side of the main content.
  * 
- * @class polymer-ui-sidebar-menu
- * @extends polymer-ui-menu
+ * @class polymer-ui-sidebar
  */
 -->
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
-<link rel="import" href="../polymer-ui-menu/polymer-ui-menu.html">
 <link rel="import" href="../polymer-ui-toolbar/polymer-ui-toolbar.html">
-<link rel="import" href="../polymer-ui-nav-arrow/polymer-ui-nav-arrow.html">
 <link rel="import" href="../../polymer-elements/polymer-flex-layout/polymer-flex-layout.html">
 
-<polymer-element name="polymer-ui-sidebar-menu" extends="polymer-ui-menu" attributes="label"
-    on-polymer-select="selectionChange">
+<polymer-element name="polymer-ui-sidebar" extends="polymer-ui-theme-aware" attributes="label">
   <template>
-    <link rel="stylesheet" href="polymer-ui-sidebar-menu.css">
+    <link rel="stylesheet" href="polymer-ui-sidebar.css">
     <polymer-flex-layout vertical></polymer-flex-layout>
     <polymer-ui-toolbar theme="sidebar">
       <content select="[logo]"></content>
       <div class="sidebar-title">{{label}}</div>
     </polymer-ui-toolbar>
-    <div class="sidebar-menu" fit>
-      <shadow></shadow>
-      <polymer-ui-nav-arrow item="{{selectedItem}}"></polymer-ui-nav-arrow>
-    </div>
+    <content></content>
   </template>
 </polymer-element>
