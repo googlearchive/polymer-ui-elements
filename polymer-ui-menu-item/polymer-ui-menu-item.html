@@ -16,7 +16,7 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
 <link rel="import" href="../../polymer-elements/polymer-collapse/polymer-collapse.html">
 
-<polymer-element name="polymer-ui-menu-item" extends="polymer-ui-theme-aware" attributes="src label icon active selected selectedItem">
+<polymer-element name="polymer-ui-menu-item" extends="polymer-ui-theme-aware" attributes="src label icon active selected selectedItem item">
   <template>
     <link rel="stylesheet" href="polymer-ui-menu-item.css">
     <div id="item" class="{{theme}}" active?="{{active}}" on-tap="activate">
@@ -54,6 +54,7 @@ license that can be found in the LICENSE file.
        * @default false
        */
       active: false,
+      item: null,
       get items() {
         return this.$.menu.items;
       },

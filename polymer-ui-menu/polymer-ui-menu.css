@@ -11,8 +11,7 @@ license that can be found in the LICENSE file.
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     /* size */
-    padding: 10px;
-    font-size: 15px;
+    padding: 0.4em;
     font-weight: bold;
   }
 

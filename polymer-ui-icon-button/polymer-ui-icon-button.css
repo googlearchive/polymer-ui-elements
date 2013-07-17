@@ -16,15 +16,15 @@ license that can be found in the LICENSE file.
     background: url(btn_light.png) top left no-repeat;
     background-size: cover;
   }
-        
+
   *:hover {
     background-position: 0 -44px;
   }
-        
+
   *.selected {
     background-position: 0 -88px;
   }
-        
+
   *:active, *.selected:active {
     background-position: 0 -132px;
   }
