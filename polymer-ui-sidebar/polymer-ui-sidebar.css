@@ -25,4 +25,6 @@ license that can be found in the LICENSE file.
 /*@polyfill @host polymer-ui-menu */
 content::-webkit-distributed(polymer-ui-menu) {
 	background: none !important;
+	padding: 0 10px;
+  margin: 10px 0;
 }
