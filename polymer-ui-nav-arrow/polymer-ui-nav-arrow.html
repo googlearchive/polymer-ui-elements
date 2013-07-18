@@ -29,11 +29,13 @@ license that can be found in the LICENSE file.
       },
       itemChanged: function() {
         var p = this.item.parentNode;
-        var subitems = p.items;
-        var i = Array.prototype.indexOf.call(subitems, this.item);
-        if (i >= 0) {
-          var h = subitems[i].$.item.offsetHeight;
-          this.top = i * h + h/2 + subitems[0].offsetTop;
+        if (p) {
+          var subitems = p.items;
+          var i = Array.prototype.indexOf.call(subitems, this.item);
+          if (i >= 0) {
+            var h = subitems[i].$.item.offsetHeight;
+            this.top = i * h + h/2 + subitems[0].offsetTop;
+          }
         }
       },
       translateY: function(y) {

@@ -16,7 +16,7 @@ license that can be found in the LICENSE file.
 }
 
 .sidebar-menu {
-	position: relative;
+  position: relative;
   padding: 0 10px;
   margin: 10px 0;
   overflow: auto;
