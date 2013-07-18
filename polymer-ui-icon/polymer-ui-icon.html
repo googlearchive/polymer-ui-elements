@@ -95,8 +95,9 @@ license that can be found in the LICENSE file.
           if (this.src) {
             this.style.backgroundPosition = 'center';
           } else {
-            this.bx = parseFloat(getComputedStyle(this).backgroundPosition.split(' ').shift());
-            this.style.backgroundPosition = (this.bx + 'px') + ' ' + (this.by + 'px');
+            //this.bx = parseFloat(getComputedStyle(this).backgroundPosition.split(' ').shift());
+            //this.style.backgroundPosition = (this.bx + 'px') + ' ' + (this.by + 'px');
+            this.style.backgroundPositionY = this.by + 'px';
           }
         }
       });
