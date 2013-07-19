@@ -17,17 +17,25 @@ license that can be found in the LICENSE file.
   </template>
   <script>
     Polymer('polymer-ui-nav-arrow', {
+      show: false,
+      showChanged: function() {
+        this.classList.toggle('show', this.show);
+      },
       targetChanged: function() {
-        this.classList.toggle('show', this.target);
+        this.show = !!this.target;
         if (this.target) {
           this.asyncMethod('move');
         }
       },
       topChanged: function() {
-        this.classList.add('show');
+        this.show = true;
         this.translateY(this.top);
       },
       itemChanged: function() {
+        if (!this.item) {
+          this.show = false;
+          return;
+        }
         var p = this.item.parentNode;
         if (p) {
           var subitems = p.items;
