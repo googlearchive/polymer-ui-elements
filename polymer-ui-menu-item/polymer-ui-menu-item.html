@@ -26,7 +26,7 @@ license that can be found in the LICENSE file.
     <polymer-ui-menu id="menu" selected="{{selected}}" selectedItem="{{selectedItem}}">
       <content></content>
     </polymer-ui-menu>
-    <polymer-collapse targetId="menu" closed="{{!active}}"></polymer-collapse>
+    <polymer-collapse closed="{{collapsed}}" defaultClosed></polymer-collapse>
   </template>
   <script>
     Polymer('polymer-ui-menu-item', {
@@ -54,6 +54,7 @@ license that can be found in the LICENSE file.
        * @default false
        */
       active: false,
+      collapsed: true,
       item: null,
       get items() {
         return this.$.menu.items;
@@ -65,6 +66,9 @@ license that can be found in the LICENSE file.
         this.$.menu.selected = -1;
       },
       activeChanged: function() {
+        if (this.hasItems()) {
+          this.collapsed = !this.active;
+        }
         if (!this.active) {
           this.unselectAllItems();
         }
