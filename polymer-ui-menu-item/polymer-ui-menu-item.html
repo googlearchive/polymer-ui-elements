@@ -75,9 +75,12 @@ license that can be found in the LICENSE file.
         this.$.item.classList.toggle('no-active-bg', this.hasItems());
       },
       activate: function() {
-        if (this.active && this.hasItems()) {
-          this.unselectAllItems();
-          this.asyncFire("polymer-select", {isSelected: true, item: this});
+        if (this.hasItems()) {
+          this.collapsed = !this.collapsed;
+          if (this.active) {
+            this.unselectAllItems();
+            this.asyncFire("polymer-select", {isSelected: true, item: this});
+          }
         }
       }
     });
