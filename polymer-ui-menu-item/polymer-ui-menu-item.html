@@ -26,7 +26,7 @@ license that can be found in the LICENSE file.
     <polymer-ui-menu id="menu" selected="{{selected}}" selectedItem="{{selectedItem}}">
       <content></content>
     </polymer-ui-menu>
-    <polymer-collapse closed="{{collapsed}}" defaultClosed></polymer-collapse>
+    <polymer-collapse targetId="menu" closed="{{collapsed}}" defaultClosed></polymer-collapse>
   </template>
   <script>
     Polymer('polymer-ui-menu-item', {
