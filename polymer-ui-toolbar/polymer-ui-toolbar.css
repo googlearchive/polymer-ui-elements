@@ -11,10 +11,13 @@ license that can be found in the LICENSE file.
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     /* border/shadow */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.28);
-    /* size */
+/*    border-bottom: 1px solid rgba(0, 0, 0, 0.28);*/
+		border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+		/* size */
     height: 60px;
     font-size: 21px;
+		font-family: 'Helvetica Neue Medium', 'HelveticaNeue-Medium', Helvetica, sans-serif;
+		border-top: 1px solid rgba(255,255,255,.8);
   }
 
   .polymer-ui-light-theme {
@@ -44,7 +47,7 @@ license that can be found in the LICENSE file.
 
 /*@polyfill @host > * */
 content::-webkit-distributed(> polymer-ui-icon-button) {
-  margin: 0px 10px 0 10px;
+  margin: 0px 8px 0 8px;
 }
 
 /*@polyfill @host > polymer-ui-toolbar */

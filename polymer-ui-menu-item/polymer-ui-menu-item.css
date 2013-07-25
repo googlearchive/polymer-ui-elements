@@ -17,6 +17,7 @@ license that can be found in the LICENSE file.
   -moz-box-sizing: border-box;
   height: 40px;
   line-height: 35px;
+  font-size: 16px;
   padding: 0 10px;
   border: 1px solid transparent;
   border-radius: 3px;
