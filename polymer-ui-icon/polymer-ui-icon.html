@@ -40,47 +40,54 @@ license that can be found in the LICENSE file.
   </template>
   <script>
     (function() {
-      var icons = {
-        drawer: 0,
-        menu: 1,
-        search: 2,
-        dropdown: 3,
-        close: 4,
-        add: 5,
-        trash: 6,
-        refresh: 7,
-        settings: 8,
-        left: 9,
-        right: 9,
-        down: 10,
-        up: 11,
-        grid: 12,
-        contact: 13,
-        account: 14,
-        plus: 15,
-        time: 16,
-        marker: 17,
-        briefcase: 18,
-        array: 19,
-        columns: 20,
-        list: 21,
-        modules: 22,
-        quilt: 23,
-        stream: 24,
-        maximize: 25,
-        shrink: 26,
-        sort: 27,
-        shortcut: 28,
-        dialog: 29,
-        twitter: 30,
-        facebook: 31,
-        favorite: 32,
-        gplus: 33,
-        filter: 34,
-        tag: 35,
-        plusone: 36,
-        dots: 37
-      };
+      var icons = [
+       'drawer',
+       'menu',
+       'search',
+       'dropdown',
+       'close',
+       'add',
+       'trash',
+       'refresh',
+       'settings',
+       'dialoga',
+       'left',
+       'right',
+       'down',
+       'up',
+       'grid',
+       'contact',
+       'account',
+       'plus',
+       'time',
+       'marker',
+       'briefcase',
+       'array',
+       'columns',
+       'list',
+       'modules',
+       'quilt',
+       'stream',
+       'maximize',
+       'shrink',
+       'sort',
+       'shortcut',
+       'dialog',
+       'twitter',
+       'facebook',
+       'favorite',
+       'gplus',
+       'filter',
+       'tag',
+       'plusone',
+       'dots'
+      ];
+      var map = {};
+      icons.forEach(function(name, i) {
+        map[name] = i;
+      });
+      icons = map;
+
       Polymer('polymer-ui-icon', {
         /**
          * The URL of an image for the icon.
