@@ -43,8 +43,8 @@ license that can be found in the LICENSE file.
 }
 
 /*@polyfill @host > * */
-content::-webkit-distributed(> *) {
-  margin: 0 16px 0 0;
+content::-webkit-distributed(> polymer-ui-icon-button) {
+  margin: 0px 10px 0 10px;
 }
 
 /*@polyfill @host > polymer-ui-toolbar */
