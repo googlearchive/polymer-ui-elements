@@ -1,0 +1,26 @@
+[valign=right] #overlay {
+  right: 2px !important;
+}
+
+[valign=right] #overlay::x-arrow, [valign=right] #overlay::x-arrow-inner {
+/*  position: relative;
+  left: -7px;*/
+  position: absolute;
+  right: 10px;
+  margin-left: 90% !important;
+}
+
+
+ 
+/* TODO(ffu): adding responsive class won't work in native; to work in native
+automatically we'll need to add a feature to detect if we're in a responsive
+container */
+@media screen and (max-width: 800px) {
+  #overlay, [valign=right] #overlay {
+    left: 0;
+    width: 100%;
+    -webkit-transform: none;
+    transform: none;
+    margin: 7px 0 0 0 !important;
+  }  
+}

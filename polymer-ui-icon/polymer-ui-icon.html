@@ -40,6 +40,48 @@ license that can be found in the LICENSE file.
   </template>
   <script>
     (function() {
+      var icons = {
+        drawer: 0,
+        menu: 1,
+        search: 2,
+        dropdown: 3,
+        close: 4,
+        add: 5,
+        trash: 6,
+        refresh: 7,
+        settings: 8,
+        bubble: 9,
+        left: 10,
+        right: 11,
+        down: 12,
+        up: 13,
+        grid: 14,
+        contact: 15,
+        account: 16,
+        plus: 17,
+        time: 18,
+        marker: 19,
+        briefcase: 20,
+        array: 21,
+        columns: 22,
+        list: 23,
+        modules: 24,
+        quilt: 25,
+        stream: 26,
+        maximize: 27,
+        shrink: 28,
+        sort: 29,
+        shortcut: 30,
+        dialog: 31,
+        twitter: 32,
+        facebook: 33,
+        favorite: 34,
+        gplus: 35,
+        filter: 36,
+        tag: 37,
+        plusone: 38,
+        dots: 39
+      };
       Polymer('polymer-ui-icon', {
         /**
          * The URL of an image for the icon.
@@ -67,6 +109,7 @@ license that can be found in the LICENSE file.
         icon: '',
         bx: 0,
         by: 0,
+        icons: icons,
         ready: function() {
           this.sizeChanged();
         },
@@ -101,18 +144,6 @@ license that can be found in the LICENSE file.
           }
         }
       });
-      var icons = {
-        drawer: 0,
-        menu: 1,
-        search: 2,
-        dropdown: 3,
-        close: 4,
-        add: 5,
-        trash: 6,
-        refresh: 7,
-        settings: 8,
-        dialog: 9
-      };
     })();
   </script>
 </polymer-element>

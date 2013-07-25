@@ -19,37 +19,28 @@ license that can be found in the LICENSE file.
   </head>
   <body class="polymer-ui-body-text">
     <div>
-      <polymer-ui-icon icon="drawer"></polymer-ui-icon>
-      <polymer-ui-icon icon="menu"></polymer-ui-icon>
-      <polymer-ui-icon icon="search"></polymer-ui-icon>
-      <polymer-ui-icon icon="dropdown"></polymer-ui-icon>
-      <polymer-ui-icon icon="close"></polymer-ui-icon>
-      <polymer-ui-icon icon="add"></polymer-ui-icon>
-      <polymer-ui-icon icon="trash"></polymer-ui-icon>
-      <polymer-ui-icon icon="settings"></polymer-ui-icon>
-      <polymer-ui-icon icon="dialog"></polymer-ui-icon>
+      <template repeat="{{}}">
+        <polymer-ui-icon icon="{{}}"></polymer-ui-icon>
+      </template>
     </div>
     <div theme="polymer-ui-light-theme">
-      <polymer-ui-icon icon="drawer"></polymer-ui-icon>
-      <polymer-ui-icon icon="menu"></polymer-ui-icon>
-      <polymer-ui-icon icon="search"></polymer-ui-icon>
-      <polymer-ui-icon icon="dropdown"></polymer-ui-icon>
-      <polymer-ui-icon icon="close"></polymer-ui-icon>
-      <polymer-ui-icon icon="add"></polymer-ui-icon>
-      <polymer-ui-icon icon="trash"></polymer-ui-icon>
-      <polymer-ui-icon icon="settings"></polymer-ui-icon>
-      <polymer-ui-icon icon="dialog"></polymer-ui-icon>
+      <template repeat="{{}}">
+        <polymer-ui-icon icon="{{}}"></polymer-ui-icon>
+      </template>
     </div>
     <div theme="polymer-ui-dark-theme" class="polymer-ui-dark-bg">
-      <polymer-ui-icon icon="drawer"></polymer-ui-icon>
-      <polymer-ui-icon icon="menu"></polymer-ui-icon>
-      <polymer-ui-icon icon="search"></polymer-ui-icon>
-      <polymer-ui-icon icon="dropdown"></polymer-ui-icon>
-      <polymer-ui-icon icon="close"></polymer-ui-icon>
-      <polymer-ui-icon icon="add"></polymer-ui-icon>
-      <polymer-ui-icon icon="trash"></polymer-ui-icon>
-      <polymer-ui-icon icon="settings"></polymer-ui-icon>
-      <polymer-ui-icon icon="dialog"></polymer-ui-icon>
+      <template repeat="{{}}">
+        <polymer-ui-icon icon="{{}}"></polymer-ui-icon>
+      </template>
     </div>
+    <script>
+      addEventListener('WebComponentsReady', function() {
+        var icons = Object.keys(document.createElement('polymer-ui-icon').icons);
+        var plates = document.querySelectorAll('template');
+        for (var i = 0, p; p=plates[i]; i++) {
+          p.model = icons;
+        }
+      });
+    </script>
   </body>
 </html>
