@@ -15,7 +15,7 @@ license that can be found in the LICENSE file.
     <link rel="stylesheet" href="polymer-ui-menu-button.css" />
     <polymer-ui-icon-button id="button" on-tap="toggle" src="{{src}}" icon="{{icon}}" active="{{opened}}"></polymer-ui-icon-button>
     <div responsive="{{responsive}}" valign="{{valign}}">
-      <polymer-ui-overlay-menu id="overlay" class="slideup" opened="{{opened}}" modal>
+      <polymer-ui-overlay-menu id="overlay" opened="{{opened}}" selected="{{selected}}" selectedClass="{{selectedClass}}" modal>
         <content select="*"></content>
       </polymer-ui-overlay-menu>
     </div>
