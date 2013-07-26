@@ -45,7 +45,7 @@ license that can be found in the LICENSE file.
   }
 }
 
-/*@polyfill @host > * */
+/*@polyfill @host > polymer-ui-icon-button */
 content::-webkit-distributed(> polymer-ui-icon-button) {
   margin: 0px 8px 0 8px;
 }
