@@ -1,0 +1,23 @@
+<polymer-element name="polymer-ui-list-item" noscript>
+  <template>
+    <style>
+      @host {
+        * {
+          display: block;
+          padding: 18px;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        }
+      }
+      ::-webkit-distributed(input) {
+          color: #333;
+      }
+      ::-webkit-distributed(input::placeholder) {
+        color: #b3b3b3;
+      }
+      ::-webkit-distributed(input:focus) {
+        outline: 1px auto blue;
+      }
+    </style>
+    <content select="*"></content>
+  </template>
+</polymer-element>
