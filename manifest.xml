@@ -2,6 +2,7 @@
 <meta>
   <polymer-element-meta name="polymer-ui-accordion"></polymer-element-meta>
   <polymer-element-meta name="polymer-ui-collapsible"></polymer-element-meta>
+  <polymer-element-meta name="polymer-ui-field"></polymer-element-meta>
   <polymer-element-meta name="polymer-ui-icon"></polymer-element-meta>
   <polymer-element-meta name="polymer-ui-icon-button"></polymer-element-meta>
   <polymer-element-meta name="polymer-ui-menu"></polymer-element-meta>
