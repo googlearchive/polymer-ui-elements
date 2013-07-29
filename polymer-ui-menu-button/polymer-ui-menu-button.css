@@ -1,5 +1,6 @@
 [valign=right] #overlay {
-  right: 2px !important;
+  position: absolute !important;
+	right: 0;
 }
 
 [valign=right] #overlay::x-arrow, [valign=right] #overlay::x-arrow-inner {
@@ -17,6 +18,7 @@ automatically we'll need to add a feature to detect if we're in a responsive
 container */
 @media screen and (max-width: 800px) {
   #overlay, [valign=right] #overlay {
+		position: fixed !important;
     left: 0;
     width: 100%;
     -webkit-transform: none;
