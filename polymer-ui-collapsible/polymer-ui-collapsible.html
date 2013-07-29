@@ -27,27 +27,30 @@ license that can be found in the LICENSE file.
 -->
 <link rel="import" href="../../polymer-elements/polymer-collapse/polymer-collapse.html">
 
-<polymer-element name="polymer-ui-collapsible" attributes="active allowTap">
+<polymer-element name="polymer-ui-collapsible" attributes="active notap">
   <template>
     <link rel="stylesheet" href="polymer-ui-collapsible.css">
-    <div on-tap="tapHandler">
+    <div on-tap="headerTap">
       <content select=".polymer-ui-collapsible-header"></content>
     </div>
-    <div id="collapsibleBody">
+    <div id="collapsibleBody" on-tap="bodyTap">
       <content></content>
     </div>
     <polymer-collapse targetId="collapsibleBody" closed="{{!active}}"></polymer-collapse>
   </template>
   <script>
     Polymer('polymer-ui-collapsible', {
-      allowTap: false,
+      notap: false,
       toggle: function() {
         this.active = !this.active;
       },
-      tapHandler: function() {
-        if (this.allowTap) {
+      headerTap: function() {
+        if (!this.notap) {
           this.toggle();
         }
+      },
+      bodyTap: function(e) {
+        e.cancelBubble = true;
       }
     });
   </script>
