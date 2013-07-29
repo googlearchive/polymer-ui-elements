@@ -11,13 +11,13 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../../polymer-elements/polymer-overlay/polymer-overlay.html">
 <link rel="import" href="../polymer-ui-menu/polymer-ui-menu.html"/>
 <link rel="import" href="../polymer-ui-menu-item/polymer-ui-menu-item.html"/>
-<polymer-element name="polymer-ui-overlay-menu" extends="polymer-overlay" attributes="selected selectedClass valueattr multi">
+<polymer-element name="polymer-ui-overlay-menu" extends="polymer-overlay" attributes="selected selectedItem selectedClass valueattr multi">
   <template>
     <link rel="stylesheet" href="../../polymer-elements/polymer-overlay/polymer-overlay.css">
     <link rel="stylesheet" href="polymer-ui-overlay-menu.css" />
     <div class="arrow" pseudo="x-arrow"></div>
     <div class="arrow arrow-inner" pseudo="x-arrow-inner"></div>
-    <polymer-ui-menu id="overlayMenu" pseudo="x-menu" selected="{{selected}}" selectedClass="{{selectedClass}}" valueattr="{{valueattr}}" multi="{{multi}}" on-polymer-activate="toggleAction">
+    <polymer-ui-menu id="overlayMenu" pseudo="x-menu" selected="{{selected}}" selectedItem="{{selectedItem}}" selectedClass="{{selectedClass}}" valueattr="{{valueattr}}" multi="{{multi}}" on-polymer-activate="toggleAction">
       <content select="*"></content>
     </polymer-ui-menu>
   </template>

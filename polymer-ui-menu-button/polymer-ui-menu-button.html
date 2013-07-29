@@ -10,12 +10,12 @@ license that can be found in the LICENSE file.
 -->
 <link rel="import" href="../polymer-ui-icon-button/polymer-ui-icon-button.html"/>
 <link rel="import" href="../polymer-ui-overlay-menu/polymer-ui-overlay-menu.html"/>
-<polymer-element name="polymer-ui-menu-button" attributes="src selected icon opened responsive valign selectedClass valueattr multi">
+<polymer-element name="polymer-ui-menu-button" attributes="src icon opened responsive valign selected selectedItem selectedClass valueattr multi">
   <template>
     <link rel="stylesheet" href="polymer-ui-menu-button.css" />
     <polymer-ui-icon-button id="button" on-tap="toggle" src="{{src}}" icon="{{icon}}" active="{{opened}}"></polymer-ui-icon-button>
     <div responsive="{{responsive}}" valign="{{valign}}">
-      <polymer-ui-overlay-menu id="overlay" opened="{{opened}}" selected="{{selected}}" selectedClass="{{selectedClass}}" valueattr="{{valueattr}}" multi="{{multi}}" modal>
+      <polymer-ui-overlay-menu id="overlay" opened="{{opened}}" selected="{{selected}}" selectedItem="{{selectedItem}}" selectedClass="{{selectedClass}}" valueattr="{{valueattr}}" multi="{{multi}}" modal>
         <content select="*"></content>
       </polymer-ui-overlay-menu>
     </div>
