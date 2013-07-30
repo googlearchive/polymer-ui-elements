@@ -22,7 +22,7 @@ license that can be found in the LICENSE file.
   }
 }
 
-/*@polyfill @host :not(polymer-ui-menu-item) > polymer-ui-menu */
+/*@polyfill @host :not(polymer-ui-submenu-item) > polymer-ui-menu */
 content::-webkit-distributed(polymer-ui-menu) {
 	background: none !important;
 	padding: 0 10px;
