@@ -8,6 +8,22 @@ license that can be found in the LICENSE file.
  * @module Polymer UI Elements
  */
 /**
+ * polymer-ui-submenu-item is a menu-item that can contains other menu-items.
+ *
+ * Example:
+ *
+ *     <polymer-ui-menu selected="0">
+ *       <polymer-ui-submenu-item icon="settings" label="Topics">
+ *         <polymer-ui-menu-item label="Topics 1"></polymer-ui-menu-item>
+ *         <polymer-ui-menu-item label="Topics 2"></polymer-ui-menu-item>
+ *       </polymer-ui-submenu-item>
+ *       <polymer-ui-submenu-item icon="settings" label="Favorites">
+ *         <polymer-ui-menu-item label="Favorites 1"></polymer-ui-menu-item>
+ *         <polymer-ui-menu-item label="Favorites 2"></polymer-ui-menu-item>
+ *         <polymer-ui-menu-item label="Favorites 3"></polymer-ui-menu-item>
+ *       </polymer-ui-submenu-item>
+ *     </polymer-ui-menu>
+ *
  * @class polymer-ui-submenu-item
  */
 -->
@@ -40,6 +56,7 @@ license that can be found in the LICENSE file.
       },
       unselectAllItems: function() {
         this.$.menu.selected = null;
+        this.$.menu.clearSelection();
       },
       activeChanged: function() {
         if (this.hasItems()) {
@@ -54,7 +71,7 @@ license that can be found in the LICENSE file.
         if (this.hasItems() && this.active) {
           this.collapsed = !this.collapsed;
           this.unselectAllItems();
-          this.asyncFire("polymer-select", {isSelected: true, item: this});
+          this.fire("polymer-select", {isSelected: true, item: this});
         }
       }
     });
