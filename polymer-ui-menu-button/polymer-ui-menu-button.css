@@ -2,6 +2,9 @@
 	:scope {
 		position: relative;
 	}
+	.fullwidth {
+		position: static;
+	}
 }
 
 #menuOverlay {
@@ -21,7 +24,6 @@
 @media screen and (max-width: 800px) {
   #menuOverlay,
 	#menuOverlay[valign=right] {
-		position: fixed !important;
     left: 0;
     width: 100%;
     -webkit-transform: none;
