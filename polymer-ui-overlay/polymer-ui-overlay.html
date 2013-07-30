@@ -1,0 +1,18 @@
+<link rel="import" href="../../polymer-elements/polymer-overlay/polymer-overlay.html">
+
+<polymer-element name="polymer-ui-overlay" attributes="active modal">
+	<template>
+		<polymer-overlay id="overlay" opened="{{active}}" autoCloseDisabled="{{modal}}"></polymer-overlay>
+		<content></content>
+	</template>
+	<script>
+		Polymer('polymer-ui-overlay', {
+			ready: function() {
+				this.$.overlay.target = this;
+			},
+			toggle: function() {
+				this.$.overlay.toggle();
+			}
+		});
+	</script>
+</polymer-element>
