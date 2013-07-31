@@ -36,9 +36,12 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../../polymer-elements/polymer-selector/polymer-selector.html">
 <link rel="import" href="../polymer-ui-collapsible/polymer-ui-collapsible.html">
 
-<polymer-element name="polymer-ui-accordion" noscript extends="polymer-selector">
+<polymer-element name="polymer-ui-accordion" extends="polymer-selector">
   <template>
     <link rel="stylesheet" href="polymer-ui-accordion.css">
     <shadow></shadow>
   </template>
+  <script>
+    Polymer('polymer-ui-accordion');
+  </script>
 </polymer-element>

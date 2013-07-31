@@ -17,7 +17,7 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../../polymer-elements/polymer-flex-layout/polymer-flex-layout.html">
 <link rel="import" href="polymer-ui-sidebar-header.html">
 
-<polymer-element name="polymer-ui-sidebar" noscript extends="polymer-ui-theme-aware" attributes="label">
+<polymer-element name="polymer-ui-sidebar" extends="polymer-ui-theme-aware" attributes="label">
   <template>
     <link rel="stylesheet" href="polymer-ui-sidebar.css">
     <polymer-flex-layout vertical></polymer-flex-layout>
@@ -26,4 +26,7 @@ license that can be found in the LICENSE file.
     </polymer-ui-sidebar-header>
     <content></content>
   </template>
+  <script>
+    Polymer('polymer-ui-sidebar');
+  </script>
 </polymer-element>
