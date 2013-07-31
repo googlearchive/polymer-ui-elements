@@ -51,6 +51,11 @@ content::-webkit-distributed(> polymer-ui-icon-button) {
   margin: 0px 8px 0 8px;
 }
 
+/*@polyfill @host > polymer-ui-menu-button */
+content::-webkit-distributed(> polymer-ui-menu-button) {
+  margin: 0px 8px 0 8px;
+}
+
 /*@polyfill @host > polymer-ui-toolbar */
 content::-webkit-distributed(> polymer-ui-toolbar) {
   margin: 0;
