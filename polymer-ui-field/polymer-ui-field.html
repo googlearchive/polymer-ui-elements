@@ -1,31 +1,40 @@
+<link rel="import" href="../../polymer-elements/polymer-flex-layout/polymer-flex-layout.html">
+
 <polymer-element name="polymer-ui-field">
   <template>
     <style>
       @host {
         * {
           display: block;
-          padding: 18px;
           border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+					color: #333;
+          font-size: 14px;
         }
       }
+			::-webkit-distributed(polymer-ui-icon) {
+				margin: 18px;
+			}
+			::-webkit-distributed(polymer-ui-menu-button) {
+				margin: 8px;
+			}
       ::-webkit-distributed(input) {
-          font-size: 14px;
-          height: 40px;
+					background: transparent;
           color: #333;
           border: 0;
+					padding: 0;
+          font-size: 14px;
           flex: 1 auto;
       }
+			::-webkit-distributed(input:focus) {
+				outline: none;
+			}
       ::-webkit-distributed(input::placeholder) {
         color: #b3b3b3;
       }
-      div {
-        display: flex;
-        flex-direction: row;
-      }
     </style>
-    <div>
-      <content select="*"></content>
-    </div>
+		<polymer-flex-layout align="center"></polymer-flex-layout>
+		<content select="polymer-ui-icon,polymer-ui-icon-button,polymer-ui-menu-button"></content>
+		<content select="*"></content>
   </template>
   <script>
     Polymer('polymer-ui-field');
