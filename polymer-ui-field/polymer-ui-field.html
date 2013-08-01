@@ -1,0 +1,33 @@
+<polymer-element name="polymer-ui-field">
+  <template>
+    <style>
+      @host {
+        * {
+          display: block;
+          padding: 18px;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        }
+      }
+      ::-webkit-distributed(input) {
+          font-size: 14px;
+          height: 40px;
+          color: #333;
+          border: 0;
+          flex: 1 auto;
+      }
+      ::-webkit-distributed(input::placeholder) {
+        color: #b3b3b3;
+      }
+      div {
+        display: flex;
+        flex-direction: row;
+      }
+    </style>
+    <div>
+      <content select="*"></content>
+    </div>
+  </template>
+  <script>
+    Polymer('polymer-ui-field');
+  </script>
+</polymer-element>

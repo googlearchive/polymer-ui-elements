@@ -28,38 +28,15 @@ license that can be found in the LICENSE file.
  * @extends polymer-selector
  */
 -->
+<link rel="import" href="../../polymer-elements/polymer-flex-layout/polymer-flex-layout.html">
+
 <polymer-element name="polymer-ui-tabs" extends="polymer-selector">
   <template>
-    <style>
-      @host {
-        * {
-          display: block;
-          height: 59px;
-          border: 0;
-          border-bottom: 1px solid #e8e8e8;
-          white-space: nowrap;
-        }
-      }
-      
-      /*@polyfill @host > * */
-      ::-webkit-distributed(*) {
-        display: inline-block;
-        min-width: 60px;
-        height: 59px;
-        line-height: 59px;
-        text-align: center;
-        padding: 0 8px;
-        cursor: pointer;
-        font-size: 14px;
-        color: #999;
-      }
-      
-      /*@polyfill @host > *.polymer-selected */
-      ::-webkit-distributed(*.polymer-selected) {
-        background: #4888f0;
-        color: #fff;
-      }
-    </style>
+    <link rel="stylesheet" href="polymer-ui-tabs.css">
+    <polymer-flex-layout></polymer-flex-layout>
     <shadow></shadow>
   </template>
+  <script>
+    Polymer('polymer-ui-tabs');
+  </script>
 </polymer-element>

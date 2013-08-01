@@ -36,9 +36,58 @@ license that can be found in the LICENSE file.
 <polymer-element name="polymer-ui-icon" extends="polymer-ui-theme-aware" attributes="src size index icon">
   <template>
     <link rel="stylesheet" href="polymer-ui-icon.css">
+    <content></content>
   </template>
   <script>
     (function() {
+      var icons = [
+       'drawer',
+       'menu',
+       'search',
+       'dropdown',
+       'close',
+       'add',
+       'trash',
+       'refresh',
+       'settings',
+       'dialoga',
+       'left',
+       'right',
+       'down',
+       'up',
+       'grid',
+       'contact',
+       'account',
+       'plus',
+       'time',
+       'marker',
+       'briefcase',
+       'array',
+       'columns',
+       'list',
+       'modules',
+       'quilt',
+       'stream',
+       'maximize',
+       'shrink',
+       'sort',
+       'shortcut',
+       'dialog',
+       'twitter',
+       'facebook',
+       'favorite',
+       'gplus',
+       'filter',
+       'tag',
+       'plusone',
+       'dots'
+      ];
+      var map = {};
+      icons.forEach(function(name, i) {
+        map[name] = i;
+      });
+      icons = map;
+
       Polymer('polymer-ui-icon', {
         /**
          * The URL of an image for the icon.
@@ -66,6 +115,7 @@ license that can be found in the LICENSE file.
         icon: '',
         bx: 0,
         by: 0,
+        icons: icons,
         ready: function() {
           this.sizeChanged();
         },
@@ -94,23 +144,12 @@ license that can be found in the LICENSE file.
           if (this.src) {
             this.style.backgroundPosition = 'center';
           } else {
-            this.bx = parseFloat(getComputedStyle(this).backgroundPosition.split(' ').shift());
-            this.style.backgroundPosition = (this.bx + 'px') + ' ' + (this.by + 'px');
+            //this.bx = parseFloat(getComputedStyle(this).backgroundPosition.split(' ').shift());
+            //this.style.backgroundPosition = (this.bx + 'px') + ' ' + (this.by + 'px');
+            this.style.backgroundPositionY = this.by + 'px';
           }
         }
       });
-      var icons = {
-        drawer: 0,
-        menu: 1,
-        search: 2,
-        dropdown: 3,
-        close: 4,
-        add: 5,
-        trash: 6,
-        refresh: 7,
-        settings: 8,
-        dialog: 9
-      };
     })();
   </script>
 </polymer-element>
