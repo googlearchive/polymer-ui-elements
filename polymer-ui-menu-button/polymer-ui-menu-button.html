@@ -1,0 +1,61 @@
+<!--
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<!--
+/**
+ * @module Polymer Elements
+ */
+-->
+<link rel="import" href="../../polymer-elements/polymer-media-query/polymer-media-query.html">
+<link rel="import" href="../../polymer-elements/polymer-overlay/polymer-overlay.html">
+<link rel="import" href="../polymer-ui-icon-button/polymer-ui-icon-button.html">
+<link rel="import" href="../polymer-ui-menu/polymer-ui-menu.html">
+
+<polymer-element name="polymer-ui-menu-button" attributes="src icon opened responsive valign selected selectedItem selectedClass valueattr multi">
+  <template>
+    <link rel="stylesheet" href="polymer-ui-menu-button.css">
+		<link rel="stylesheet" href="../../polymer-elements/polymer-overlay/polymer-overlay-global.css">
+		<polymer-ui-icon-button id="button" on-tap="toggle" src="{{src}}" icon="{{icon}}" active="{{opened}}">
+			<div id="arrow">
+				<div class="arrow"></div>
+				<div class="arrow arrow-inner"></div>
+			</div>
+		</polymer-ui-icon-button>
+		<div id="menuOverlay" valign="{{valign}}">
+			<polymer-ui-menu id="menu" selected="{{selected}}" selectedItem="{{selectedItem}}" selectedClass="{{selectedClass}}" valueattr="{{valueattr}}" multi="{{multi}}">
+				<content select="*"></content>
+			</polymer-ui-menu>
+		</div>
+		<polymer-media-query query="{{mediaQuery}}" on-polymer-mediachange="mediaChangeAction"></polymer-media-query>
+		<polymer-overlay target="{{$.menuOverlay}}" opened="{{opened}}" modal></polymer-overlay>
+		<polymer-overlay target="{{$.arrow}}" opened="{{opened}}" modal></polymer-overlay>
+  </template>
+  <script>
+    Polymer('polymer-ui-menu-button', {
+      icon: 'dots',
+      src: '',
+      selected: '',
+      opened: false,
+      valign: 'center',
+      multi: false,
+			mediaQuery: 'max-width: 800px',
+			mediaChangeAction: function(e) {
+				if (e.detail.matches) {
+					this.classList.add('fullwidth');
+				} else {
+					this.classList.remove('fullwidth');
+				}
+			},
+      //* Toggle the opened state of the dropdown.
+      toggle: function() {
+        this.opened = !this.opened;
+      },
+      //* Returns the selected item.
+      get selection() {
+        return this.$.menu.selection;
+      }
+    });
+  </script>
+</polymer-element>

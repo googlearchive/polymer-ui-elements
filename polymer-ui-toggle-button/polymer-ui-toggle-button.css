@@ -7,11 +7,11 @@
   * {
     display: inline-block;
     position: relative;
-    width: 70px;
-    height: 30px;
+    width: 60px;
+    height: 24px;
     overflow: hidden;
     border: 1px solid #b6b6b6;
-    border-radius: 3px;
+    border-radius: 2px;
     box-shadow: inset 0px 0px 1px 0 rgba(0,0,0,0.1);
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -21,14 +21,14 @@
   }
 
   *.on {
-    border: 1px solid #4584f2;
+    border: 1px solid #5ac7d8;
   }
 }
 
 .toggle {
   position: absolute;
-  left: -42px;
-  width: 112px;
+  left: -36px;
+  width: 96px;
   height: 100%;
   overflow: hidden;
   white-space: nowrap;
@@ -52,7 +52,7 @@
 .on-label, .off-label {
   width: 50%;
   height: 100%;
-  line-height: 30px;
+  line-height: 24px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   text-align: center;
@@ -62,7 +62,7 @@
 
 .on-label {
   padding-right: 14px;
-  background-color: #488afd;
+  background-color: #75d0df;
   color: white;
 }
 
@@ -74,23 +74,9 @@
 
 .thumb {
   position: absolute;
-  left: 42px;
-  width: 28px;
+  left: 36px;
+  width: 24px;
   height: 100%;
-  border-radius: 2px;
+  border-radius: 1px;
   background-color: white;
-}
-
-.thumb::after {
-  content: "";
-  position: absolute;
-  display: block;
-  top: 10px;
-  left: 11px;
-  height: 10px;
-  width: 8px;
-  background-image: -webkit-linear-gradient(left, #d4d3d3 40%, transparent 40%);
-  background-image: -moz-linear-gradient(left, #d4d3d3 40%, transparent 40%);
-  background-image: -ms-linear-gradient(left, #d4d3d3 40%, transparent 40%);
-  background-size: 4px;
 }

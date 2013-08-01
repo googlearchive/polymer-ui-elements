@@ -1,0 +1,65 @@
+@host {
+	:scope {
+		position: relative;
+	}
+	.fullwidth {
+		position: static;
+	}
+}
+
+#menuOverlay {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	background: white;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	margin: 7px 0 0 7px;
+}
+
+#menuOverlay[valign=right] {
+  position: absolute !important;
+	right: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  #menuOverlay,
+	#menuOverlay[valign=right] {
+    left: 0;
+    width: 100%;
+    -webkit-transform: none;
+    transform: none;
+		margin: 7px 0 0 0;
+  }  
+}
+
+#button {
+	position: relative;
+}
+
+#arrow {
+	position: absolute;
+	bottom: -8px;
+}
+
+.arrow {
+	height: 1px;
+	width: 0;
+	margin: -17px 4px 0;
+	border-color: transparent transparent #cfcfcf transparent;
+	border-style: solid;
+	border-width: 8px;
+}
+
+.arrow.right {
+	float: right;
+	margin: -17px 4px 0;
+}
+
+.arrow.center {
+	margin: -17px auto 0;
+}
+
+.arrow-inner {
+	border-bottom-color: white;
+	margin-top: -16px;
+}

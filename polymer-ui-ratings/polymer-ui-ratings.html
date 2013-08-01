@@ -12,24 +12,24 @@ license that can be found in the LICENSE file.
 
 <!--
 /**
- * polymer-ratings allows users to rate items.
+ * polymer-ui-ratings allows users to rate items.
  *
  * Example:
  *
- *     <polymer-ratings value="3"></polymer-ratings>
+ *     <polymer-ui-ratings value="3"></polymer-ui-ratings>
  *
  * By default g-ratings shows 5 stars but can be configured using "count" attribute:
  *
- *     <polymer-ratings value="3" count="10"></polymer-ratings>
+ *     <polymer-ui-ratings value="3" count="10"></polymer-ui-ratings>
  *
- * @class g-ratings
+ * @class polymer-ui-ratings
  */
 -->
 <polymer-element name="polymer-ui-ratings" attributes="count value">
   <template>
     <link rel="stylesheet" href="polymer-ui-ratings.css">
     <template repeat="{{stars}}">
-      <span id="star" index="{{index}}" class="{{starClass}}" touch-action="none" on-tap="updateValue"></span>
+      <span id="star" index="{{index}}" class="{{starClass}}" on-tap="updateValue"></span>
     </template>
   </template>
   <script>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>polymer-overlay</title>
+		<link rel="import" href="polymer-ui-overlay.html">
+		<link rel="import" href="polymer-ui-overlay-dialog.html">
+		<script src="../../polymer/polymer.js"></script>
+		<link rel="stylesheet" href="../../dialog-polyfill/dialog-polyfill.css">
+		<script src="../../dialog-polyfill/dialog-polyfill.js"></script>
+		<style>
+			polymer-ui-overlay-dialog,
+			polymer-ui-overlay {
+				box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 13px;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				overflow: hidden;
+				background: white;
+				padding:30px 42px;
+				outline: 1px solid rgba(0,0,0,0.2);
+				box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+			}
+			.dialog {
+				box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 13px;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				overflow: hidden;
+				background: white;
+				padding:30px 42px;
+				outline: 1px solid rgba(0,0,0,0.2);
+				box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+			}
+
+			#dialog, #dialog2 {
+				top: 72px;
+				left: 50%;
+				width: 512px;
+				margin-left: -256px;
+			}
+
+			#confirmation {
+				position: absolute;
+				left: 50%;
+				top: 100px;
+				text-align: center;
+				width: 150px;
+				margin-left: -75px;
+			}
+		</style>
+	</head>
+	<body>
+		<button overlay="#dialog">Toggle Dialog</button>
+		( open styling: 
+		<select onchange="changeOpening(event)">
+			<option>polymer-overlay-scale-slideup</option>
+			<option>polymer-overlay-shake</option>
+			<option>polymer-overlay-fade</option>
+			<option>none</option>
+		</select>,
+		<label>modal: <input type="checkbox" onchange="modalChange(event)"></label>
+		<label>scrim: <input type="checkbox" onchange="scrimChange(event)"></label>
+		)
+		<br>
+		<polymer-ui-overlay id="dialog" class="dialog polymer-overlay-scale-slideup">
+			<h2>Dialog</h2>
+			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla sapien sed enim sollicitudin laoreet. Suspendisse suscipit, metus ac volutpat sodales, libero magna semper lacus, molestie fringilla massa orci ut arcu. Nullam sodales urna sit amet odio vehicula mattis.</div><br><br>
+			<div>Ut aliquam vulputate congue. Vestibulum pretium pretium nulla quis sollicitudin. Praesent lacinia congue erat nec mattis. Fusce commodo lacus est. Duis turpis eros, ultrices sed aliquet non, blandit egestas velit. Integer a augue nec lorem tristique hendrerit. Curabitur imperdiet risus id enim bibendum vestibulum. Integer id magna at arcu faucibus fermentum vel a augue. Sed fringilla venenatis dolor, in blandit magna molestie luctus. Vestibulum dignissim posuere ultrices. Aenean urna nisl, tincidunt vitae iaculis ut, pharetra nec eros.</div><br><br>
+			<div>
+				<input placeholder="say something..." autofocus oninput="somethingCheck()"></input><br>
+				I agree with this wholeheartedly.
+				<polymer-ui-overlay id="confirmation" class="dialog">
+					Thank you.
+				</polymer-ui-overlay>
+			</div><br><br>
+			<button overlay-toggle>OK</button>
+		</polymer-ui-overlay>
+
+		<br><br>
+
+		<button overlay="#dialog2">Toggle Dialog 2</button>
+
+		<polymer-ui-overlay id="dialog2" class="dialog polymer-overlay-shake" modal="true">
+			<div>
+				<h2>Dialog 2</h2>
+					I'm dizzy.
+			</div>
+			<br><br>
+			<button overlay-toggle>OK</button>
+		</polymer-ui-overlay>
+
+		<button overlay="#dialog3">Toggle Dialog 3</button>
+		<label>modal: <input type="checkbox" onchange="modalChange(event, dialog3)"></label>
+
+		<polymer-ui-overlay-dialog id="dialog3">
+			<h3>I'm a &lt;dialog&gt;!</h3>
+			It works!<br>
+			<button overlay-toggle>OK</button>
+		</polymer-ui-overlay-dialog>
+
+		<button overlay="#dialog4">Toggle Dialog 4</button>
+
+		<dialog id="dialog4">
+			<h3>A native &lt;dialog&gt;</h3>
+		</dialog>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				dialogPolyfill.registerDialog(dialog4);
+				dialog4.toggle = function() {
+					console.log('asdasd');
+					if (!dialog4.open) {
+						dialog4.show();
+					} else {
+						dialog4.close()
+					}
+				};
+			});
+
+			$ = document.querySelector.bind(document);
+
+			somethingCheck = function() {
+				$('#confirmation').active = (event.target.value == 'something');
+			}
+			
+			changeOpening = function(e) {
+				var s = e.target.selectedOptions[0];
+				if (s) {
+					dialog.className = dialog.className.replace(/polymer-[^\s]*/, '')
+					dialog.classList.add(s.textContent);
+			}
+			}
+			
+			modalChange = function(e, d) {
+				if (!d) {
+					d = dialog;
+				}
+				d.modal = e.target.checked;
+			}
+			
+			scrimChange = function(e) {
+				dialog.scrim = e.target.checked;
+			}
+			
+			var overlayButtons = document.querySelectorAll('button[overlay]');
+			Array.prototype.forEach.call(overlayButtons, function(b) {
+				b.addEventListener('tap', function(e) {
+					document.querySelector(e.target.getAttribute('overlay')).toggle();
+				})
+			});
+		</script>
+	</body>
+</html>

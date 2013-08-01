@@ -1,0 +1,48 @@
+<script src="../../dialog-polyfill/dialog-polyfill.js"></script>
+
+<polymer-element name="polymer-ui-overlay-dialog" attributes="active modal" on-click="clickHandler">
+	<template>
+		<link rel="stylesheet" polymer-scope="global" href="../../dialog-polyfill/dialog-polyfill.css">
+		<style>
+			@host {
+				:scope {
+					position: absolute;
+					left: 0;
+					right: 0;
+					width: 200px;
+					margin: auto;
+					display: none;
+				}
+			}
+		</style>
+		<content></content>
+	</template>
+	<script>
+		Polymer('polymer-ui-overlay-dialog', {
+			active: false,
+			modal: false,
+			ready: function() {
+				dialogPolyfill.registerDialog(this);
+			},
+			activeChanged: function() {
+				if (this.active) {
+					if (this.modal) {
+						this.showModal();
+					} else {
+						this.show();
+					}
+				} else {
+					this.close();
+				}
+			},
+			clickHandler: function(e) {
+				if (e.target && e.target.hasAttribute('overlay-toggle')) {
+					this.toggle();
+				}
+			},
+			toggle: function() {
+				this.active = !this.active;
+			}
+		});
+	</script>
+</polymer-element>
