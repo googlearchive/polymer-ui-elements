@@ -11,12 +11,15 @@
           font-size: 14px;
         }
       }
-			::-webkit-distributed(polymer-ui-icon) {
+      /*@polyfill @host > polymer-ui-icon*/
+      ::-webkit-distributed(> polymer-ui-icon) {
 				margin: 18px;
 			}
-			::-webkit-distributed(polymer-ui-menu-button) {
+      /*@polyfill @host > polymer-ui-menu-button*/
+      ::-webkit-distributed(> polymer-ui-menu-button) {
 				margin: 8px;
 			}
+      /*@polyfill @host input*/
       ::-webkit-distributed(input) {
 					background: transparent;
           color: #333;
@@ -25,9 +28,11 @@
           font-size: 14px;
           flex: 1 auto;
       }
-			::-webkit-distributed(input:focus) {
+      /*@polyfill @host input:focus*/
+      ::-webkit-distributed(input:focus) {
 				outline: none;
 			}
+      /*@polyfill @host input::placeholder*/
       ::-webkit-distributed(input::placeholder) {
         color: #b3b3b3;
       }
