@@ -8,6 +8,7 @@
 }
 
 #menuOverlay {
+  position: absolute;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	background: white;
@@ -38,7 +39,7 @@
 
 #arrow {
 	position: absolute;
-	bottom: -8px;
+	bottom: -10px;
 }
 
 .arrow {
