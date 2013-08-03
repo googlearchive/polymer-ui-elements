@@ -5,6 +5,7 @@
  */
 module.exports = function(grunt) {
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
     yuidoc: {
       compile: {
         name: '<%= pkg.name %>',
@@ -12,13 +13,13 @@ module.exports = function(grunt) {
         version: '<%= pkg.version %>',
         url: '<%= pkg.homepage %>',
         options: {
-          exclude: 'third_party',
+          exclude: 'docs',
           extension: '.js,.html',
           paths: '.',
           outdir: 'docs',
           linkNatives: 'true',
           tabtospace: 2,
-          themedir: 'tools/doc/themes/footstrap'
+          themedir: 'tools/doc/themes/polymerase'
         }
       }
     },
