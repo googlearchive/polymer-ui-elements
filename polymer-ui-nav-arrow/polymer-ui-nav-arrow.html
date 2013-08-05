@@ -11,15 +11,24 @@ license that can be found in the LICENSE file.
  * @class polymer-ui-nav-arrow
  */
 -->
-<polymer-element name="polymer-ui-nav-arrow" attributes="target top item">
+<link rel="import" href="../polymer-ui-arrow/polymer-ui-arrow.html">
+
+<polymer-element name="polymer-ui-nav-arrow" extends="polymer-ui-arrow" attributes="target top item">
   <template>
     <link rel="stylesheet" href="polymer-ui-nav-arrow.css">
+    <shadow></shadow>
   </template>
   <script>
     Polymer('polymer-ui-nav-arrow', {
+      direction: 'left',
+      size: 9,
+      borderColor: 'white',
       show: false,
+      inserted: function() {
+        this.showChanged();
+      },
       showChanged: function() {
-        this.classList.toggle('show', this.show);
+        this.classList.toggle('hidden', !this.show);
       },
       targetChanged: function() {
         this.show = !!this.target;
