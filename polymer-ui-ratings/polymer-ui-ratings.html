@@ -18,18 +18,21 @@ license that can be found in the LICENSE file.
  *
  *     <polymer-ui-ratings value="3"></polymer-ui-ratings>
  *
- * By default g-ratings shows 5 stars but can be configured using "count" attribute:
+ * By default polymer-ui-ratings shows 5 stars but can be configured using 
+ * "count" attribute:
  *
  *     <polymer-ui-ratings value="3" count="10"></polymer-ui-ratings>
  *
  * @class polymer-ui-ratings
  */
 -->
-<polymer-element name="polymer-ui-ratings" attributes="count value">
+<link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
+
+<polymer-element name="polymer-ui-ratings" extends="polymer-ui-theme-aware" attributes="count value color">
   <template>
     <link rel="stylesheet" href="polymer-ui-ratings.css">
-    <template repeat="{{stars}}">
-      <span id="star" index="{{index}}" class="{{starClass}}" on-tap="updateValue"></span>
+    <template repeat="{{star in stars}}">
+      <span id="star" index="{{star.index}}" class="{{star.starClass}} {{color}} {{theme}}" on-tap="updateValue"></span>
     </template>
   </template>
   <script>
@@ -50,6 +53,7 @@ license that can be found in the LICENSE file.
        * @default 0
        */
       value: 0,
+      color: '',
       ready: function() {
         this.countChanged();
       },
@@ -66,7 +70,7 @@ license that can be found in the LICENSE file.
         }.bind(this));
       },
       updateValue: function(event, detail, sender) {
-        var s = sender.templateInstance.model;
+        var s = sender.templateInstance.model.star;
         this.value = s.index + (s.starClass ? 0 : 1);
       }
     });
