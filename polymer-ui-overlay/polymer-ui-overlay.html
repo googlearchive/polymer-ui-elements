@@ -17,7 +17,7 @@
       }
     </style>
 		<polymer-overlay id="overlay" opened="{{active}}" modal="{{modal}}"></polymer-overlay>
-    <div id="backdrop" hidden?="{{!backdrop}}" pseudo="x-backdrop"></div>
+    <div id="backdrop" hidden?="{{!backdrop}}" pseudo="x-backdrop" on-click="toggle"></div>
     <div id="container" pseudo="x-overlay">
       <content></content>
     </div>
