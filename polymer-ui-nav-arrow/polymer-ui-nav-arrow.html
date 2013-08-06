@@ -13,7 +13,7 @@ license that can be found in the LICENSE file.
 -->
 <link rel="import" href="../polymer-ui-arrow/polymer-ui-arrow.html">
 
-<polymer-element name="polymer-ui-nav-arrow" extends="polymer-ui-arrow" attributes="target top item">
+<polymer-element name="polymer-ui-nav-arrow" extends="polymer-ui-arrow" attributes="target">
   <template>
     <link rel="stylesheet" href="polymer-ui-nav-arrow.css">
     <shadow></shadow>
@@ -36,29 +36,6 @@ license that can be found in the LICENSE file.
           this.asyncMethod('move');
         }
       },
-      topChanged: function() {
-        this.show = true;
-        this.translateY(this.top);
-      },
-      itemChanged: function() {
-        if (!this.item) {
-          this.show = false;
-          return;
-        }
-        var p = this.item.parentNode;
-        if (p) {
-          var subitems = p.items;
-          var i = Array.prototype.indexOf.call(subitems, this.item);
-          if (i >= 0) {
-            var item = subitems[i];
-            if (item) {
-              item = (item.$ && item.$.item) || item;
-              var h = item.offsetHeight;
-              this.top = i * h + h/2 + subitems[0].offsetTop;
-            }
-          }
-        }
-      },
       translateY: function(y) {
         var s = this.style;
         s.webkitTransform = s.mozTransform = s.msTransform = s.transform = 
@@ -66,7 +43,9 @@ license that can be found in the LICENSE file.
       },
       move: function() {
         var t = this.target;
-        var y = t.offsetTop + t.offsetHeight/2;
+        // if the target has getOffsetMiddle(), use that instead
+        var y = t.getOffsetMiddle ? t.getOffsetMiddle() : 
+            (t.offsetTop + t.offsetHeight/2);
         this.translateY(y);
       }
     });
