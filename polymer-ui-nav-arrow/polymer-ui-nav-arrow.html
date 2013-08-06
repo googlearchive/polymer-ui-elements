@@ -50,9 +50,12 @@ license that can be found in the LICENSE file.
           var subitems = p.items;
           var i = Array.prototype.indexOf.call(subitems, this.item);
           if (i >= 0) {
-            var item = subitems[i].$.item || subitems[i];
-            var h = item.offsetHeight;
-            this.top = i * h + h/2 + subitems[0].offsetTop;
+            var item = subitems[i];
+            if (item) {
+              item = (item.$ && item.$.item) || item;
+              var h = item.offsetHeight;
+              this.top = i * h + h/2 + subitems[0].offsetTop;
+            }
           }
         }
       },
