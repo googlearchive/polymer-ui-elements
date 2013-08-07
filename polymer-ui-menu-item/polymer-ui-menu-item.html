@@ -22,9 +22,6 @@ license that can be found in the LICENSE file.
   </template>
   <script>
     Polymer('polymer-ui-menu-item', {
-      getItemHeight: function() {
-        return this.offsetHeight;
-      },
       // calc item's offset middle pos instead of using offsetTop/Height 
       // directly which requires to wait for submenu's collapsing transition to 
       // complete first before it can return the correct pos.
@@ -35,6 +32,9 @@ license that can be found in the LICENSE file.
           var h = this.getItemHeight();
           return i * h + h/2 + p.items[0].offsetTop;
         }
+      },
+      getItemHeight: function() {
+        return this.offsetHeight;
       }
     });
   </script>
