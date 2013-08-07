@@ -3,6 +3,7 @@
 	<head>
 		<title>polymer-overlay</title>
 		<link rel="import" href="polymer-ui-overlay.html">
+		<link rel="import" href="polymer-ui-overlay-dialog.html">
 		<script src="../../polymer/polymer.js"></script>
 		<style>
       /*
@@ -34,7 +35,7 @@
 				box-shadow: 0 4px 16px rgba(0,0,0,0.2);
 			}
 
-			#dialog, #dialog2 {
+			#dialog {
 				top: 72px;
 				left: 50%;
 				width: 512px;
@@ -77,14 +78,14 @@
 
 		<button overlay="#dialog2">Toggle Dialog 2</button>
 
-		<polymer-ui-overlay id="dialog2" class="dialog polymer-overlay-shake" modal="true">
+		<polymer-ui-overlay-dialog id="dialog2">
 			<div>
 				<h2>Dialog 2</h2>
 					I'm dizzy.
 			</div>
 			<br><br>
 			<button overlay-toggle>OK</button>
-		</polymer-ui-overlay>
+		</polymer-ui-overlay-dialog>
 
 		<script>
 			$ = document.querySelector.bind(document);
