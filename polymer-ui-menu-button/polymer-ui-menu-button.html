@@ -29,8 +29,8 @@ license that can be found in the LICENSE file.
 			</polymer-ui-menu>
 		</div>
 		<polymer-media-query query="{{mediaQuery}}" on-polymer-mediachange="mediaChangeAction"></polymer-media-query>
-		<polymer-overlay target="{{$.menuOverlay}}" opened="{{opened}}" modal></polymer-overlay>
 		<polymer-overlay target="{{$.arrow}}" opened="{{opened}}" modal></polymer-overlay>
+		<polymer-overlay target="{{$.menuOverlay}}" opened="{{opened}}" modal></polymer-overlay>
   </template>
   <script>
     Polymer('polymer-ui-menu-button', {
