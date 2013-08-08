@@ -8,6 +8,7 @@
 }
 
 #menuOverlay {
+  position: absolute;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	background: white;
@@ -16,14 +17,18 @@
 	margin: 7px 0 0 7px;
 }
 
-#menuOverlay[valign=right] {
+#menuOverlay[align=right] {
   position: absolute !important;
 	right: 10px;
 }
 
+#menuOverlay[valign=top] {
+	bottom: 36px;
+}
+
 @media screen and (max-width: 800px) {
   #menuOverlay,
-	#menuOverlay[valign=right] {
+	#menuOverlay[align=right] {
     left: 0;
     width: 100%;
     -webkit-transform: none;
@@ -38,7 +43,7 @@
 
 #arrow {
 	position: absolute;
-	bottom: -8px;
+	bottom: -10px;
 }
 
 .arrow {
@@ -62,4 +67,18 @@
 .arrow-inner {
 	border-bottom-color: white;
 	margin-top: -16px;
+}
+
+#arrow[valign=top] {
+	top: -10px;
+}
+
+[valign=top] .arrow {
+	margin: 0px 4px 0;
+	border-color: #cfcfcf transparent transparent transparent;
+}
+
+[valign=top] .arrow-inner {
+	border-top-color: white;
+	margin-top: -18px;
 }
