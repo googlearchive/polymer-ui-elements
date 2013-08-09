@@ -17,12 +17,6 @@ license that can be found in the LICENSE file.
   <template>
     <link rel="stylesheet" href="polymer-ui-menu-button.css">
 		<link rel="stylesheet" href="../../polymer-elements/polymer-overlay/polymer-overlay-global.css">
-    <style>
-      /* hack to make sure the arrow is on top */
-      #button {
-        z-index: 20;
-      }
-    </style>
 		<polymer-ui-icon-button id="button" on-tap="toggle" src="{{src}}" icon="{{icon}}" active="{{opened}}">
 			<div id="arrow" valign="{{valign}}">
 				<div class="arrow"></div>

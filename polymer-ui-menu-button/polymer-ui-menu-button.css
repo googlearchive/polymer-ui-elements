@@ -1,10 +1,16 @@
 @host {
 	:scope {
 		position: relative;
+		display: inline-block;
 	}
 	.fullwidth {
 		position: static;
 	}
+}
+
+/* hack to make sure the arrow is on top */
+#button {
+	z-index: 20;
 }
 
 #menuOverlay {
@@ -23,7 +29,7 @@
 }
 
 #menuOverlay[valign=top] {
-	bottom: 36px;
+	bottom: 50px;
 }
 
 @media screen and (max-width: 800px) {
