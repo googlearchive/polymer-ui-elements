@@ -1,0 +1,31 @@
+<!--
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<!--
+/**
+ * @module Polymer UI Elements
+ */
+/**
+ * @class polymer-ui-breadcrumbs
+ */
+-->
+<link rel="import" href="../polymer-ui-icon/polymer-ui-icon.html">
+<link rel="import" href="../../polymer-elements/polymer-selector/polymer-selector.html">
+
+<polymer-element name="polymer-ui-breadcrumbs" attributes="crumbs selected selectedCrumb">
+  <template>
+    <link rel="stylesheet" href="polymer-ui-breadcrumbs.css">
+    <div id="crumbs">
+      <template repeat="{{crumbs}}">
+        <li class="label"><a href="{{href}}" disabled?="{{!href}}">{{label}}</a></li>
+        <polymer-ui-icon icon="dropdown"></polymer-ui-icon>
+      </template>
+    </div>
+    <polymer-selector target="{{$.crumbs}}" itemsSelector="li" selected="{{selected}}" selectedModel="{{selectedCrumb}}"></polymer-selector>
+  </template>
+  <script>
+    Polymer('polymer-ui-breadcrumbs');
+  </script>
+</polymer-element>
