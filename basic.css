@@ -16,7 +16,7 @@ license that can be found in the LICENSE file.
   width: 100%;
   height: 100%;
 }
-    
+
 .polymer-ui-light-bg {
   background: #f2f2f2 -webkit-linear-gradient(left, rgba(197,197,197,0), rgba(197,197,197,0.05));
   background: #f2f2f2 -moz-linear-gradient(left, rgba(197,197,197,0), rgba(197,197,197,0.05));
@@ -37,34 +37,3 @@ license that can be found in the LICENSE file.
   font: 16px 'Helvetica Neue', Helvetica, Arial, Roboto;
 }
 
-/*
-.polymer-ui-light-bg {
-  background-color: #d9d9d9;      
-  color: #333;
-}
-
-.polymer-ui-dark-bg {
-  background-color: #262626;
-  color: #eee;
-}
-
-.polymer-ui-bg-gray {
-  background-color: #d9d9d9;      
-}
-
-.polymer-ui-bg-jl-dark-theme {
-  background-color: #4d4d4d;
-}
-
-.polymer-ui-header-gray {
-  background-color: #262626;
-}
-
-.polymer-ui-header-jl-dark-theme {
-  background-color: #262626;
-}
-
-.polymer-ui-header {
-  background-color: #f3f3f0;
-}
-*/
