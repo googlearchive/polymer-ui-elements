@@ -14,8 +14,8 @@ license that can be found in the LICENSE file.
 <polymer-element name="polymer-ui-arrow" attributes="direction size color borderColor borderWidth">
   <template>
     <link rel="stylesheet" href="polymer-ui-arrow.css">
-    <div id="outer" class="arrow arrow-outer" style="border-width: {{size}}px;"></div>
-    <div id="inner" class="arrow arrow-inner" style="border-width: {{size}}px;"></div>
+    <div id="outer" class="arrow arrow-outer"></div>
+    <div id="inner" class="arrow arrow-inner"></div>
   </template>
   <script>
     Polymer('polymer-ui-arrow', {
@@ -66,6 +66,8 @@ license that can be found in the LICENSE file.
       update: function() {
         var os = this.$.outer.style;
         var is = this.$.inner.style;
+        os.borderWidth = this.size + 'px';
+        is.borderWidth = this.size + 'px';
         os.borderColor = 'transparent';
         is.borderColor = 'transparent';
         var bc = 'border' + this.borders[this.direction] + 'Color';
