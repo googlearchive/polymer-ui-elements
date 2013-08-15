@@ -1,10 +1,16 @@
 @host {
 	:scope {
 		position: relative;
+		display: inline-block;
 	}
 	.fullwidth {
 		position: static;
 	}
+}
+
+/* hack to make sure the arrow is on top */
+#button {
+	z-index: 20;
 }
 
 #menuOverlay {
@@ -23,7 +29,7 @@
 }
 
 #menuOverlay[valign=top] {
-	bottom: 36px;
+	bottom: 50px;
 }
 
 @media screen and (max-width: 800px) {
@@ -44,41 +50,13 @@
 #arrow {
 	position: absolute;
 	bottom: -10px;
-}
-
-.arrow {
-	height: 1px;
-	width: 0;
-	margin: -17px 4px 0;
-	border-color: transparent transparent #cfcfcf transparent;
-	border-style: solid;
-	border-width: 8px;
-}
-
-.arrow.right {
-	float: right;
-	margin: -17px 4px 0;
-}
-
-.arrow.center {
-	margin: -17px auto 0;
-}
-
-.arrow-inner {
-	border-bottom-color: white;
-	margin-top: -16px;
+	left: 10px;
 }
 
 #arrow[valign=top] {
-	top: -10px;
+  top: -11px;
 }
 
-[valign=top] .arrow {
-	margin: 0px 4px 0;
-	border-color: #cfcfcf transparent transparent transparent;
-}
-
-[valign=top] .arrow-inner {
-	border-top-color: white;
-	margin-top: -18px;
+#arrow > polymer-ui-arrow {
+	display: block !important;
 }

@@ -24,8 +24,10 @@
 	</template>
 	<script>
 		Polymer('polymer-ui-overlay', {
+			active: false,
+			modal: false,
       backdrop: false,
-			ready: function() {
+			created: function() {
 				this.$.overlay.target = this;
 			},
 			toggle: function() {

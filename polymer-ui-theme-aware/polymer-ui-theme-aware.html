@@ -16,7 +16,7 @@ license that can be found in the LICENSE file.
       }
     };
     Polymer('polymer-ui-theme-aware', {
-      inserted: function() {
+      enteredDocument: function() {
         if (!this.theme) {
           this.findTheme();
         }
