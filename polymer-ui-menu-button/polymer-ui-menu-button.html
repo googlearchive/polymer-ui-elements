@@ -12,6 +12,7 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../../polymer-elements/polymer-overlay/polymer-overlay.html">
 <link rel="import" href="../polymer-ui-icon-button/polymer-ui-icon-button.html">
 <link rel="import" href="../polymer-ui-menu/polymer-ui-menu.html">
+<link rel="import" href="../polymer-ui-arrow/polymer-ui-arrow.html">
 
 <polymer-element name="polymer-ui-menu-button" attributes="src icon opened responsive align valign selected selectedItem selectedClass valueattr multi">
   <template>
@@ -19,8 +20,7 @@ license that can be found in the LICENSE file.
 		<link rel="stylesheet" href="../../polymer-elements/polymer-overlay/polymer-overlay-global.css">
 		<polymer-ui-icon-button id="button" on-tap="toggle" src="{{src}}" icon="{{icon}}" active="{{opened}}">
 			<div id="arrow" valign="{{valign}}">
-				<div class="arrow"></div>
-				<div class="arrow arrow-inner"></div>
+        <polymer-ui-arrow size="9" direction="{{valign == 'top' ? 'down' : 'up'}}"></polymer-ui-arrow>
 			</div>
 		</polymer-ui-icon-button>
 		<div id="menuOverlay" align="{{align}}" valign="{{valign}}">

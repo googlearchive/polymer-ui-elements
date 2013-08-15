@@ -13,6 +13,7 @@ license that can be found in the LICENSE file.
 
 /*@polyfill @host > * */
 ::-webkit-distributed(> *) {
+	display: inline-block;
   min-width: 60px;
   height: 60px;
   line-height: 60px;
