@@ -5,6 +5,15 @@
 		<link rel="import" href="polymer-ui-overlay.html">
 		<script src="../../polymer/polymer.js"></script>
 		<style>
+			#fixed {
+				position: fixed;
+				width: 100%;
+				z-index: 100;
+				top: 300px;
+				background-color: black;
+				color: white;
+				padding: 10px;
+			}
       /*
 			polymer-ui-overlay {
 				box-sizing: border-box;
@@ -20,6 +29,9 @@
 				box-shadow: 0 4px 16px rgba(0,0,0,0.2);
 			}
       */
+			#dialog {
+				z-index: 100;
+			}
 			.dialog {
 				box-sizing: border-box;
 				-moz-box-sizing: border-box;
@@ -52,9 +64,11 @@
 		</style>
 	</head>
 	<body>
+		<div id="fixed">z-index: 100</div>
 		<button overlay="#dialog">Toggle Dialog</button>
 		<label>modal: <input type="checkbox" onchange="modalChange(event)"></label>
 		<label>backdrop: <input type="checkbox" onchange="backdropChange(event)"></label>
+		<label>z-index: <input onchange="zindexChange(event)"></label>
 		)
 		<br>
 		<polymer-ui-overlay id="dialog">
@@ -110,6 +124,10 @@
 			
 			backdropChange = function(e) {
 				dialog.backdrop = e.target.checked;
+			}
+
+			zindexChange = function(e) {
+				dialog.style.zIndex = e.target.value;
 			}
 			
 			var overlayButtons = document.querySelectorAll('button[overlay]');
