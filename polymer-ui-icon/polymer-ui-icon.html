@@ -138,18 +138,32 @@ license that can be found in the LICENSE file.
         themeChanged: function(old) {
           this.style.backgroundPosition = '';
           this.classList.switch(old, this.theme);
+          this.bx = calcThemeOffset(this.theme, this);
           this.asyncMethod('updateIcon');
         },
         updateIcon: function() {
           if (this.src) {
             this.style.backgroundPosition = 'center';
           } else {
-            //this.bx = parseFloat(getComputedStyle(this).backgroundPosition.split(' ').shift());
-            //this.style.backgroundPosition = (this.bx + 'px') + ' ' + (this.by + 'px');
-            this.style.backgroundPositionY = this.by + 'px';
+            // TODO(sorvell): FF cannot set Y only so we go to trouble
+            // to find the x offset and use it here.
+            this.style.backgroundPosition = (this.bx + 'px') + ' ' + (this.by + 'px');
+            //this.style.backgroundPositionY = this.by + 'px';
           }
         }
       });
+
+      // memoize offset by theme name since getComputedStyle
+      // is $$
+      var themes = {};
+      function calcThemeOffset(theme, node) {
+        if (themes[theme] === undefined) {
+          var offset = parseFloat(
+              getComputedStyle(node).backgroundPosition.split(' ').shift());
+          themes[theme] = offset;
+        }
+        return themes[theme]; 
+      }
     })();
   </script>
 </polymer-element>
