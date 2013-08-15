@@ -51,7 +51,11 @@ license that can be found in the LICENSE file.
         }
       },
       bodyTap: function(e) {
+        // TODO(ffu): cancelBubble is confusing and sometimes need to use
+        // stopPropagation to actually stop event propagation.
+        // https://github.com/Polymer/polymer/issues/74
         e.cancelBubble = true;
+        e.stopPropagation();
       }
     });
   </script>
