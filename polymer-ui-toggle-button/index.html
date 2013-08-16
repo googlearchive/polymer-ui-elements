@@ -7,15 +7,15 @@ license that can be found in the LICENSE file.
 -->
 <html>
   <head>
-    <title>polymer-ui-toggle-button</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <!-- load toolkit -->
+    <title>Toggle Button</title>
     <script src="../../polymer/polymer.js"></script>
-    <!-- import elements-->
     <link rel="import" href="polymer-ui-toggle-button.html">
-    <!-- -->
     <link rel="stylesheet" href="../basic.css">
+    <style>
+      .wide-button {
+        width: 100px;
+      }
+    </style>
   </head>
   <body class="polymer-ui-body-text">
     <polymer-ui-toggle-button></polymer-ui-toggle-button>
@@ -25,5 +25,7 @@ license that can be found in the LICENSE file.
     <polymer-ui-toggle-button noCaption></polymer-ui-toggle-button>
     <br><br>
     <polymer-ui-toggle-button noCaption value></polymer-ui-toggle-button>
+    <br><br>
+    <polymer-ui-toggle-button class="wide-button" onCaption="OOOOOOON" offCaption="OFFFFFFF"></polymer-ui-toggle-button>
   </body>
 </html>

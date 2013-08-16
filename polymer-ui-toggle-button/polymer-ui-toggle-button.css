@@ -7,7 +7,7 @@
   * {
     display: inline-block;
     position: relative;
-    width: 60px;
+    min-width: 60px;
     height: 24px;
     overflow: hidden;
     border: 1px solid #b6b6b6;
@@ -18,17 +18,22 @@
     -webkit-transition: border 0.130s ease-out;
     transition: border 0.130s ease-out;
     cursor: pointer;
+    font-size: 10px;
   }
 
   *.on {
-    border: 1px solid #5ac7d8;
+    border: 1px solid #0fb2c6;
   }
 }
 
 .toggle {
   position: absolute;
-  left: -36px;
-  width: 96px;
+  left: -webkit-calc(-100% + 24px);
+  left: -moz-calc(-100% + 24px);
+  left: calc(-100% + 24px);
+  width: -webkit-calc(200% - 24px);
+  width: -moz-calc(200% - 24px);
+  width: calc(200% - 24px);
   height: 100%;
   overflow: hidden;
   white-space: nowrap;
@@ -37,8 +42,8 @@
 }
 
 .toggle.dragging {
-  -webkit-transition: all 0;
-  transition: all 0;
+  -webkit-transition: none;
+  transition: none;
 }
 
 .toggle.on {
@@ -50,31 +55,46 @@
 }
 
 .on-label, .off-label {
+	/* align center */
+	display: -webkit-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  /* */
   width: 50%;
   height: 100%;
-  line-height: 24px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
-  text-align: center;
-  font-family: 'Helvetica Neue', Helvetica, Arial, 'open sans', sans-serif;
-  font-size: 10px;
 }
 
 .on-label {
-  padding-right: 14px;
-  background-color: #75d0df;
+  padding-right: 12px;
+  background-color: #2fb2c6;
   color: white;
 }
 
 .off-label {
-  padding-left: 14px;
+  padding-left: 12px;
   background-color: #bfbfbf;
   color: #716f6f;
 }
 
 .thumb {
   position: absolute;
-  left: 36px;
+  left: -webkit-calc(50% - 12px);
+  left: -moz-calc(50% - 12px);
+  left: calc(50% - 12px);
   width: 24px;
   height: 100%;
   border-radius: 1px;
