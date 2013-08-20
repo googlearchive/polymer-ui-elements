@@ -7,6 +7,22 @@ license that can be found in the LICENSE file.
 /**
  * @module Polymer Elements
  */
+/**
+ * polymer-ui-menu-button is a polymer-ui-icon-button with a drop down menu
+ * that allows the user to select an option. The drop down menu is styled with
+ * an arrow pointing to the button, and can be positioned to the top or the
+ * bottom of the button with the valign property. The valign property aligns
+ * the menu to the left or right edge of the button.
+ *
+ * Example:
+ *
+ *     <polymer-ui-menu-button selected="0">
+ *       <polymer-ui-menu-item icon="settings" label="Settings"></polymer-ui-menu-item>
+ *       <polymer-ui-menu-item icon="dialog" label="Dialog"></polymer-ui-menu-item>
+ *       <polymer-ui-menu-item icon="search" label="Search"></polymer-ui-menu-item>
+ *     </polymer-ui-menu-button>
+ *
+ * @class polymer-ui-menu-button
 -->
 <link rel="import" href="../../polymer-elements/polymer-anchor-point/polymer-anchor-point.html">
 <link rel="import" href="../../polymer-elements/polymer-media-query/polymer-media-query.html">
@@ -33,14 +49,41 @@ license that can be found in the LICENSE file.
   </template>
   <script>
     Polymer('polymer-ui-menu-button', {
+    	/**
+    	 * The icon to display.
+    	 * @attribute icon
+    	 * @type string
+    	 */
       icon: 'dots',
       src: '',
+      /**
+       * The index of the selected menu item.
+       * @attribute selected
+       * @type number
+       */
       selected: '',
+      /**
+       * Set to true to open the menu.
+       * @attribute opened
+       * @type boolean
+       */
       opened: false,
+      /**
+       * Horizontally align the overlay with the button. Accepted values are
+       * ["left", "center", "right"].
+       * @attribute halign
+       * @type string
+       */
       halign: 'center',
+      /**
+       * Display the overlay on top or below the button. Accepted values are
+       * ["top", "bottom"].
+       * @attribute valign
+       * @type string
+       */
 			valign: 'bottom',
       multi: false,
-			mediaQuery: 'max-width: 800px',
+      mediaQuery: 'max-width: 800px',
 			openedChanged: function() {
 				this.async(function() {
 					this.$.arrowPositionHelper.apply();
@@ -53,11 +96,18 @@ license that can be found in the LICENSE file.
 					this.classList.remove('fullwidth');
 				}
 			},
-      //* Toggle the opened state of the dropdown.
+      /**
+       * Toggle the opened state of the dropdown.
+       * @method toggle
+       */
       toggle: function() {
         this.opened = !this.opened;
       },
-      //* Returns the selected item.
+      /**
+       * The selected menu item.
+       * @property selection
+       * @type Node
+       */
       get selection() {
         return this.$.menu.selection;
       }
