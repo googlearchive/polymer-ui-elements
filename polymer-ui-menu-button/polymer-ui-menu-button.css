@@ -12,7 +12,7 @@
 	position: absolute;
 }
 
-#overlay[align=right] {
+#overlay[halign=right] {
 	right: 10px;
 }
 
