@@ -45,6 +45,12 @@ license that can be found in the LICENSE file.
       toggle: function() {
         this.active = !this.active;
       },
+      activeChanged: function() {
+        if (this.active)
+          this.fire('polymer-activated', { target: this });
+        else
+          this.fire('polymer-deactivated', { target: this });
+      },
       headerTap: function() {
         if (!this.notap) {
           this.toggle();
