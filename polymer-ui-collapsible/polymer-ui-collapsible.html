@@ -40,7 +40,21 @@ license that can be found in the LICENSE file.
   </template>
   <script>
     Polymer('polymer-ui-collapsible', {
+      /**
+       * If true, tapping on the header will not toggle the active state.
+       *
+       * @attribute notap
+       * @type boolean
+       * @default false
+       */
       notap: false,
+      /**
+       * If true, the body is expanded.
+       *
+       * @attribute active
+       * @type boolean
+       * @default false
+       */
       active: false,
       toggle: function() {
         this.active = !this.active;

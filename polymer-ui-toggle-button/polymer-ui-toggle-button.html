@@ -38,8 +38,29 @@ license that can be found in the LICENSE file.
        * @default false
        */
       value: false,
+      /**
+       * If true, don't display caption.
+       *
+       * @attribute noCaption
+       * @type boolean
+       * @default false
+       */
       noCaption: false,
+      /**
+       * Caption for on state.
+       *
+       * @attribute onCaption
+       * @type string
+       * @default 'ON'
+       */
       onCaption: 'ON',
+      /**
+       * Caption for off state.
+       *
+       * @attribute offCaption
+       * @type string
+       * @default 'OFF'
+       */
       offCaption: 'OFF',
       toggle: function() {
         this.value = !this.value;

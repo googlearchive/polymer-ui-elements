@@ -8,6 +8,12 @@ license that can be found in the LICENSE file.
  * @module Polymer UI Elements
  */
 /**
+ * polymer-ui-arrow is styled to look like an arrow.
+ *
+ * Example:
+ *
+ *     <polymer-ui-arrow direction="up"></polymer-ui-arrow>
+ *
  * @class polymer-ui-arrow
  */
 -->
@@ -37,10 +43,46 @@ license that can be found in the LICENSE file.
         left: 1,
         right: -1
       },
+      /**
+       * Direction of the arrow.  Possible values are 'up', 'down', 'left' 
+       * and 'right'.
+       *
+       * @attribute direction
+       * @type string
+       * @default 'up'
+       */
       direction: 'up',
+      /**
+       * Size of the arrow.
+       *
+       * @attribute size
+       * @type number
+       * @default 10
+       */
       size: 10,
+      /**
+       * Color of the arrow.
+       *
+       * @attribute color
+       * @type string
+       * @default '#fff'
+       */
       color: '#fff',
+      /**
+       * Border color.
+       *
+       * @attribute borderColor
+       * @type string
+       * @default '#ccc'
+       */
       borderColor: '#ccc',
+      /**
+       * Arrow border width.
+       *
+       * @attribute borderWidth
+       * @type number
+       * @default 1
+       */
       borderWidth: 1,
       created: function() {
         this.asyncUpdate();
