@@ -36,9 +36,9 @@ license that can be found in the LICENSE file.
     <link rel="stylesheet" href="polymer-ui-menu-button.css">
 		<polymer-ui-icon-button id="button" on-tap="toggle" src="{{src}}" icon="{{icon}}" active="{{opened}}" anchor-point="{{valign}}"></polymer-ui-icon-button>
 		<div id="overlay" halign="{{halign}}" valign="{{valign}}">
-			<div id="overlayBackdrop" pseudo="x-backdrop"></div>
+			<div id="overlayBackdrop" pseudo="x-backdrop" overlay-toggle></div>
 			<div id="overlayMenu">
-				<polymer-ui-menu id="menu" selected="{{selected}}" selectedItem="{{selectedItem}}" selectedClass="{{selectedClass}}" valueattr="{{valueattr}}" multi="{{multi}}">
+				<polymer-ui-menu id="menu" selected="{{selected}}" selectedItem="{{selectedItem}}" selectedClass="{{selectedClass}}" valueattr="{{valueattr}}" multi="{{multi}}" on-polymer-select="closeAction">
 					<content select="*"></content>
 				</polymer-ui-menu>
 			</div>
@@ -96,6 +96,9 @@ license that can be found in the LICENSE file.
 				} else {
 					this.classList.remove('fullwidth');
 				}
+			},
+			closeAction: function() {
+				this.opened = false;
 			},
       /**
        * Toggle the opened state of the dropdown.
