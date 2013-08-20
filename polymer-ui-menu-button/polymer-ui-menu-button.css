@@ -8,13 +8,22 @@
 	}
 }
 
-/* hack to make sure the arrow is on top */
-#button {
-	z-index: 20;
+#overlay {
+	position: absolute;
 }
 
-#menuOverlay {
-  position: absolute;
+#overlay[align=right] {
+	right: 10px;
+}
+
+#overlay[valign=top] {
+	bottom: 48px;
+}
+
+#overlayMenu {
+	display: inline-block;
+	position: relative;
+	top: -1px;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	background: white;
@@ -23,18 +32,9 @@
 	margin: 7px 0 0 7px;
 }
 
-#menuOverlay[align=right] {
-  position: absolute !important;
-	right: 10px;
-}
-
-#menuOverlay[valign=top] {
-	bottom: 50px;
-}
-
 @media screen and (max-width: 800px) {
-  #menuOverlay,
-	#menuOverlay[align=right] {
+  #overlay,
+	#overlay[align=right] {
     left: 0;
     width: 100%;
     -webkit-transform: none;
@@ -43,20 +43,6 @@
   }  
 }
 
-#button {
-	position: relative;
-}
-
 #arrow {
-	position: absolute;
-	bottom: -10px;
-	left: 10px;
-}
-
-#arrow[valign=top] {
-  top: -11px;
-}
-
-#arrow > polymer-ui-arrow {
-	display: block !important;
+	height: 18px;
 }
