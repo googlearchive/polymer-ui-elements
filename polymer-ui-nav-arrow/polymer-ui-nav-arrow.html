@@ -9,9 +9,28 @@ license that can be found in the LICENSE file.
  */
 /**
  * polymer-ui-nav-arrow is a polymer-ui-arrow that can position itself
- * based on the target node.  This element is used in polymer-ui-side-menu.
+ * based on the target node.  This element is used in polymer-ui-sidebar-menu.
+ *
+ * Example:
+ *
+ *     <polymer-selector selectedItem="{{item}}">
+ *       <div>Item 1</div>
+ *       <div>Item 2</div>
+ *       <div>Item 3</div>
+ *       <div>Item 4</div>
+ *       <div>Item 5</div>
+ *     </polymer-selector>
+ *     <polymer-ui-nav-arrow target="{{item}}"></polymer-ui-nav-arrow>
  *
  * @class polymer-ui-nav-arrow
+ * @extends polymer-ui-arrow
+ */
+/**
+ * The target element.
+ *
+ * @attribute target
+ * @type object
+ * @default null
  */
 -->
 <link rel="import" href="../polymer-ui-arrow/polymer-ui-arrow.html">
