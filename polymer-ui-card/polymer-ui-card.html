@@ -19,13 +19,94 @@ license that can be found in the LICENSE file.
  *
  * @class polymer-ui-card
  */
+/**
+ * Fired when the card is swiped away.
+ *
+ * @event polymer-card-swipe-away
+ */
 -->
-<polymer-element name="polymer-ui-card">
+<polymer-element name="polymer-ui-card" attributes="swipeable"
+    on-trackstart="trackStart" on-track="track" on-trackend="trackEnd" on-flick="flick">
   <template>
     <link rel="stylesheet" href="polymer-ui-card.css">
     <content></content>
   </template>
   <script>
-    Polymer('polymer-ui-card');
+    Polymer('polymer-ui-card', {
+      /**
+       * If true, the card can be swiped.
+       *
+       * @attribute swipeable
+       * @type boolean
+       * @default false
+       */
+      swipeable: false,
+      created: function() {
+        this.transitionEndListener = this.transitionEnd.bind(this);
+      },
+      leftDocument: function() {
+        this.removeListeners();
+      },
+      addListeners: function() {
+        this.addEventListener('webkitTransitionEnd', 
+            this.transitionEndListener);
+        this.addEventListener('transitionend', this.transitionEndListener);
+      },
+      removeListeners: function() {
+        this.removeEventListener('webkitTransitionEnd', 
+            this.transitionEndListener);
+        this.removeEventListener('transitionend', this.transitionEndListener);
+      },
+      swipeableChanged: function() {
+        if (this.swipeable) {
+          this.addListeners();
+        } else {
+          this.removeListeners();
+        }
+      },
+      move: function(x) {
+        var s = this.style;
+        s.webkitTransform = s.mozTransform = s.msTransform = s.transform = 
+          'translate3d(' + x + 'px,0,0)';
+      },
+      trackStart: function(e) {
+        if (this.swipeable) {
+          e.preventTap();
+          this.w = this.offsetWidth;
+          this.classList.add('dragging');
+        }
+      },
+      track: function(e) {
+        if (this.swipeable) {
+          this.move(e.dx);
+        }
+      },
+      trackEnd: function(e) {
+        if (this.swipeable) {
+          this.classList.remove('dragging');
+          this.swipeEnd(Math.abs(e.dx) > this.w/2, e.dx > 0);
+        }
+      },
+      flick: function(e) {
+        if (this.swipeable) {
+          var v = e.xVelocity;
+          this.swipeEnd(Math.abs(v) > 1, v > 0);
+        }
+      },
+      swipeEnd: function(away, dir) {
+        if (away) {
+          this.away = away;
+          var ow = this.w * 2;
+          this.move(dir ? ow : -ow);
+        } else {
+          this.move(0);
+        }
+      },
+      transitionEnd: function() {
+        if (this.away) {
+          this.fire('polymer-card-swipe-away');
+        }
+      }
+    });
   </script>
 </polymer-element>

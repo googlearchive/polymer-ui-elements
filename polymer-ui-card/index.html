@@ -10,18 +10,38 @@ license that can be found in the LICENSE file.
     <script src="../../polymer/polymer.js"></script>
     <link rel="import" href="polymer-ui-card.html">
     <style>
+      #cards {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 0 100px;
+        background: #eee;
+        overflow: auto;
+      }
+      
       polymer-ui-card {
         display: block;
-        height: 300px;
+        height: 200px;
         margin: 20px 10px;
+        padding: 30px;
       }
     </style>
   </head>
-  <body style="background: #eee;">
-    <polymer-ui-card></polymer-ui-card>
-    <polymer-ui-card></polymer-ui-card>
-    <polymer-ui-card></polymer-ui-card>
-    <polymer-ui-card></polymer-ui-card>
-    <polymer-ui-card></polymer-ui-card>
+  <body>
+    <div id="cards">
+      <polymer-ui-card></polymer-ui-card>
+      <polymer-ui-card swipeable>Swipe Me!</polymer-ui-card>
+      <polymer-ui-card></polymer-ui-card>
+      <polymer-ui-card swipeable>Swipe Me!</polymer-ui-card>
+      <polymer-ui-card></polymer-ui-card>
+    </div>
+    
+    <script>
+      document.addEventListener('WebComponentsReady', function() {
+        document.querySelector('#cards').addEventListener(
+          'polymer-card-swipe-away', function(e) {
+            e.target.parentNode.removeChild(e.target);
+          });
+      })
+    </script>
   </body>
 </html>
