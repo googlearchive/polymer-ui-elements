@@ -21,6 +21,14 @@
         <polymer-ui-icon icon="{{}}"></polymer-ui-icon>
       </template>
     </div>
+    <br />
+    <div theme="polymer-ui-light-theme">
+      <template repeat="{{}}">
+        <span style="display: inline-block; width: 164px; border: 1px dotted whitesmoke;">
+          <polymer-ui-icon icon="{{}}"></polymer-ui-icon> <span style="vertical-align: middle; font: bold 1em sans-serif;">{{}}</span>
+        </span>
+      </template>
+    </div>
     <script>
       addEventListener('WebComponentsReady', function() {
         var icons = Object.keys(document.createElement('polymer-ui-icon').icons);
