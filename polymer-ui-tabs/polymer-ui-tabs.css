@@ -12,7 +12,7 @@ license that can be found in the LICENSE file.
 }
 
 /*@polyfill @host > * */
-::-webkit-distributed(> *) {
+::-webkit-distributed(> :not(template)) {
 	display: inline-block;
   min-width: 60px;
   height: 60px;
@@ -26,6 +26,6 @@ license that can be found in the LICENSE file.
 
 /*@polyfill @host > *.polymer-selected */
 ::-webkit-distributed(> *.polymer-selected) {
-  background: #75d0df;
-  color: #fff;
+  background: #0066FF;
+  color: white;
 }
