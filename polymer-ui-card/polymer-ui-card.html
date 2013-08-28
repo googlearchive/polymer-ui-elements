@@ -41,6 +41,9 @@ license that can be found in the LICENSE file.
        * @default false
        */
       swipeable: false,
+      noCurve: false,
+      offsetRatio: 0.2,
+      widthRatio: 3,
       created: function() {
         this.transitionEndListener = this.transitionEnd.bind(this);
       },
@@ -64,10 +67,20 @@ license that can be found in the LICENSE file.
           this.removeListeners();
         }
       },
-      move: function(x) {
+      animate: function(x) {
         var s = this.style;
+        var d = x > 0 ? 1 : -1;
+        var w = this.w * this.widthRatio;
+        var x1 = Math.max(0, Math.abs(x) - this.w * this.offsetRatio);
+        var r = Math.max(0, (w - x1) / w);
+        var y = w - Math.sqrt(w * w - x1 * x1);
+        var deg = (1 - r) * d * 90;
+        s.opacity = r;
+        var translate = 'translate3d(' + x + 'px,' + 
+            (this.noCurve ? 0 : y) + 'px,0)';
+        var rotate = 'rotate(' + deg + 'deg)';
         s.webkitTransform = s.mozTransform = s.msTransform = s.transform = 
-          'translate3d(' + x + 'px,0,0)';
+            translate + (this.noCurve ? '' : ' ' + rotate);
       },
       trackStart: function(e) {
         if (this.swipeable) {
@@ -78,28 +91,29 @@ license that can be found in the LICENSE file.
       },
       track: function(e) {
         if (this.swipeable) {
-          this.move(e.dx);
+          this.animate(e.dx);
         }
       },
       trackEnd: function(e) {
         if (this.swipeable) {
-          this.classList.remove('dragging');
-          this.swipeEnd(Math.abs(e.dx) > this.w/2, e.dx > 0);
+          this.swipeEnd(Math.abs(e.dx) > this.w / 2 && e.dx * e.xDirection > 0, 
+              e.dx > 0);
         }
       },
       flick: function(e) {
-        if (this.swipeable) {
+        if (this.swipeable && !this.away) {
           var v = e.xVelocity;
-          this.swipeEnd(Math.abs(v) > 1, v > 0);
+          this.swipeEnd(Math.abs(v) > 2, v > 0);
         }
       },
       swipeEnd: function(away, dir) {
+        this.classList.remove('dragging');
+        this.away = away;
         if (away) {
-          this.away = away;
-          var ow = this.w * 2;
-          this.move(dir ? ow : -ow);
+          var w = this.w * this.widthRatio;
+          this.animate(dir ? w : -w);
         } else {
-          this.move(0);
+          this.animate(0);
         }
       },
       transitionEnd: function() {

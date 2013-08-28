@@ -11,24 +11,25 @@ license that can be found in the LICENSE file.
     <link rel="import" href="polymer-ui-card.html">
     <style>
       #cards {
-        max-width: 500px;
         margin: 0 auto;
-        padding: 0 100px;
         background: #eee;
         overflow: auto;
+        -webkit-user-select: none;
+        -moz-user-select: none;
       }
       
       polymer-ui-card {
         display: block;
         height: 200px;
-        margin: 20px 10px;
+        width: 240px;
+        margin: 20px auto;
         padding: 30px;
       }
     </style>
   </head>
   <body>
     <div id="cards">
-      <polymer-ui-card></polymer-ui-card>
+      <polymer-ui-card swipeable>Swipe Me!</polymer-ui-card>
       <polymer-ui-card swipeable>Swipe Me!</polymer-ui-card>
       <polymer-ui-card></polymer-ui-card>
       <polymer-ui-card swipeable>Swipe Me!</polymer-ui-card>
