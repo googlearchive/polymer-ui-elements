@@ -26,6 +26,6 @@ license that can be found in the LICENSE file.
 
 /*@polyfill @host > *.polymer-selected */
 ::-webkit-distributed(> *.polymer-selected) {
-  background: #0066FF;
+  background: #5599FF;
   color: white;
 }
