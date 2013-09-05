@@ -1,9 +1,9 @@
-
 <!--
 Copyright 2013 The Polymer Authors. All rights reserved.
 Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 -->
+
 <!--
 /**
 * Polymer UI Elements
@@ -31,6 +31,7 @@ license that can be found in the LICENSE file.
  * @class polymer-ui-icon
  */
 -->
+
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
 
 <polymer-element name="polymer-ui-icon" extends="polymer-ui-theme-aware" attributes="src size index icon">
@@ -136,25 +137,20 @@ license that can be found in the LICENSE file.
           this.updateIcon();
         },
         themeChanged: function(old) {
+          this.super(arguments);
           this.style.backgroundPosition = '';
-          this.classList.switch(old, this.theme);
           this.bx = calcThemeOffset(this.theme, this);
-          this.asyncMethod('updateIcon');
+          this.updateIcon();
         },
         updateIcon: function() {
           if (this.src) {
             this.style.backgroundPosition = 'center';
           } else {
-            // TODO(sorvell): FF cannot set Y only so we go to trouble
-            // to find the x offset and use it here.
             this.style.backgroundPosition = (this.bx + 'px') + ' ' + (this.by + 'px');
-            //this.style.backgroundPositionY = this.by + 'px';
           }
         }
       });
-
-      // memoize offset by theme name since getComputedStyle
-      // is $$
+      // memoize offset because getComputedStyle is expensive
       var themes = {};
       function calcThemeOffset(theme, node) {
         if (themes[theme] === undefined) {
