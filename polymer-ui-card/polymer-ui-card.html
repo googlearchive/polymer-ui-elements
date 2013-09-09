@@ -45,6 +45,7 @@ license that can be found in the LICENSE file.
       offsetRatio: 0.2,
       widthRatio: 3,
       created: function() {
+        this.setAttribute('touch-action', 'pan-y');
         this.transitionEndListener = this.transitionEnd.bind(this);
       },
       leftDocument: function() {
