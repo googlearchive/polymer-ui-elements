@@ -32,7 +32,7 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../polymer-ui-menu/polymer-ui-menu.html">
 <link rel="import" href="../polymer-ui-arrow/polymer-ui-arrow.html">
 
-<polymer-element name="polymer-ui-menu-button" attributes="src icon opened responsive halign valign selected selectedItem selectedClass valueattr multi">
+<polymer-element name="polymer-ui-menu-button" attributes="src icon opened responsive halign valign selected selectedItem selectedClass valueattr multi parallax">
   <template>
     <link rel="stylesheet" href="polymer-ui-menu-button.css">
 		<polymer-ui-icon-button id="button" on-tap="toggle" src="{{src}}" icon="{{icon}}" active="{{opened}}" anchor-point="{{valign}}"></polymer-ui-icon-button>
@@ -85,12 +85,41 @@ license that can be found in the LICENSE file.
        */
 			valign: 'bottom',
       multi: false,
+      parallax: false,
       mediaQuery: 'max-width: 800px',
+      created: function() {
+        this.boundParallaxAction = this.parallaxAction.bind(this);
+      },
 			openedChanged: function() {
 				this.async(function() {
 					this.$.arrowPositionHelper.apply();
-				});
-			},
+          this.tilt = null;
+          if (this.parallax) {
+            window.addEventListener('deviceorientation',
+                this.boundParallaxAction, false);
+          } else {
+            window.removeEventListener('deviceorientation',
+                this.boundParallaxAction, false);
+          }
+        });
+      },
+      parallaxAction: function(e) {
+        var tiltLR = Math.round(e.gamma);
+        var tiltTB = Math.round(e.beta);
+        if (!this.tilt) {
+          this.tilt = {
+            lr: tiltLR,
+            tb: tiltTB
+          };
+        } else {
+          var transX = ((this.tilt.lr - tiltLR) % 90) / 90 * 8;
+          var transY = ((this.tilt.tb - tiltTB) % 90) / 90 * 13;
+          this.$.overlayMenu.style['-webkit-transform'] = 'translate3d(' +
+              transX + 'px,' + transY + 'px,0)';
+          this.$.arrow.style['-webkit-transform'] = 'translate3d(' +
+              transX + 'px,' + transY + 'px,0)';
+        }
+      },
 			mediaChangeAction: function(e) {
 				if (e.detail.matches) {
 					this.classList.add('fullwidth');
