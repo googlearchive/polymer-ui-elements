@@ -112,8 +112,8 @@ license that can be found in the LICENSE file.
             tb: tiltTB
           };
         } else {
-          var transX = ((this.tilt.lr - tiltLR) % 90) / 90 * 8;
-          var transY = ((this.tilt.tb - tiltTB) % 90) / 90 * 13;
+          var transX = ((tiltLR - this.tilt.lr) % 90) / 90 * 8;
+          var transY = ((tiltTB - this.tilt.tb) % 90) / 90 * 13;
           this.$.overlayMenu.style['-webkit-transform'] = 'translate3d(' +
               transX + 'px,' + transY + 'px,0)';
           this.$.arrow.style['-webkit-transform'] = 'translate3d(' +
