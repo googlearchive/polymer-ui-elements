@@ -15,6 +15,7 @@
     box-shadow: inset 0px 0px 1px 0 rgba(0,0,0,0.1);
     -webkit-user-select: none;
     -moz-user-select: none;
+    -ms-user-select: none;
     -webkit-transition: border 0.130s ease-out;
     transition: border 0.130s ease-out;
     cursor: pointer;
@@ -37,9 +38,16 @@
   height: 100%;
   overflow: hidden;
   white-space: nowrap;
-  -webkit-transition: left 0.130s ease-out;
+  /* Safari bug: https://bugs.webkit.org/show_bug.cgi?id=100568 */
+  /*-webkit-transition: left 0.130s ease-out;*/
   transition: left 0.130s ease-out;
 }
+
+/* workaround for https://github.com/Polymer/platform/issues/36 */
+/* @polyfill-rule polymer-ui-toggle-button .toggle {
+  left: -webkit-calc(-100% + 24px);
+  width: -webkit-calc(200% - 24px);
+} */
 
 .toggle.dragging {
   -webkit-transition: none;
@@ -55,23 +63,6 @@
 }
 
 .on-label, .off-label {
-	/* align center */
-	display: -webkit-box;
-  display: -ms-flexbox;
-  display: -moz-flex;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -moz-align-items: center;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -moz-justify-content: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  /* */
   width: 50%;
   height: 100%;
   box-sizing: border-box;
@@ -100,3 +91,7 @@
   border-radius: 1px;
   background-color: white;
 }
+
+/* @polyfill-rule polymer-ui-toggle-button .thumb {
+  left: -webkit-calc(50% - 12px);
+} */

@@ -22,10 +22,11 @@ license that can be found in the LICENSE file.
     on-tap="toggle" on-trackstart="trackStart" on-track="track" on-trackend="trackEnd" on-flick="flick">
   <template>
     <link rel="stylesheet" href="polymer-ui-toggle-button.css" />
+    <link rel="stylesheet" href="../../polymer-elements/polymer-flex-layout/polymer-flex-layout.css" />
     <div id="toggle" class="toggle">
-      <span class="on-label">{{noCaption ? '' : onCaption}}</span>
+      <span class="on-label flexbox align-center justify-center">{{noCaption ? '' : onCaption}}</span>
       <span id="thumb" class="thumb"></span>
-      <span class="off-label">{{noCaption ? '' : offCaption}}</span>
+      <span class="off-label flexbox align-center justify-center">{{noCaption ? '' : offCaption}}</span>
     </div>
   </template>
   <script>
