@@ -50,6 +50,7 @@ license that can be found in the LICENSE file.
   </template>
   <script>
     Polymer('polymer-ui-menu-item', {
+      label: '',
       // calc item's offset middle pos instead of using offsetTop/Height 
       // directly which requires to wait for submenu's collapsing transition to 
       // complete first before it can return the correct pos.
