@@ -29,7 +29,7 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../polymer-ui-nav-arrow/polymer-ui-nav-arrow.html">
 <link rel="import" href="../../polymer-elements/polymer-flex-layout/polymer-flex-layout.html">
 
-<polymer-element name="polymer-ui-sidebar-menu" extends="polymer-ui-menu" attributes="label">
+<polymer-element name="polymer-ui-sidebar-menu" extends="polymer-ui-menu" attributes="label" noscript>
   <template>
     <link rel="stylesheet" href="polymer-ui-sidebar-menu.css">
     <polymer-flex-layout vertical></polymer-flex-layout>
@@ -41,9 +41,6 @@ license that can be found in the LICENSE file.
       <polymer-ui-nav-arrow target="{{selectedItem}}"></polymer-ui-nav-arrow>
     </div>
   </template>
-  <script>
-    Polymer('polymer-ui-sidebar-menu');
-  </script>
 </polymer-element>
 
 <!-- 
