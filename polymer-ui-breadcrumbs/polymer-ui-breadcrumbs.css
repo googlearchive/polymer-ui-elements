@@ -4,22 +4,22 @@ Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 */
 @host {
-	* {
-	  display: inline-block;
-	}
+  * {
+    display: inline-block;
+  }
 }
 
 .label {
-	display: inline-block;
-	vertical-align: middle;
-	font-size: 14px;
-	font-weight: bold;
-	cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .label > a {
-	text-decoration: none;
-	color: #75d0df;
+  text-decoration: none;
+  color: #75d0df;
 }
 
 .label:last-of-type > a {
@@ -27,15 +27,15 @@ license that can be found in the LICENSE file.
 }
 
 a[disabled] {
-	pointer-events: none;
+  pointer-events: none;
 }
 
 polymer-ui-icon {
-	-moz-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
   -webkit-transform: rotate(270deg);
   transform: rotate(270deg);
 }
 
 polymer-ui-icon:last-of-type {
-	display: none !important;
+  display: none !important;
 }
