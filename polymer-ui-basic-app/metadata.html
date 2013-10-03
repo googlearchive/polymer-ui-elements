@@ -1,0 +1,53 @@
+<x-meta id="polymer-ui-basic-app" label="Basic App Scaffold" isContainer>
+  <template>
+    <polymer-ui-basic-app theme="polymer-ui-dark-theme" style="height: 400px; width: 500px;">
+      <polymer-ui-icon-button tool icon="account"></polymer-ui-icon-button>
+      <polymer-ui-icon-button tool icon="marker"></polymer-ui-icon-button>
+      <polymer-ui-menu-button tool icon="dots">
+        <polymer-ui-menu-item>Item</polymer-ui-menu-item>
+        <polymer-ui-menu-item>Item</polymer-ui-menu-item>
+      </polymer-ui-menu-button>
+      <div main style="padding: 8px;">
+        Content.
+      </div>
+      <polymer-ui-sidebar-menu navigation label="Navigimation" offscreen="basement" style="width: 256px; height: 100%;">
+        <polymer-ui-menu>
+          <polymer-ui-menu-item>Item</polymer-ui-menu-item>
+          <polymer-ui-menu-item>Item</polymer-ui-menu-item>
+        </polymer-ui-menu>
+      </polymer-ui-sidebar-menu>
+    </polymer-ui-basic-app>
+  </template>
+  <template id="imports">
+    <link rel="import" href="polymer-ui-basic-app.html">
+    <link rel="import" href="../polymer-ui-menu-item/polymer-ui-menu-item.html">
+    <link rel="import" href="../polymer-ui-menu-button/polymer-ui-menu-button.html">
+  </template>
+</x-meta>
+
+<x-meta id="polymer-ui-basic-app2" label="Basic App Scaffold 2" isContainer>
+  <template>
+    <polymer-ui-basic-app2 theme="polymer-ui-light-theme" style="height: 400px; width: 400px;">
+      <polymer-ui-icon-button tool icon="briefcase"></polymer-ui-icon-button>
+      <polymer-ui-icon-button tool icon="sort"></polymer-ui-icon-button>
+      <polymer-ui-menu-button tool icon="dots">
+        <polymer-ui-menu-item>Item</polymer-ui-menu-item>
+        <polymer-ui-menu-item>Item</polymer-ui-menu-item>
+      </polymer-ui-menu-button>
+      <div main style="padding: 8px;">
+        Content.
+      </div>
+      <polymer-ui-sidebar-menu theme="polymer-ui-dark-theme" navigation label="Actions" offscreen="basement" style="width: 200px; height: 100%;">
+        <polymer-ui-menu>
+          <polymer-ui-menu-item>Item</polymer-ui-menu-item>
+          <polymer-ui-menu-item>Item</polymer-ui-menu-item>
+        </polymer-ui-menu>
+      </polymer-ui-sidebar-menu>
+    </polymer-ui-basic-app2>
+  </template>
+  <template id="imports">
+    <link rel="import" href="polymer-ui-basic-app.html">
+    <link rel="import" href="../polymer-ui-menu-item/polymer-ui-menu-item.html">
+    <link rel="import" href="../polymer-ui-menu-button/polymer-ui-menu-button.html">
+  </template>
+</x-meta>

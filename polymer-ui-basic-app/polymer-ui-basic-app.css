@@ -1,0 +1,22 @@
+/*
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+*/
+@host {
+  display: block;
+  position: relative;
+}
+
+.animate {
+  -webkit-transition: left ease-in 0.2s;
+  transition: left ease-in 0.2s;
+}
+
+polymer-ui-sidebar-menu {
+  width: 200px;
+}
+
+section {
+  background-color: white;
+}
