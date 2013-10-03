@@ -64,6 +64,8 @@ license that can be found in the LICENSE file.
     <polymer-selector target="{{$.crumbs}}" itemsSelector="li" selected="{{selected}}" selectedModel="{{selectedCrumb}}"></polymer-selector>
   </template>
   <script>
-    Polymer('polymer-ui-breadcrumbs');
+    Polymer('polymer-ui-breadcrumbs', {
+      crumbs: []
+    });
   </script>
 </polymer-element>
