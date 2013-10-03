@@ -7,7 +7,7 @@ license that can be found in the LICENSE file.
   <script>
     PolymerUI = { 
       findTheme: function() {
-        var p = this, theme;
+        var p = this, theme = null;
         while (p && !theme) {
           theme = p.getAttribute && p.getAttribute('theme');
           p = p.parentNode || p.host;
