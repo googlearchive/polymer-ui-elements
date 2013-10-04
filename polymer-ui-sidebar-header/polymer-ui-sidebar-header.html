@@ -23,7 +23,7 @@ license that can be found in the LICENSE file.
 -->
 <link rel="import" href="../polymer-ui-toolbar/polymer-ui-toolbar.html">
 
-<polymer-element name="polymer-ui-sidebar-header" attributes="label">
+<polymer-element name="polymer-ui-sidebar-header" attributes="label" noscript>
   <template>
     <link rel="stylesheet" href="polymer-ui-sidebar-header.css">
     <polymer-ui-toolbar theme="sidebar">
@@ -31,7 +31,4 @@ license that can be found in the LICENSE file.
       <div class="sidebar-title">{{label}}</div>
     </polymer-ui-toolbar>
   </template>
-  <script>
-    Polymer('polymer-ui-sidebar-header');
-  </script>
 </polymer-element>
