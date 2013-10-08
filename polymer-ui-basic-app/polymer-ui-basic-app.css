@@ -20,3 +20,12 @@ polymer-ui-sidebar-menu {
 section {
   background-color: white;
 }
+
+[hidden] {
+	display: none !important;
+}
+
+#scrim {
+	background: rgba(128, 128, 128, 0.5);
+	z-index: 1;
+}

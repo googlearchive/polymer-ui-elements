@@ -20,7 +20,7 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../polymer-ui-toolbar/polymer-ui-toolbar.html">
 <link rel="import" href="../polymer-ui-icon-button/polymer-ui-icon-button.html">
 
-<polymer-element name="polymer-ui-basic-app" attributes="">
+<polymer-element name="polymer-ui-basic-app" attributes="menuActive hideMenuButton">
   <template>
     <link rel="stylesheet" href="polymer-ui-basic-app.css">
     <polymer-grid-layout id="grid"></polymer-grid-layout>
@@ -28,7 +28,7 @@ license that can be found in the LICENSE file.
       <content select="[navigation]"></content>
     </section>
     <polymer-ui-toolbar class="animate">
-      <polymer-ui-icon-button icon="menu" on-tap="menuActionTap" active="{{menuActive}}"></polymer-ui-icon-button>
+      <polymer-ui-icon-button icon="menu" hidden?="{{hideMenuButton}}" on-tap="menuActionTap" active="{{menuActive}}"></polymer-ui-icon-button>
       <content select="[tool]"></content>
     </polymer-ui-toolbar>
     <section class="animate">
@@ -39,6 +39,7 @@ license that can be found in the LICENSE file.
     (function() {
       Polymer('polymer-ui-basic-app', {
         menuActive: false,
+        hideMenuButton: false,
         layouts: {
           main:[
             [2, 2],
@@ -94,6 +95,54 @@ license that can be found in the LICENSE file.
         ready: function() {
           this.$.grid.layout = this.layouts.main;
         },
+      });
+    })();
+  </script>
+</polymer-element>
+
+<polymer-element name="polymer-ui-basic-app3" attributes="menuActive hideMenuButton">
+  <template>
+    <link rel="stylesheet" href="polymer-ui-basic-app.css">
+    <polymer-grid-layout id="grid"></polymer-grid-layout>
+    <section class="animate" style="z-index: 10;" offscreen="left">
+      <content select="[navigation]"></content>
+    </section>
+    <section id="scrim" on-tap="menuActionTap" offscreen="right"></section>
+    <polymer-ui-toolbar offscreen="basement">
+      <polymer-ui-icon-button icon="menu" hidden?="{{hideMenuButton}}" on-tap="menuActionTap" active="{{menuActive}}"></polymer-ui-icon-button>
+      <content select="[tool]"></content>
+    </polymer-ui-toolbar>
+    <section offscreen="basement">
+      <content select="*"></content>
+    </section>
+  </template>
+  <script>
+    (function() {
+      Polymer('polymer-ui-basic-app3', {
+        menuActive: false,
+        hideMenuButton: false,
+        layouts: {
+          main:[
+            [3, 3],
+            [4, 4],
+            [4, 4]
+          ],
+          menu: [
+            [1, 2],
+            [1, 2],
+            [1, 2]
+          ]
+        },
+        ready: function() {
+          this.$.grid.layout = this.layouts.main;
+        },
+        menuActionTap: function() {
+          this.menuActive = !this.menuActive;
+          Platform.flush();
+        },
+        menuActiveChanged: function() {
+          this.$.grid.layout = this.layouts[this.menuActive ? 'menu' : 'main'];
+        }
       });
     })();
   </script>
