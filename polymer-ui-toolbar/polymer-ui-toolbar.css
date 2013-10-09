@@ -61,8 +61,8 @@ content::-webkit-distributed(> polymer-ui-toolbar) {
   margin: 0;
 }
 
-/*@polyfill @host > polymer-ui-toolbar:not(.narrow-layout[responsive]) */
-content::-webkit-distributed(> polymer-ui-toolbar:not(.narrow-layout[responsive])) {
+/*@polyfill @host > polymer-ui-toolbar:not(.narrow-layout) */
+content::-webkit-distributed(> polymer-ui-toolbar:not(.narrow-layout)) {
   border: 0;
-  background: transparent;
+  background: transparent none;
 }
