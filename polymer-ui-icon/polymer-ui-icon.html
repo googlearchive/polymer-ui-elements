@@ -136,10 +136,10 @@ license that can be found in the LICENSE file.
           this.style.backgroundImage = 'url(' + this.src + ')';
           this.updateIcon();
         },
-        themeChanged: function(old) {
+        activeThemeChanged: function(old) {
           this.super(arguments);
           this.style.backgroundPosition = '';
-          this.bx = calcThemeOffset(this.theme, this);
+          this.bx = calcThemeOffset(this.activeTheme, this);
           this.updateIcon();
         },
         updateIcon: function() {

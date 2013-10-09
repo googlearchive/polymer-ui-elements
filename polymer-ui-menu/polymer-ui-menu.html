@@ -57,22 +57,23 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../../polymer-elements/polymer-selector/polymer-selector.html">
 <link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
 
-<polymer-element name="polymer-ui-menu" extends="polymer-selector"
-    attributes="theme" on-polymer-select="selectionChange">
+<polymer-element name="polymer-ui-menu" extends="polymer-selector" attributes="theme" on-polymer-select="selectionChange">
   <template>
     <link rel="stylesheet" href="polymer-ui-menu.css">
     <shadow></shadow>
   </template>
   <script>
     Polymer('polymer-ui-menu', {
+      activeTheme: '',
+      validateTheme: PolymerUI.validateTheme,
       enteredView: function() {
-        if (!this.theme) {
-          this.findTheme();
-        }
+        this.validateTheme();
       },
-      findTheme: PolymerUI.findTheme,
-      themeChanged: function(old) {
-        this.classList.switch(old, this.theme);
+      themeChanged: function() {
+        this.activeTheme = this.theme;
+      },
+      activeThemeChanged: function(old) {
+        this.classList.switch(old, this.activeTheme);
       },
       selectionChange: function(e, detail) {
         if (detail.isSelected) {

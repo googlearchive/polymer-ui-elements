@@ -5,25 +5,30 @@ license that can be found in the LICENSE file.
 -->
 <polymer-element name="polymer-ui-theme-aware" attributes="theme">
   <script>
-    PolymerUI = { 
-      findTheme: function() {
-        var p = this, theme = null;
-        while (p && !theme) {
-          theme = p.getAttribute && p.getAttribute('theme');
-          p = p.parentNode || p.host;
+    PolymerUI = {
+      validateTheme: function() {
+        var theme = this.theme;
+        if (!theme) {
+          var p = this;
+          while (p && !theme) {
+            theme = p.getAttribute && p.getAttribute('theme');
+            p = p.parentNode || p.host;
+          }
         }
-        this.theme = theme;
+        this.activeTheme = this.theme || theme;
       }
     };
     Polymer('polymer-ui-theme-aware', {
+      activeTheme: '',
+      validateTheme: PolymerUI.validateTheme,
       enteredView: function() {
-        if (!this.theme) {
-          this.findTheme();
-        }
+        this.validateTheme();
       },
-      findTheme: PolymerUI.findTheme,
-      themeChanged: function(old) {
-        this.classList.switch(old, this.theme);
+      themeChanged: function() {
+        this.activeTheme = this.theme;
+      },
+      activeThemeChanged: function(old) {
+        this.classList.switch(old, this.activeTheme);
       }
     });
   </script>
