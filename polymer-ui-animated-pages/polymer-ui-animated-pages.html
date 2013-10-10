@@ -20,7 +20,7 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../../polymer-elements/polymer-animation/web-animations.html">
 <link rel="import" href="../polymer-ui-pages/polymer-ui-pages.html">
 
-<polymer-element name="polymer-ui-animated-pages" extends="polymer-ui-pages" selected="0" notap attributes="directional transitionIn transitionOut prevSelectedItem">
+<polymer-element name="polymer-ui-animated-pages" extends="polymer-ui-pages" selected="0" notap attributes="directional transition prevSelectedItem">
  	<script>
  		Polymer('polymer-ui-animated-pages', {
       /**
@@ -36,21 +36,15 @@ license that can be found in the LICENSE file.
        */
       directional: false,
       /**
-       * An animation for the page it's transitioning to. Set this and
-       * transitionOut to null for no animations.
+       * A group of two animations to play during a transition. The first
+       * animation will target the the page it's transitioning away from,
+       * and the second animation will target the page it's transitioning
+       * to. Set to null for no transitions.
        *
-       * @attribute transitionIn
-       * @type polymer-animation
+       * @attribute transition
+       * @type polymer-animation-group
        */
-      transitionIn: null,
-      /**
-       * An animation for the page it's transitioning from. Set this and
-       * transitionIn to null for no animations.
-       *
-       * @attribute transitionOut
-       * @type polymer-animation
-       */
-      transitionOut: null,
+      transition: null,
       prevSelectedItem: null,
       applySelection: function(item, isSelected, force) {
         // Do nothing if using a transition.
@@ -62,7 +56,7 @@ license that can be found in the LICENSE file.
         return this.super(arguments) || node;
       },
       hasTransition: function() {
-        return this.transitionIn || this.transitionOut;
+        return this.transition;
       },
       applyTransition: function() {
         if (this.prevSelectedItem) {
@@ -79,19 +73,21 @@ license that can be found in the LICENSE file.
         }
       },
       makeTransitionAnimation: function() {
-        var from = this.transitionOut.target = this.prevSelectedItem;
-        var to = this.transitionIn.target = this.selectedItem;
+        var transitions = this.transition.childAnimationElements;
+        var from = transitions[0].target =  this.prevSelectedItem;
+        var to = transitions[1].target = this.selectedItem;
         var direction = "normal";
         if (this.directional) {
           if (this.valueToIndex(from) > this.valueToIndex(to)) {
             direction = 'reverse';
-            this.transitionOut.target = this.selectedItem;
-            this.transitionIn.target = this.prevSelectedItem;
+            transitions[0].target = this.selectedItem;
+            transitions[1].target = this.prevSelectedItem;
           }
         }
+        transitions[0].apply();
+        transitions[1].apply();
         var animation = new ParGroup([
-          this.transitionOut.makeAnimation(),
-          this.transitionIn.makeAnimation(),
+          this.transition.makeAnimation(),
           // Both 'from' and 'to' items must be visible and have the default
           // z-index. Overrides the class styles.
           new Animation(from, [{'visibility': 'visible', 'z-index': 'auto'}]),

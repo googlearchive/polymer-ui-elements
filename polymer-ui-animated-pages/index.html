@@ -13,6 +13,7 @@ license that can be found in the LICENSE file.
     <script src="../../polymer/polymer.js"></script>
     <!-- import elements-->
     <link rel="import" href="../../polymer-elements/polymer-animation/polymer-animation.html">
+    <link rel="import" href="../../polymer-elements/polymer-animation/polymer-animation-group.html">
     <link rel="import" href="../polymer-ui-toolbar/polymer-ui-toolbar.html">
     <link rel="import" href="polymer-ui-animated-pages.html">
     <!-- -->
@@ -94,7 +95,7 @@ license that can be found in the LICENSE file.
             </select>
           </label>
         </polymer-ui-toolbar>
-        <polymer-ui-animated-pages selected="{{page}}" directional?="{{directional}}" transitionIn="{{transitionIn}}" transitionOut="{{transitionOut}}">
+        <polymer-ui-animated-pages selected="{{page}}" directional?="{{directional}}" transition="{{transition}}">
           <div class="grid">One</div>
           <div class="brick">Two</div>
           <div class="wave">Three</div>
@@ -152,13 +153,26 @@ license that can be found in the LICENSE file.
             this.transitionInIndexChanged();
             this.transitionOutIndexChanged();
           },
+          makeTransition: function() {
+            if (this.transitionIn && this.transitionOut) {
+              var transition = document.createElement('polymer-animation-group');
+              transition.appendChild(this.transitionOut.cloneNode(true));
+              transition.appendChild(this.transitionIn.cloneNode(true));
+              if (this.transition) {
+                this.transition.unbindAll();
+              }
+              this.transition = transition;
+            }
+          },
           transitionInIndexChanged: function() {
             var transitionInId = this.$.transitionInSelect.selectedOptions[0].textContent;
             this.transitionIn = this.$[transitionInId];
+            this.makeTransition();
           },
           transitionOutIndexChanged: function() {
             var transitionOutId = this.$.transitionOutSelect.selectedOptions[0].textContent;
             this.transitionOut = this.$[transitionOutId];
+            this.makeTransition();
           },
           rewindAction: function() {
             this.page -= 1;
