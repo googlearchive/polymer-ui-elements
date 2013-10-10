@@ -1,0 +1,180 @@
+<!doctype html>
+<!--
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<html class="polymer-ui-full-bleed">
+  <head>
+    <title>polymer-ui-animated-pages</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- load toolkit -->
+    <script src="../../polymer/polymer.js"></script>
+    <!-- import elements-->
+    <link rel="import" href="../../polymer-elements/polymer-animation/polymer-animation.html">
+    <link rel="import" href="../polymer-ui-toolbar/polymer-ui-toolbar.html">
+    <link rel="import" href="polymer-ui-animated-pages.html">
+    <!-- -->
+    <link rel="stylesheet" href="../basic.css">
+    <style>
+      polymer-ui-animated-pages-demo {
+        display: block;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body class="polymer-ui-body-text polymer-ui-full-bleed polymer-ui-light-bg">
+    <polymer-element name="polymer-ui-animated-pages-demo" attributes="page directional transitionInIndex transitionIn transitionOutIndex transitionOut">
+      <template>
+        <style>
+          polymer-ui-toolbar {
+            padding: 10px;
+          }
+          polymer-ui-toolbar label {
+            font-size: 12px;
+          }
+          polymer-ui-toolbar .spacer {
+            display: inline-block;
+            width: 5px;
+          }
+          polymer-ui-animated-pages {
+            display: block;
+            height: 100%;
+          }
+          polymer-ui-animated-pages > div {
+            display: -webkit-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            color: white;
+          }
+          .grid {
+            background: red url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHklEQVQIW2NkQAX/GZH4/4FsRpgAmAOSBBFwDkgAAIKuBATRTAAZAAAAAElFTkSuQmCC) repeat;
+          }
+          .brick {
+            background: green url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAJElEQVQIW2NkwAT/GdHE/gP5jMiCYAGQIpggTACuEq4CatR/ABtJBwTL3L3TAAAAAElFTkSuQmCC) repeat;
+          }
+          .wave {
+            background: orange url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAAPklEQVQYV2NkwAT/gUKM6MLoAjBFGIqRFaJLovBhCrFaB7QeLg5SiEsRzJlgeQxHY/EcSOg/sQoxgwGHiQwA+f4KCL3Y/AQAAAAASUVORK5CYII=) repeat;
+          }
+          .dots {
+            background: purple url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGklEQVQIW2NkYGD4D8SMQAwGcAY2AbBKDBUAVuYCBQPd34sAAAAASUVORK5CYII=) repeat;
+          }
+          .diamonds {
+            background: blue url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAUElEQVQYV2NkYGAwBuKzQAwDID4IoIgxIikAMZE1oRiArBDdZBSNMIXoJiFbDZYDKcSmCOYimDuNSVKIzRNYrUYOFuQgweoZbIoxgoeoAAcAEckW11HVTfcAAAAASUVORK5CYII=) repeat;
+          }
+        </style>
+        <polymer-ui-toolbar>
+          <button on-tap="rewindAction">&laquo;</button>
+          <button on-tap="forwardAction">&raquo;</button>
+          <span class="spacer"></span>
+          <button>+</button>
+          <span class="spacer"></span>
+          <label>
+            Directional:
+            <input type="checkbox" checked="{{directional}}">
+          </label>
+          <label>
+            TransIn:
+            <select id="transitionInSelect" selectedIndex="{{transitionInIndex}}">
+              <option>none</option>
+              <option>fade-in</option>
+              <option>hslide-in</option>
+            </select>
+          </label>
+          <span class="spacer"></span>
+          <label>
+            TransOut:
+            <select id="transitionOutSelect" selectedIndex="{{transitionOutIndex}}">
+              <option>none</option>
+              <option>fade-out</option>
+              <option>hslide-out</option>
+              <option>scale-out</option>
+            </select>
+          </label>
+        </polymer-ui-toolbar>
+        <polymer-ui-animated-pages selected="{{page}}" directional?="{{directional}}" transitionIn="{{transitionIn}}" transitionOut="{{transitionOut}}">
+          <div class="grid">One</div>
+          <div class="brick">Two</div>
+          <div class="wave">Three</div>
+          <div class="dots">Four</div>
+          <div class="diamonds">Five</div>
+        </polymer-ui-animated-pages>
+        <polymer-animation id="fade-in" duration="0.5">
+          <polymer-animation-keyframe>
+            <polymer-animation-prop name="opacity" value="0"></polymer-animation-prop>
+          </polymer-animation-keyframe>
+          <polymer-animation-keyframe>
+            <polymer-animation-prop name="opacity" value="1"></polymer-animation-prop>
+          </polymer-animation-keyframe>
+        </polymer-animation>
+        <polymer-animation id="fade-out" duration="0.5">
+          <polymer-animation-keyframe>
+            <polymer-animation-prop name="opacity" value="1"></polymer-animation-prop>
+          </polymer-animation-keyframe>
+          <polymer-animation-keyframe>
+            <polymer-animation-prop name="opacity" value="0"></polymer-animation-prop>
+          </polymer-animation-keyframe>
+        </polymer-animation>
+        <polymer-animation id="hslide-in" duration="0.5">
+          <polymer-animation-keyframe>
+            <polymer-animation-prop name="transform" value="translateX(100%)"></polymer-animation-prop>
+          </polymer-animation-keyframe>
+          <polymer-animation-keyframe>
+            <polymer-animation-prop name="transform" value="translateX(0)"></polymer-animation-prop>
+          </polymer-animation-keyframe>
+        </polymer-animation>
+        <polymer-animation id="hslide-out" duration="0.5">
+          <polymer-animation-keyframe>
+            <polymer-animation-prop name="transform" value="translateX(0)"></polymer-animation-prop>
+          </polymer-animation-keyframe>
+          <polymer-animation-keyframe>
+            <polymer-animation-prop name="transform" value="translateX(-100%)"></polymer-animation-prop>
+          </polymer-animation-keyframe>
+        </polymer-animation>
+        <polymer-animation id="scale-out" duration="0.5">
+          <polymer-animation-keyframe>
+            <polymer-animation-prop name="transform" value="scale(1)"></polymer-animation-prop>
+          </polymer-animation-keyframe>
+          <polymer-animation-keyframe>
+            <polymer-animation-prop name="transform" value="scale(0.8)"></polymer-animation-prop>
+          </polymer-animation-keyframe>
+        </polymer-animation>
+      </template>
+      <script>
+        Polymer('polymer-ui-animated-pages-demo', {
+          page: 0,
+          directional: true,
+          transitionInIndex: 2,
+          transitionOutIndex: 2,
+          ready: function() {
+            this.transitionInIndexChanged();
+            this.transitionOutIndexChanged();
+          },
+          transitionInIndexChanged: function() {
+            var transitionInId = this.$.transitionInSelect.selectedOptions[0].textContent;
+            this.transitionIn = this.$[transitionInId];
+          },
+          transitionOutIndexChanged: function() {
+            var transitionOutId = this.$.transitionOutSelect.selectedOptions[0].textContent;
+            this.transitionOut = this.$[transitionOutId];
+          },
+          rewindAction: function() {
+            this.page -= 1;
+            if (this.page < 0) {
+              this.page = this.directional ? this.page + 1 : 4;
+            }
+          },
+          forwardAction: function() {
+            this.page += 1;
+            if (this.page > 4) {
+              this.page = this.directional ? this.page - 1 : 0;
+            }
+          }
+        });
+      </script>
+    </polymer-element>
+    <polymer-ui-animated-pages-demo></polymer-ui-animated-pages-demo>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!--
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<!--
+/**
+ * @module Polymer UI Elements
+ */
+-->
+<!--
+/**
+ * polymer-ui-animated-pages
+ *
+ * @class polymer-ui-animated-pages
+ * @extends polymer-selector
+ */
+-->
+
+<link rel="import" href="../../polymer-elements/polymer-animation/web-animations.html">
+<link rel="import" href="../polymer-ui-pages/polymer-ui-pages.html">
+
+<polymer-element name="polymer-ui-animated-pages" extends="polymer-ui-pages" selected="0" notap attributes="directional transitionIn transitionOut prevSelectedItem">
+ 	<script>
+ 		Polymer('polymer-ui-animated-pages', {
+      /**
+       * Set this property to true if the direction of the transition
+       * animation depends on the order of the pages that are being
+       * transitioned. For example, sliding right to transition to the next
+       * page and sliding left to transition to the previous page is
+       * directional, while fading between pages is not.
+       *
+       * @attribute directional
+       * @type boolean
+       * @default false
+       */
+      directional: false,
+      /**
+       * An animation for the page it's transitioning to. Set this and
+       * transitionOut to null for no animations.
+       *
+       * @attribute transitionIn
+       * @type polymer-animation
+       */
+      transitionIn: null,
+      /**
+       * An animation for the page it's transitioning from. Set this and
+       * transitionIn to null for no animations.
+       *
+       * @attribute transitionOut
+       * @type polymer-animation
+       */
+      transitionOut: null,
+      prevSelectedItem: null,
+      applySelection: function(item, isSelected, force) {
+        // Do nothing if using a transition.
+        if (force || !this.hasTransition()) {
+          this.super(arguments);
+        }
+      },
+      valueForNode: function(node) {
+        return this.super(arguments) || node;
+      },
+      hasTransition: function() {
+        return this.transitionIn || this.transitionOut;
+      },
+      applyTransition: function() {
+        if (this.prevSelectedItem) {
+          this.animation = this.makeTransitionAnimation();
+          document.timeline.play(this.animation);
+          // Apply the class after the animation starts playing to prevent
+          // a flicker at the end of the animation.
+          this.async(function() {
+            this.applySelection(this.prevSelectedItem, false, true);
+            this.applySelection(this.selectedItem, true, true);
+          });
+        } else {
+          this.applySelection(this.selectedItem, true, true);
+        }
+      },
+      makeTransitionAnimation: function() {
+        var from = this.transitionOut.target = this.prevSelectedItem;
+        var to = this.transitionIn.target = this.selectedItem;
+        var direction = "normal";
+        if (this.directional) {
+          if (this.valueToIndex(from) > this.valueToIndex(to)) {
+            direction = 'reverse';
+            this.transitionOut.target = this.selectedItem;
+            this.transitionIn.target = this.prevSelectedItem;
+          }
+        }
+        var animation = new ParGroup([
+          this.transitionOut.makeAnimation(),
+          this.transitionIn.makeAnimation(),
+          // Both 'from' and 'to' items must be visible and have the default
+          // z-index. Overrides the class styles.
+          new Animation(from, [{'visibility': 'visible', 'z-index': 'auto'}]),
+          new Animation(to, [{'visibility': 'visible', 'z-index': 'auto'}])
+        ], {
+          fill: 'none',
+          direction: direction
+        });
+        return animation;
+      },
+      selectedItemChanged: function(oldItem) {
+        this.super(arguments);
+        this.prevSelectedItem = oldItem;
+        if (this.hasTransition()) {
+          this.applyTransition();
+        }
+      }
+ 		})
+ 	</script>
+</polymer-element>
