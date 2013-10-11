@@ -46,14 +46,16 @@ license that can be found in the LICENSE file.
   }
 }
 
+/* TODO(sorvell): use of !important due to inability to 
+  naturally win over an @host style */
 /*@polyfill @host > polymer-ui-icon-button */
 content::-webkit-distributed(> polymer-ui-icon-button) {
-  margin: 0px 8px 0 8px;
+  margin: 0px 8px 0 8px !important;
 }
 
 /*@polyfill @host > polymer-ui-menu-button */
 content::-webkit-distributed(> polymer-ui-menu-button) {
-  margin: 0px 8px 0 8px;
+  margin: 0px 8px 0 8px !important;
 }
 
 /*@polyfill @host > polymer-ui-toolbar */
