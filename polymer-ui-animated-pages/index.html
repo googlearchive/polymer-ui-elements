@@ -26,6 +26,26 @@ license that can be found in the LICENSE file.
     </style>
   </head>
   <body class="polymer-ui-body-text polymer-ui-full-bleed polymer-ui-light-bg">
+    <polymer-element name="transition-hslide-scale-out" extends="polymer-animation-group" noscript>
+      <template>
+        <polymer-animation id="scale-out" duration="0.5">
+          <polymer-animation-keyframe>
+            <polymer-animation-prop name="transform" value="scale(1)"></polymer-animation-prop>
+          </polymer-animation-keyframe>
+          <polymer-animation-keyframe>
+            <polymer-animation-prop name="transform" value="scale(0.8)"></polymer-animation-prop>
+          </polymer-animation-keyframe>
+        </polymer-animation>
+        <polymer-animation id="hslide-in" duration="0.5">
+          <polymer-animation-keyframe>
+            <polymer-animation-prop name="transform" value="translateX(100%)"></polymer-animation-prop>
+          </polymer-animation-keyframe>
+          <polymer-animation-keyframe>
+            <polymer-animation-prop name="transform" value="translateX(0)"></polymer-animation-prop>
+          </polymer-animation-keyframe>
+        </polymer-animation>
+      </template>
+    </polymer-element>
     <polymer-element name="polymer-ui-animated-pages-demo" attributes="page directional transitionInIndex transitionIn transitionOutIndex transitionOut">
       <template>
         <style>
@@ -76,6 +96,11 @@ license that can be found in the LICENSE file.
             Directional:
             <input type="checkbox" checked="{{directional}}">
           </label>
+          <label>
+            Str Trans:
+            <input type="checkbox" checked="{{transitionIsString}}">
+          </label>
+          <span class="spacer"></span>
           <label>
             TransIn:
             <select id="transitionInSelect" selectedIndex="{{transitionInIndex}}">
@@ -147,21 +172,30 @@ license that can be found in the LICENSE file.
         Polymer('polymer-ui-animated-pages-demo', {
           page: 0,
           directional: true,
+          transitionIsString: true,
           transitionInIndex: 2,
           transitionOutIndex: 2,
           ready: function() {
+            this.transitionIsStringChanged(),
             this.transitionInIndexChanged();
             this.transitionOutIndexChanged();
           },
           makeTransition: function() {
-            if (this.transitionIn && this.transitionOut) {
+            if (!this.transitionIsString && this.transitionIn && this.transitionOut) {
               var transition = document.createElement('polymer-animation-group');
               transition.appendChild(this.transitionOut.cloneNode(true));
               transition.appendChild(this.transitionIn.cloneNode(true));
-              if (this.transition) {
+              if (this.transition && typeof(this.transition) !== 'string') {
                 this.transition.unbindAll();
               }
               this.transition = transition;
+            }
+          },
+          transitionIsStringChanged: function() {
+            if (this.transitionIsString) {
+              this.transition = 'transition-hslide-scale-out';
+            } else {
+              this.makeTransition();
             }
           },
           transitionInIndexChanged: function() {

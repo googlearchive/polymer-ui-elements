@@ -36,13 +36,21 @@ license that can be found in the LICENSE file.
        */
       directional: false,
       /**
-       * A group of two animations to play during a transition. The first
-       * animation will target the the page it's transitioning away from,
-       * and the second animation will target the page it's transitioning
-       * to. Set to null for no transitions.
+       * This property specifies the animation to play during a page
+       * transition.
+       * 
+       * If the property is a polymer-animation-group, it should contain at
+       * least two animations. The first animation will target the the page
+       * it's transitioning away from, and the second animation will target
+       * the page it's transitioning to.
+       *
+       * If the property is a string, it should be the tag name of a custom
+       * element that extends from polymer-animation-group that fits the
+       * above requirements.
        *
        * @attribute transition
        * @type polymer-animation-group
+       * @type string
        */
       transition: null,
       prevSelectedItem: null,
@@ -73,21 +81,26 @@ license that can be found in the LICENSE file.
         }
       },
       makeTransitionAnimation: function() {
-        var transitions = this.transition.childAnimationElements;
-        var from = transitions[0].target =  this.prevSelectedItem;
-        var to = transitions[1].target = this.selectedItem;
+        var transition = typeof(this.transition) === "string" ?
+            document.createElement(this.transition) : this.transition;
+        var animations = transition.childAnimationElements;
+        var from = animations[0].target =  this.prevSelectedItem;
+        var to = animations[1].target = this.selectedItem;
         var direction = "normal";
         if (this.directional) {
           if (this.valueToIndex(from) > this.valueToIndex(to)) {
             direction = 'reverse';
-            transitions[0].target = this.selectedItem;
-            transitions[1].target = this.prevSelectedItem;
+            animations[0].target = this.selectedItem;
+            animations[1].target = this.prevSelectedItem;
           }
         }
-        transitions[0].apply();
-        transitions[1].apply();
+        // FIXME: Something weird with the apply code in polymer-animation
+        // and polymer-animation-group
+        animations[0].apply();
+        animations[1].apply();
+        transition.cancelApply();
         var animation = new ParGroup([
-          this.transition.makeAnimation(),
+          transition.makeAnimation(),
           // Both 'from' and 'to' items must be visible and have the default
           // z-index. Overrides the class styles.
           new Animation(from, [{'visibility': 'visible', 'z-index': 'auto'}]),
