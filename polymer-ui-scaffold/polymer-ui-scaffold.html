@@ -11,7 +11,7 @@ license that can be found in the LICENSE file.
 * @module Polymer UI Elements
 */
 /**
- * @class polymer-ui-basic-app
+ * @class polymer-ui-scaffold
  */
 -->
 
@@ -20,9 +20,9 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../polymer-ui-toolbar/polymer-ui-toolbar.html">
 <link rel="import" href="../polymer-ui-icon-button/polymer-ui-icon-button.html">
 
-<polymer-element name="polymer-ui-basic-app" attributes="menuActive hideMenuButton">
+<polymer-element name="polymer-ui-scaffold" attributes="menuActive hideMenuButton">
   <template>
-    <link rel="stylesheet" href="polymer-ui-basic-app.css">
+    <link rel="stylesheet" href="polymer-ui-scaffold.css">
     <polymer-grid-layout id="grid"></polymer-grid-layout>
     <section class="animate" offscreen="basement">
       <content select="[navigation]"></content>
@@ -37,7 +37,7 @@ license that can be found in the LICENSE file.
   </template>
   <script>
     (function() {
-      Polymer('polymer-ui-basic-app', {
+      Polymer('polymer-ui-scaffold', {
         menuActive: false,
         hideMenuButton: false,
         layouts: {
@@ -67,9 +67,9 @@ license that can be found in the LICENSE file.
   </script>
 </polymer-element>
 
-<polymer-element name="polymer-ui-basic-app2" attributes="">
+<polymer-element name="polymer-ui-scaffold2" attributes="">
   <template>
-    <link rel="stylesheet" href="polymer-ui-basic-app.css">
+    <link rel="stylesheet" href="polymer-ui-scaffold.css">
     <polymer-grid-layout id="grid"></polymer-grid-layout>
     <section>
       <content select="[navigation]"></content>
@@ -83,7 +83,7 @@ license that can be found in the LICENSE file.
   </template>
   <script>
     (function() {
-      Polymer('polymer-ui-basic-app2', {
+      Polymer('polymer-ui-scaffold2', {
         menuActive: false,
         layouts: {
           main:[
@@ -100,9 +100,9 @@ license that can be found in the LICENSE file.
   </script>
 </polymer-element>
 
-<polymer-element name="polymer-ui-basic-app3" attributes="menuActive hideMenuButton">
+<polymer-element name="polymer-ui-scaffold3" attributes="menuActive hideMenuButton">
   <template>
-    <link rel="stylesheet" href="polymer-ui-basic-app.css">
+    <link rel="stylesheet" href="polymer-ui-scaffold.css">
     <polymer-grid-layout id="grid"></polymer-grid-layout>
     <section class="animate" style="z-index: 10;" offscreen="left">
       <content select="[navigation]"></content>
@@ -118,7 +118,7 @@ license that can be found in the LICENSE file.
   </template>
   <script>
     (function() {
-      Polymer('polymer-ui-basic-app3', {
+      Polymer('polymer-ui-scaffold3', {
         menuActive: false,
         hideMenuButton: false,
         layouts: {
