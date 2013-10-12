@@ -63,6 +63,9 @@ license that can be found in the LICENSE file.
       valueForNode: function(node) {
         return this.super(arguments) || node;
       },
+      nodeToIndex: function(node) {
+        return this.valueToIndex(this.valueForNode(node));
+      },
       hasTransition: function() {
         return this.transition;
       },
@@ -88,7 +91,7 @@ license that can be found in the LICENSE file.
         var to = animations[1].target = this.selectedItem;
         var direction = "normal";
         if (this.directional) {
-          if (this.valueToIndex(from) > this.valueToIndex(to)) {
+          if (this.nodeToIndex(from) > this.nodeToIndex(to)) {
             direction = 'reverse';
             animations[0].target = this.selectedItem;
             animations[1].target = this.prevSelectedItem;
