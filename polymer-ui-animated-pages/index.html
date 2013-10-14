@@ -46,7 +46,7 @@ license that can be found in the LICENSE file.
         </polymer-animation>
       </template>
     </polymer-element>
-    <polymer-element name="polymer-ui-animated-pages-demo" attributes="page directional transitionInIndex transitionIn transitionOutIndex transitionOut">
+    <polymer-element name="polymer-ui-animated-pages-demo">
       <template>
         <style>
           polymer-ui-toolbar {
@@ -96,6 +96,7 @@ license that can be found in the LICENSE file.
             Directional:
             <input type="checkbox" checked="{{directional}}">
           </label>
+          <span class="spacer"></span>
           <label>
             Str Trans:
             <input type="checkbox" checked="{{transitionIsString}}">
@@ -119,6 +120,11 @@ license that can be found in the LICENSE file.
               <option>scale-out</option>
             </select>
           </label>
+          <span class="spacer"></span>
+          <label>
+            Duration:
+            <input value="{{duration}}" size="4">
+          </label>
         </polymer-ui-toolbar>
         <polymer-ui-animated-pages selected="{{page}}" directional?="{{directional}}" transition="{{transition}}">
           <div class="grid" value="one">One</div>
@@ -127,7 +133,7 @@ license that can be found in the LICENSE file.
           <div class="dots">Four</div>
           <div class="diamonds">Five</div>
         </polymer-ui-animated-pages>
-        <polymer-animation id="fade-in" duration="0.5">
+        <polymer-animation id="fade-in" duration="{{duration}}">
           <polymer-animation-keyframe>
             <polymer-animation-prop name="opacity" value="0"></polymer-animation-prop>
           </polymer-animation-keyframe>
@@ -135,7 +141,7 @@ license that can be found in the LICENSE file.
             <polymer-animation-prop name="opacity" value="1"></polymer-animation-prop>
           </polymer-animation-keyframe>
         </polymer-animation>
-        <polymer-animation id="fade-out" duration="0.5">
+        <polymer-animation id="fade-out" duration="{{duration}}">
           <polymer-animation-keyframe>
             <polymer-animation-prop name="opacity" value="1"></polymer-animation-prop>
           </polymer-animation-keyframe>
@@ -143,7 +149,7 @@ license that can be found in the LICENSE file.
             <polymer-animation-prop name="opacity" value="0"></polymer-animation-prop>
           </polymer-animation-keyframe>
         </polymer-animation>
-        <polymer-animation id="hslide-in" duration="0.5">
+        <polymer-animation id="hslide-in" duration="{{duration}}">
           <polymer-animation-keyframe>
             <polymer-animation-prop name="transform" value="translateX(100%)"></polymer-animation-prop>
           </polymer-animation-keyframe>
@@ -151,7 +157,7 @@ license that can be found in the LICENSE file.
             <polymer-animation-prop name="transform" value="translateX(0)"></polymer-animation-prop>
           </polymer-animation-keyframe>
         </polymer-animation>
-        <polymer-animation id="hslide-out" duration="0.5">
+        <polymer-animation id="hslide-out" duration="{{duration}}">
           <polymer-animation-keyframe>
             <polymer-animation-prop name="transform" value="translateX(0)"></polymer-animation-prop>
           </polymer-animation-keyframe>
@@ -159,7 +165,7 @@ license that can be found in the LICENSE file.
             <polymer-animation-prop name="transform" value="translateX(-100%)"></polymer-animation-prop>
           </polymer-animation-keyframe>
         </polymer-animation>
-        <polymer-animation id="scale-out" duration="0.5">
+        <polymer-animation id="scale-out" duration="{{duration}}">
           <polymer-animation-keyframe>
             <polymer-animation-prop name="transform" value="scale(1)"></polymer-animation-prop>
           </polymer-animation-keyframe>
@@ -172,7 +178,8 @@ license that can be found in the LICENSE file.
         Polymer('polymer-ui-animated-pages-demo', {
           page: 0,
           directional: true,
-          transitionIsString: true,
+          transitionIsString: false,
+          duration: 0.5,
           transitionInIndex: 2,
           transitionOutIndex: 2,
           ready: function() {
@@ -185,11 +192,15 @@ license that can be found in the LICENSE file.
               var transition = document.createElement('polymer-animation-group');
               transition.appendChild(this.transitionOut.cloneNode(true));
               transition.appendChild(this.transitionIn.cloneNode(true));
+              transition.setAttribute('duration', this.duration);
               if (this.transition && typeof(this.transition) !== 'string') {
                 this.transition.unbindAll();
               }
               this.transition = transition;
             }
+          },
+          durationChanged: function() {
+            this.makeTransition();
           },
           transitionIsStringChanged: function() {
             if (this.transitionIsString) {
