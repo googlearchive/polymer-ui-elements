@@ -126,7 +126,7 @@ license that can be found in the LICENSE file.
             <input value="{{duration}}" size="4">
           </label>
         </polymer-ui-toolbar>
-        <polymer-ui-animated-pages selected="{{page}}" directional?="{{directional}}" transition="{{transition}}">
+        <polymer-ui-animated-pages selected="{{page}}" directional?="{{directional}}" transition="{{transition}}" on-polymer-pages-animation-end="animationEndAction">
           <div class="grid" value="one">One</div>
           <div class="brick" value="two">Two</div>
           <div class="wave">Three</div>
@@ -230,6 +230,9 @@ license that can be found in the LICENSE file.
             if (this.page > 4) {
               this.page = this.directional ? this.page - 1 : 0;
             }
+          },
+          animationEndAction: function() {
+            console.log('animationEnd');
           }
         });
       </script>

@@ -16,6 +16,11 @@ license that can be found in the LICENSE file.
  * @extends polymer-selector
  */
 -->
+<!--
+/**
+ * Fired when the transition animation ends
+ * @event polymer-pages-animation-end
+-->
 
 <link rel="import" href="../../polymer-elements/polymer-animation/web-animations.html">
 <link rel="import" href="../polymer-ui-pages/polymer-ui-pages.html">
@@ -112,6 +117,7 @@ license that can be found in the LICENSE file.
           fill: 'none',
           direction: direction
         });
+        animation.onend = this.animationEndAction.bind(this);
         return animation;
       },
       selectedItemChanged: function(oldItem) {
@@ -120,6 +126,9 @@ license that can be found in the LICENSE file.
         if (this.hasTransition()) {
           this.applyTransition();
         }
+      },
+      animationEndAction: function() {
+        this.fire('polymer-pages-animation-end');
       }
  		})
  	</script>
