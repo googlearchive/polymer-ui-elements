@@ -102,15 +102,13 @@ license that can be found in the LICENSE file.
             animations[1].target = this.prevSelectedItem;
           }
         }
-        // FIXME: Something weird with the apply code in polymer-animation
-        // and polymer-animation-group
-        animations[0].apply();
-        animations[1].apply();
-        transition.cancelApply();
+        // Apply the changes to make the web animations object.
+        transition.apply();
         var animation = new ParGroup([
-          transition.makeAnimation(),
-          // Both 'from' and 'to' items must be visible and have the default
-          // z-index. Overrides the class styles.
+          transition.animation,
+          // FIXME: Both 'from' and 'to' items must be visible and have the
+          // default z-index. Overrides the class styles. Can be removed if
+          // the polymer-animation-start event is working.
           new Animation(from, [{'visibility': 'visible', 'z-index': 'auto'}]),
           new Animation(to, [{'visibility': 'visible', 'z-index': 'auto'}])
         ], {
