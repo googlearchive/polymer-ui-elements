@@ -27,10 +27,11 @@ license that can be found in the LICENSE file.
           }
         </style>
         <polymer-ui-toolbar>
-          <polymer-ui-breadcrumbs crumbs="{{crumbs}}" selectedCrumb="{{selectedCrumb}}"></polymer-ui-breadcrumbs>
+          <polymer-ui-breadcrumbs crumbs="{{crumbs}}" selected="{{selected}}" selectedCrumb="{{selectedCrumb}}"></polymer-ui-breadcrumbs>
         </polymer-ui-toolbar>
         <br><br>
-        <div>{{selectedCrumb.label}}</div>
+        <div>label: {{selectedCrumb.label}}</div>
+        selected: <input value="{{selected}}">
       </template>
       <script>
         Polymer('x-test', {

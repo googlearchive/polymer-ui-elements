@@ -19,10 +19,14 @@ license that can be found in the LICENSE file.
 
 .label > a {
   text-decoration: none;
-  color: #75d0df;
+  color: #aaa;
 }
 
-.label:last-of-type > a {
+.label[hidden] {
+  display: none;
+}
+
+.label.polymer-selected > a {
   color: black;
 }
 
@@ -36,6 +40,6 @@ polymer-ui-icon {
   transform: rotate(270deg);
 }
 
-polymer-ui-icon:last-of-type {
+.label.polymer-selected ~ polymer-ui-icon {
   display: none !important;
 }
