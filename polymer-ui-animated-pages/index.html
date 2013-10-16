@@ -182,25 +182,34 @@ license that can be found in the LICENSE file.
           duration: 0.5,
           transitionInIndex: 2,
           transitionOutIndex: 2,
+          observe: {
+            transitionInIndex: 'makeTransition',
+            transitionOutIndex: 'makeTransition'
+          },
           ready: function() {
-            this.transitionIsStringChanged(),
-            this.transitionInIndexChanged();
-            this.transitionOutIndexChanged();
+            this.transitionIsStringChanged();
           },
           makeTransition: function() {
-            if (!this.transitionIsString && this.transitionIn && this.transitionOut) {
-              var transition = document.createElement('polymer-animation-group');
-              transition.appendChild(this.transitionOut.cloneNode(true));
-              transition.appendChild(this.transitionIn.cloneNode(true));
-              transition.setAttribute('duration', this.duration);
-              if (this.transition && typeof(this.transition) !== 'string') {
-                this.transition.unbindAll();
+            if (!this.transitionIsString) {
+              var transitionInId = this.$.transitionInSelect.selectedOptions[0].textContent;
+              var transitionIn = this.$[transitionInId];
+              var transitionOutId = this.$.transitionOutSelect.selectedOptions[0].textContent;
+              var transitionOut = this.$[transitionOutId];
+              if (transitionIn && transitionOut) {
+                var transition = document.createElement('polymer-animation-group');
+                transition.appendChild(transitionOut.cloneNode(true));
+                transition.appendChild(transitionIn.cloneNode(true));
+                if (this.transition && typeof(this.transition) !== 'string') {
+                  this.transition.unbindAll();
+                }
+                this.transition = transition;
               }
-              this.transition = transition;
             }
           },
           durationChanged: function() {
-            this.makeTransition();
+            Platform.endOfMicrotask(function() {
+              this.makeTransition();
+            }.bind(this));
           },
           transitionIsStringChanged: function() {
             if (this.transitionIsString) {
@@ -208,16 +217,6 @@ license that can be found in the LICENSE file.
             } else {
               this.makeTransition();
             }
-          },
-          transitionInIndexChanged: function() {
-            var transitionInId = this.$.transitionInSelect.selectedOptions[0].textContent;
-            this.transitionIn = this.$[transitionInId];
-            this.makeTransition();
-          },
-          transitionOutIndexChanged: function() {
-            var transitionOutId = this.$.transitionOutSelect.selectedOptions[0].textContent;
-            this.transitionOut = this.$[transitionOutId];
-            this.makeTransition();
           },
           rewindAction: function() {
             this.page -= 1;
