@@ -44,7 +44,7 @@
 }
 
 /* workaround for https://github.com/Polymer/platform/issues/36 */
-/* @polyfill-rule polymer-ui-toggle-button .toggle {
+/* @polyfill-unscoped-rule polymer-ui-toggle-button .toggle {
   left: -webkit-calc(-100% + 24px);
   width: -webkit-calc(200% - 24px);
 } */
@@ -92,6 +92,6 @@
   background-color: white;
 }
 
-/* @polyfill-rule polymer-ui-toggle-button .thumb {
+/* @polyfill-unscoped-rule polymer-ui-toggle-button .thumb {
   left: -webkit-calc(50% - 12px);
 } */
