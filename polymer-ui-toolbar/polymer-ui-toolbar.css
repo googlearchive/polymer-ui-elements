@@ -17,7 +17,6 @@ license that can be found in the LICENSE file.
     height: 60px;
     font-size: 21px;
 		font-family: 'Helvetica Neue Medium', 'HelveticaNeue-Medium', Helvetica, sans-serif;
-		border-top: 1px solid rgba(255,255,255,.8);
 		position: relative;
   }
 
@@ -29,10 +28,8 @@ license that can be found in the LICENSE file.
   }
 
   .polymer-ui-dark-theme {
-    background: #333333 -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.9));
-    background: #333333 -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.9));
-    background: #333333 -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.9));
-    color: #ededed;
+    background: #444444 none;
+    color: #f3f3f3;
   }
   
   .narrow-layout[responsive] {
