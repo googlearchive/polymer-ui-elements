@@ -8,7 +8,8 @@
   "description": "Common polymer UI elements",
   "keywords": [
     "polymer",
-    "web-components"
+    "web-components",
+    "web components"
   ],
   "dependencies": {
     "polymer-elements": "0.0.20131010"
