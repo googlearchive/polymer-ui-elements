@@ -13,20 +13,31 @@
         font-family: 'Helvetica Neue', 'Roboto', 'Arial', sans-serif;
         font-size: 14px;
       }
+      
+      polymer-ui-field {
+        border: 1px solid #ddd;
+        margin: 10px;
+        height: 40px;
+      }
     </style>
   </head>
-  <body>
+  <body theme="polymer-ui-light-theme">
 		<polymer-ui-field>
 			<polymer-ui-icon icon="contact"></polymer-ui-icon>
-			<input placeholder="hi!">
+			<input placeholder="hi!" flex>
+    </polymer-ui-field>
+    <polymer-ui-field>
+      <polymer-ui-icon icon="search"></polymer-ui-icon>
+      <input placeholder="Search" flex>
+      <polymer-ui-icon icon="dialog"></polymer-ui-icon>
     </polymer-ui-field>
 		<polymer-ui-field>
-		<polymer-ui-icon icon="plus"></polymer-ui-icon>
+		  <polymer-ui-icon icon="plus"></polymer-ui-icon>
 			<label>I'm a label!</label>
-			<input placeholder="I have a label">
+			<input placeholder="I have a label" flex>
     </polymer-ui-field>
 		<polymer-ui-field>
-			<input placeholder="I have no icon">
+			<input placeholder="I have no icon" flex>
     </polymer-ui-field>
   </body>
 </html>
