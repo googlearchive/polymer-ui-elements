@@ -72,7 +72,10 @@ license that can be found in the LICENSE file.
   </template>
   <script>
     Polymer('polymer-ui-breadcrumbs', {
-      crumbs: [],
+      createdCallback: function() {
+        this.crumbs = [];
+        this.super(arguments);
+      },
       crumbsChanged: function() {
         this.selected = this.crumbs ? this.crumbs.length - 1 : null;
       },
