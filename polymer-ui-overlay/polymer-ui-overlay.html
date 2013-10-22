@@ -1,6 +1,6 @@
 <link rel="import" href="../../polymer-elements/polymer-overlay/polymer-overlay.html">
 
-<polymer-element name="polymer-ui-overlay" attributes="active modal backdrop">
+<polymer-element name="polymer-ui-overlay" attributes="active modal backdrop transitions">
   <template>
     <style>
       #backdrop {
@@ -16,7 +16,7 @@
         background: white;
       }
     </style>
-    <polymer-overlay id="overlay" opened="{{active}}" autoCloseDisabled="{{modal}}"></polymer-overlay>
+    <polymer-overlay id="overlay" opened="{{active}}" autoCloseDisabled="{{modal}}" transitions="{{transitions}}"></polymer-overlay>
     <div id="backdrop" hidden?="{{!backdrop}}" pseudo="x-backdrop" on-click="{{toggle: !modal}}"></div>
     <div id="container" pseudo="x-overlay">
       <content></content>

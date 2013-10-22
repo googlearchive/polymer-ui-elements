@@ -5,6 +5,8 @@
     <script src="../../polymer/polymer.js"></script>
     <link rel="import" href="../../polymer-elements/polymer-animation/polymer-animation.html">
     <link rel="import" href="../../polymer-elements/polymer-animation/polymer-animation-group.html">
+    <link rel="import" href="../../polymer-elements/polymer-animation/polymer-fadein.html">
+    <link rel="import" href="../../polymer-elements/polymer-animation/polymer-fadeout.html">
     <link rel="import" href="../../polymer-elements/polymer-flex-layout/polymer-flex-layout.html">
     <link rel="import" href="polymer-ui-overlay.html">
     <link rel="import" href="../polymer-ui-toolbar/polymer-ui-toolbar.html">
@@ -93,20 +95,20 @@
             opening:
             <select value="{{openingAnimationName}}">
               <option>none</option>
-              <option value="fade-in">fade-in</option>
+              <option value="polymer-fadein">fade-in</option>
             </select>
           </label>
           <span class="spacer"></span>
           <label>
             closing:
-            <select selectedIndex="{{closingAnimationName}}">
+            <select value="{{closingAnimationName}}">
               <option>none</option>
-              <option value="fade-out">fade-out</option>
+              <option value="polymer-fadeout">fade-out</option>
             </select>
           </label>
         </polymer-ui-toolbar>
         <div flex>
-        <polymer-ui-overlay id="overlayDemo" backdrop?="{{backdrop}}">
+        <polymer-ui-overlay id="overlayDemo" backdrop?="{{backdrop}}" transitions="{{transitions}}">
           <div>
             <h2>Dialog</h2>
             <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla sapien sed enim sollicitudin laoreet. Suspendisse suscipit, metus ac volutpat sodales, libero magna semper lacus, molestie fringilla massa orci ut arcu. Nullam sodales urna sit amet odio vehicula mattis.</div><br><br>
@@ -128,8 +130,15 @@
     <script>
       Polymer('polymer-ui-overlay-demo', {
         center: 'both',
-        openingAnimationName: 'none',
+        openingAnimationName: 'polymer-fadein',
         closingAnimationName: 'none',
+        observe: {
+          openingAnimationName: 'applyTransition',
+          closingAnimationName: 'applyTransition'
+        },
+        ready: function() {
+          this.applyTransition();
+        },
         centerChanged: function() {
           if (this.center === 'none') {
             this.$.overlayDemo.classList.add('hpositioned');
@@ -144,6 +153,12 @@
             this.$.overlayDemo.classList.remove('hpositioned');
             this.$.overlayDemo.classList.remove('vpositioned');
           }
+        },
+        applyTransition: function() {
+          this.transitions = [
+            this.openingAnimationName === 'none' ? null : this.openingAnimationName,
+            this.closingAnimationName === 'none' ? null : this.closingAnimationName
+          ];
         },
         somethingChanged: function() {
           if (this.something === 'something') {
