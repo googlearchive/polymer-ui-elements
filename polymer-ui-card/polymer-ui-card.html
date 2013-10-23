@@ -26,7 +26,7 @@ license that can be found in the LICENSE file.
  */
 -->
 <polymer-element name="polymer-ui-card" attributes="swipeable noCurve"
-    on-trackstart="trackStart" on-track="track" on-trackend="trackEnd" on-flick="flick">
+    on-trackstart="{{trackStart}}" on-track="{{track}}" on-trackend="{{trackEnd}}" on-flick="{{flick}}">
   <template>
     <link rel="stylesheet" href="polymer-ui-card.css">
     <content></content>
@@ -44,7 +44,7 @@ license that can be found in the LICENSE file.
       noCurve: false,
       offsetRatio: 0.2,
       widthRatio: 3,
-      created: function() {
+      ready: function() {
         this.setAttribute('touch-action', 'pan-y');
         this.transitionEndListener = this.transitionEnd.bind(this);
       },
