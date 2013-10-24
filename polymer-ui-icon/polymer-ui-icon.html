@@ -156,7 +156,6 @@ license that can be found in the LICENSE file.
         if (themes[theme] === undefined) {
           var offset = parseFloat(
               getComputedStyle(node).backgroundPosition.split(' ').shift());
-          console.log('calcThemeOffset', theme, offset)
           themes[theme] = offset;
         }
         return themes[theme]; 
