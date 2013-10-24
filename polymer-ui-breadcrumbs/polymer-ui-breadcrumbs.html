@@ -64,7 +64,7 @@ license that can be found in the LICENSE file.
     <link rel="stylesheet" href="polymer-ui-breadcrumbs.css">
     <div id="crumbs">
       <template repeat="{{crumbs}}">
-        <li class="label" hidden?="{{hidden}}"><a href="{{href}}" disabled?="{{!href}}">{{label}}</a></li>
+        <li class="label"><a href="{{href}}" disabled?="{{!href}}">{{label}}</a></li>
         <polymer-ui-icon icon="dropdown"></polymer-ui-icon>
       </template>
     </div>
@@ -72,17 +72,8 @@ license that can be found in the LICENSE file.
   </template>
   <script>
     Polymer('polymer-ui-breadcrumbs', {
-      createdCallback: function() {
+      created: function() {
         this.crumbs = [];
-        this.super(arguments);
-      },
-      crumbsChanged: function() {
-        this.selected = this.crumbs ? this.crumbs.length - 1 : null;
-      },
-      selectedChanged: function() {
-        this.crumbs && this.crumbs.forEach(function(c, i) {
-          c.hidden = i > this.selected;
-        }.bind(this));
       }
     });
   </script>
