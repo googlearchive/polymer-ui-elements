@@ -34,7 +34,7 @@ license that can be found in the LICENSE file.
  */
 -->
 <polymer-element name="polymer-ui-splitter" attributes="direction locked"
-    on-trackstart="trackStart" on-track="track" on-trackend="trackEnd">
+    on-trackstart="{{trackStart}}" on-track="{{track}}" on-trackend="{{trackEnd}}">
   <template>
     <link rel="stylesheet" href="polymer-ui-splitter.css">
   </template>
@@ -56,7 +56,7 @@ license that can be found in the LICENSE file.
        * @default false
        */
       locked: false,
-      created: function() {
+      ready: function() {
         this.directionChanged();
       },
       directionChanged: function() {

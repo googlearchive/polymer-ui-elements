@@ -30,10 +30,10 @@ license that can be found in the LICENSE file.
 <polymer-element name="polymer-ui-collapsible" attributes="active notap">
   <template>
     <link rel="stylesheet" href="polymer-ui-collapsible.css">
-    <div on-tap="headerTap">
+    <div on-tap="{{headerTap}}">
       <content select=".polymer-ui-collapsible-header"></content>
     </div>
-    <div id="collapsibleBody" on-tap="bodyTap">
+    <div id="collapsibleBody" on-tap="{{bodyTap}}">
       <content></content>
     </div>
     <polymer-collapse targetId="collapsibleBody" closed="{{!active}}"></polymer-collapse>

@@ -32,7 +32,7 @@ license that can be found in the LICENSE file.
   <template>
     <link rel="stylesheet" href="polymer-ui-ratings.css">
     <template repeat="{{star in stars}}">
-      <span id="star" index="{{star.index}}" class="{{star.starClass}} {{color}} {{theme}}" on-tap="updateValue"></span>
+      <span id="star" index="{{star.index}}" class="{{star.starClass}} {{color}} {{theme}}" on-tap="{{updateValue}}"></span>
     </template>
   </template>
   <script>
@@ -54,7 +54,7 @@ license that can be found in the LICENSE file.
        */
       value: 0,
       color: '',
-      created: function() {
+      ready: function() {
         this.countChanged();
       },
       countChanged: function() {

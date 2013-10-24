@@ -38,7 +38,7 @@ license that can be found in the LICENSE file.
 <polymer-element name="polymer-ui-submenu-item" extends="polymer-ui-menu-item" attributes="active selected selectedItem">
   <template>
     <link rel="stylesheet" href="polymer-ui-submenu-item.css">
-    <polymer-ui-menu-item id="item" src="{{src}}" label="{{label}}" icon="{{icon}}" active?="{{active}}" on-tap="activate">
+    <polymer-ui-menu-item id="item" src="{{src}}" label="{{label}}" icon="{{icon}}" active?="{{active}}" on-tap="{{activate}}">
       <content select=".item-content"></content>
     </polymer-ui-menu-item>
     <polymer-ui-menu id="menu" selected="{{selected}}" selectedItem="{{selectedItem}}">

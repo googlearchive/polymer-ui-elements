@@ -87,8 +87,8 @@ license that can be found in the LICENSE file.
           }
         </style>
         <polymer-ui-toolbar>
-          <button on-tap="rewindAction">&laquo;</button>
-          <button on-tap="forwardAction">&raquo;</button>
+          <button on-tap="{{rewindAction}}">&laquo;</button>
+          <button on-tap="{{forwardAction}}">&raquo;</button>
           <span class="spacer"></span>
           <button>+</button>
           <span class="spacer"></span>
@@ -126,7 +126,7 @@ license that can be found in the LICENSE file.
             <input value="{{duration}}" size="4">
           </label>
         </polymer-ui-toolbar>
-        <polymer-ui-animated-pages selected="{{page}}" directional?="{{directional}}" transition="{{transition}}" on-polymer-pages-animation-end="animationEndAction">
+        <polymer-ui-animated-pages selected="{{page}}" directional?="{{directional}}" transition="{{transition}}" on-polymer-pages-animation-end="{{animationEndAction}}">
           <div class="grid" value="one">One</div>
           <div class="brick" value="two">Two</div>
           <div class="wave">Three</div>

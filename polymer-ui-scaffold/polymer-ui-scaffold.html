@@ -28,7 +28,7 @@ license that can be found in the LICENSE file.
       <content select="[navigation]"></content>
     </section>
     <polymer-ui-toolbar class="animate">
-      <polymer-ui-icon-button icon="menu" hidden?="{{hideMenuButton}}" on-tap="menuActionTap" active="{{menuActive}}"></polymer-ui-icon-button>
+      <polymer-ui-icon-button icon="menu" hidden?="{{hideMenuButton}}" on-tap="{{menuActionTap}}" active="{{menuActive}}"></polymer-ui-icon-button>
       <content select="[tool]"></content>
     </polymer-ui-toolbar>
     <section class="animate">
@@ -107,9 +107,9 @@ license that can be found in the LICENSE file.
     <section class="animate" style="z-index: 10;" offscreen="left">
       <content select="[navigation]"></content>
     </section>
-    <section id="scrim" on-tap="menuActionTap" offscreen="right"></section>
+    <section id="scrim" on-tap="{{menuActionTap}}" offscreen="right"></section>
     <polymer-ui-toolbar offscreen="basement">
-      <polymer-ui-icon-button icon="menu" hidden?="{{hideMenuButton}}" on-tap="menuActionTap" active="{{menuActive}}"></polymer-ui-icon-button>
+      <polymer-ui-icon-button icon="menu" hidden?="{{hideMenuButton}}" on-tap="{{menuActionTap}}" active="{{menuActive}}"></polymer-ui-icon-button>
       <content select="[tool]"></content>
     </polymer-ui-toolbar>
     <section offscreen="basement">
