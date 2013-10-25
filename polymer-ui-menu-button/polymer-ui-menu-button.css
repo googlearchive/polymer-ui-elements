@@ -10,13 +10,17 @@
 
 #overlay {
 	position: absolute;
+	left: 0;
+	top: 42px;
 }
 
 #overlay[halign=right] {
+	left: auto;
 	right: 10px;
 }
 
 #overlay[valign=top] {
+	top: auto;
 	bottom: 48px;
 }
 
