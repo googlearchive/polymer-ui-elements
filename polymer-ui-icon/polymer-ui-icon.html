@@ -145,6 +145,7 @@ license that can be found in the LICENSE file.
         updateIcon: function() {
           if (this.src) {
             this.style.backgroundPosition = 'center';
+            this.style.backgroundSize = this.size + 'px ' + this.size + 'px';
           } else {
             this.style.backgroundPosition = (this.bx + 'px') + ' ' + (this.by + 'px');
           }
