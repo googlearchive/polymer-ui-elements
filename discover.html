@@ -1,0 +1,84 @@
+﻿<!doctype html>
+<html>
+<head>
+  <title>Polymer UI Elements</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Arial, Roboto, sans-serif;
+    }
+  </style>
+  <!--<script src="../platform/platform.js"></script>-->
+  <script src="../polymer/polymer.js"></script>
+  <link rel="import" href="elements.html">
+  <link rel="import" href="../designer-elements/x-meta/x-meta.html">
+  <link rel="import" href="metadata.html">
+</head>
+<body>
+  <h2>Polymer UI Elements</h2>
+  <h3>Get 'Em All</h3>
+  <a href="http://localhost:3003/bower?polymer-ui-elements=https%3A//github.com/sjmiles/polymer-ui-elements.git">Bowager Install</a>
+  <br><br>
+  <h3>Individually Wrapped</h3>
+
+  <!--
+  <div style="border: 1px dotted gray; padding: 8px;">
+    <h4 style="margin-top: 0;">Icon</h4>
+    <polymer-ui-icon icon="briefcase"></polymer-ui-icon>
+    <br><br>
+    <a href="polymer-ui-icon">Test Page</a>
+    <br>
+    <a href="http://localhost:3003/bower?polymer-ui-icon=https%3A//github.com/sjmiles/polymer-ui-icon.git">Bowager Install</a>
+  </div>
+  <br>
+  <div style="border: 1px dotted gray; padding: 8px;">
+    <h4 style="margin-top: 0;">Toolbar</h4>
+    <polymer-ui-toolbar theme="polymer-ui-dark-theme">
+      <polymer-ui-icon-button icon="menu"></polymer-ui-icon-button>
+      <div flex>Toolbar</div>
+      <polymer-ui-icon-button icon="add"></polymer-ui-icon-button>
+    </polymer-ui-toolbar>
+    <br>
+    <a href="polymer-ui-toolbar">Test Page</a>
+    <br>
+  </div>
+  <br><br>
+  -->
+
+  <elt-list></elt-list>
+
+  <polymer-element name="meta-archetype" attributes="meta">
+    <template></template>
+    <script>
+      Polymer('meta-archetype', {
+        meta: null,
+        metaChanged: function () {
+          this.shadowRoot.appendChild(this.meta.archetype.content.cloneNode(true));
+        }
+      });
+    </script>
+  </polymer-element>
+
+  <polymer-element name="elt-list">
+    <template>
+      <x-meta id="meta" list="{{list}}"></x-meta>
+      <template repeat="{{list}}">
+        <div style="border: 1px dotted gray; padding: 8px; margin-bottom: 4px;">
+          <h4 style="margin-top: 0; line-height: 36px;">{{id}}<a href="http://localhost:3003/bower?{{id}}=https%3A//github.com/sjmiles/{{id}}.git"><polymer-ui-icon icon="shortcut" style="margin: 0 0 8px 8px;"></polymer-ui-icon></a></h4>
+          <meta-archetype meta="{{}}" style="display:block;"></meta-archetype>
+          <br>
+          <a href="{{id}}">Test Page</a>
+          <!--<br>
+          <a href="http://localhost:3003/bower?{{id}}=https%3A//github.com/sjmiles/{{id}}.git">Bowager Install</a>-->
+        </div>
+      </template>
+    </template>
+    <script>
+      Polymer('elt-list', {
+        ready: function () {
+          console.dir(this.$.meta.list);
+        }
+      });
+    </script>
+  </polymer-element>
+</body>
+</html>
