@@ -15,7 +15,10 @@ license that can be found in the LICENSE file.
     <!-- import elements-->
     <link rel="import" href="polymer-ui-toolbar.html">
     <link rel="import" href="../polymer-ui-icon-button/polymer-ui-icon-button.html">
-    <!-- -->
+    <!-- themes -->
+    <link rel="import" href="../polymer-ui-elements-light.html">
+    <link rel="import" href="../polymer-ui-elements-dark.html">
+    <!--  -->
     <link rel="stylesheet" href="../basic.css">
     <style>
       polymer-ui-toolbar.custom-toolbar {
@@ -33,21 +36,21 @@ license that can be found in the LICENSE file.
       <polymer-ui-icon-button icon="add"></polymer-ui-icon-button>
     </polymer-ui-toolbar>
     <br>
-    <polymer-ui-toolbar theme="polymer-ui-light-theme">
+    <polymer-ui-toolbar class="polymer-ui-elements-light">
       <polymer-ui-icon-button icon="menu"></polymer-ui-icon-button>
-      <div flex>Toolbar: polymer-ui-light-theme</div>
+      <div flex>Toolbar: polymer-ui-elements-light</div>
       <polymer-ui-icon-button icon="refresh"></polymer-ui-icon-button>
       <polymer-ui-icon-button icon="add"></polymer-ui-icon-button>
     </polymer-ui-toolbar>
     <br>
-    <polymer-ui-toolbar theme="polymer-ui-dark-theme">
+    <polymer-ui-toolbar class="polymer-ui-elements-dark">
       <polymer-ui-icon-button icon="menu"></polymer-ui-icon-button>
-      <div flex>Toolbar: polymer-ui-dark-theme</div>
+      <div flex>Toolbar: polymer-ui-elements-dark</div>
       <polymer-ui-icon-button icon="refresh"></polymer-ui-icon-button>
       <polymer-ui-icon-button icon="add"></polymer-ui-icon-button>
     </polymer-ui-toolbar>
     <br>
-    <polymer-ui-toolbar theme="polymer-ui-dark-theme">
+    <polymer-ui-toolbar class="polymer-ui-elements-dark">
       <polymer-ui-icon-button icon="menu"></polymer-ui-icon-button>
       <div flex>Toolbar: responsive</div>
       <polymer-ui-toolbar responsive>
@@ -57,7 +60,7 @@ license that can be found in the LICENSE file.
       </polymer-ui-toolbar>
     </polymer-ui-toolbar>
     <br>
-    <div theme="polymer-ui-dark-theme">
+    <div class="polymer-ui-elements-dark">
       <div>
         <polymer-ui-toolbar>
           <polymer-ui-icon-button icon="menu"></polymer-ui-icon-button>

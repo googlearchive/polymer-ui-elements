@@ -26,13 +26,12 @@ license that can be found in the LICENSE file.
  * @class polymer-ui-ratings
  */
 -->
-<link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
 
-<polymer-element name="polymer-ui-ratings" extends="polymer-ui-theme-aware" attributes="count value color">
+<polymer-element name="polymer-ui-ratings" attributes="count value color">
   <template>
     <link rel="stylesheet" href="polymer-ui-ratings.css">
     <template repeat="{{star in stars}}">
-      <span id="star" index="{{star.index}}" class="{{star.starClass}} {{color}} {{theme}}" on-tap="{{updateValue}}"></span>
+      <span id="star" index="{{star.index}}" class="{{star.starClass}} {{color}}" on-tap="{{updateValue}}"></span>
     </template>
   </template>
   <script>

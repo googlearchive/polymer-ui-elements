@@ -32,9 +32,7 @@ license that can be found in the LICENSE file.
  */
 -->
 
-<link rel="import" href="../polymer-ui-theme-aware/polymer-ui-theme-aware.html">
-
-<polymer-element name="polymer-ui-icon" extends="polymer-ui-theme-aware" attributes="src size index icon">
+<polymer-element name="polymer-ui-icon" attributes="src size index icon">
   <template>
     <link rel="stylesheet" href="polymer-ui-icon.css">
     <content></content>
@@ -136,18 +134,20 @@ license that can be found in the LICENSE file.
           this.style.backgroundImage = 'url(' + this.src + ')';
           this.updateIcon();
         },
-        activeThemeChanged: function(old) {
+        /* activeThemeChanged: function(old) {
           this.super(arguments);
           this.style.backgroundPosition = '';
           this.bx = calcThemeOffset(this.activeTheme, this);
           this.updateIcon();
-        },
+        }, */
         updateIcon: function() {
           if (this.src) {
             this.style.backgroundPosition = 'center';
             this.style.backgroundSize = this.size + 'px ' + this.size + 'px';
           } else {
-            this.style.backgroundPosition = (this.bx + 'px') + ' ' + (this.by + 'px');
+            // FIXME(ffu): backgroundPositionY is not supported in Firefox
+            //this.style.backgroundPosition = (this.bx + 'px') + ' ' + (this.by + 'px');
+            this.style.backgroundPositionY = this.by + 'px';
           }
         }
       });

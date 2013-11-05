@@ -1,0 +1,13 @@
+/*
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+*/
+
+.polymer-ui-elements-light ^^ polymer-ui-menu-item.polymer-selected, 
+body ^^ polymer-ui-menu-item.polymer-ui-elements-light.polymer-selected,
+.polymer-ui-elements-light ^^ polymer-ui-menu-item[active], 
+body ^^ polymer-ui-menu-item.polymer-ui-elements-light[active] {
+  background: #f2f2f2;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}

@@ -11,6 +11,8 @@ license that can be found in the LICENSE file.
     <script src="../../polymer/polymer.js"></script>
     <link rel="import" href="polymer-ui-submenu-item.html">
     <link rel="import" href="../polymer-ui-menu-item/polymer-ui-menu-item.html">
+    <link rel="import" href="../polymer-ui-elements-light.html">
+    <link rel="import" href="../polymer-ui-elements-dark.html">
     <link rel="stylesheet" href="../basic.css">
     <style>
       section {
@@ -20,15 +22,15 @@ license that can be found in the LICENSE file.
     </style>
   </head>
   <body class="polymer-ui-body-text">
-    <h2>polymer-ui-light-theme</h2>
-    <section theme="polymer-ui-light-theme">
+    <h2>polymer-ui-elements-light</h2>
+    <section class="polymer-ui-elements-light">
       <polymer-ui-submenu-item icon="settings" label="Topics" active>
         <polymer-ui-menu-item label="Topics 1"></polymer-ui-menu-item>
         <polymer-ui-menu-item label="Topics 2"></polymer-ui-menu-item>
       </polymer-ui-submenu-item>
     </section>
-    <h2>polymer-ui-dark-theme</h2>
-    <section class="polymer-ui-dark-bg" theme="polymer-ui-dark-theme">
+    <h2>polymer-ui-elements-dark</h2>
+    <section class="polymer-ui-dark-bg polymer-ui-elements-dark">
       <polymer-ui-submenu-item icon="settings" label="Topics" active>
         <polymer-ui-menu-item label="Topics 1"></polymer-ui-menu-item>
         <polymer-ui-menu-item label="Topics 2"></polymer-ui-menu-item>
