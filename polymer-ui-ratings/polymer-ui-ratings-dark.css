@@ -4,10 +4,10 @@ Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 */
 
-.polymer-ui-elements-dark ^^ polymer-ui-ratings ^ #star, body ^^ polymer-ui-ratings.polymer-ui-elements-dark ^ #star {
+body ^^ .polymer-ui-elements-dark ^^ polymer-ui-ratings ^ #star, body ^^ polymer-ui-ratings.polymer-ui-elements-dark ^ #star {
   background-image: url('assets/ic_star_rate_lightalt.png');
 }
 
-.polymer-ui-elements-dark ^^ polymer-ui-ratings ^ #star.full, body ^^ polymer-ui-ratings.polymer-ui-elements-dark ^ #star.full {
+body ^^ .polymer-ui-elements-dark ^^ polymer-ui-ratings ^ #star.full, body ^^ polymer-ui-ratings.polymer-ui-elements-dark ^ #star.full {
   background-image: url('assets/ic_star_rate_lightreg.png');
 }

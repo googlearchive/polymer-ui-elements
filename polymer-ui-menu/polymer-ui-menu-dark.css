@@ -4,7 +4,7 @@ Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 */
 
-.polymer-ui-elements-dark ^^ polymer-ui-menu, body ^^ polymer-ui-menu.polymer-ui-elements-dark {
+body ^^ .polymer-ui-elements-dark ^^ polymer-ui-menu, body ^^ polymer-ui-menu.polymer-ui-elements-dark {
   background: -webkit-linear-gradient(-60deg, #3d3d3d, #353535);
   background: -moz-linear-gradient(-60deg, #3d3d3d, #353535);
   background: -ms-linear-gradient(-60deg, #3d3d3d, #353535);

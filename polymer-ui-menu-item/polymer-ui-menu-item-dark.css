@@ -4,17 +4,17 @@ Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 */
 
-.polymer-ui-elements-dark ^^ polymer-ui-menu-item, body ^^ polymer-ui-menu-item.polymer-ui-elements-dark {
+body ^^ .polymer-ui-elements-dark ^^ polymer-ui-menu-item, body ^^ polymer-ui-menu-item.polymer-ui-elements-dark {
   color: #b3b3b3;
 }
 
-.polymer-ui-elements-dark ^^ polymer-ui-menu-item:hover, body ^^ polymer-ui-menu-item.polymer-ui-elements-dark:hover {
+body ^^ .polymer-ui-elements-dark ^^ polymer-ui-menu-item:hover, body ^^ polymer-ui-menu-item.polymer-ui-elements-dark:hover {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.polymer-ui-elements-dark ^^ polymer-ui-menu-item.polymer-selected, 
+body ^^ .polymer-ui-elements-dark ^^ polymer-ui-menu-item.polymer-selected, 
 body ^^ polymer-ui-menu-item.polymer-ui-elements-dark.polymer-selected,
-.polymer-ui-elements-dark ^^ polymer-ui-menu-item[active], 
+body ^^ .polymer-ui-elements-dark ^^ polymer-ui-menu-item[active], 
 body ^^ polymer-ui-menu-item.polymer-ui-elements-dark[active] {
   background-color: #000;
   border: 1px solid rgba(255, 255, 255, 0.2);

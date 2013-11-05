@@ -12,7 +12,6 @@
   <polymer-element-meta name="polymer-ui-sidebar-menu"></polymer-element-meta>
   <polymer-element-meta name="polymer-ui-splitter"></polymer-element-meta>
   <polymer-element-meta name="polymer-ui-tabs"></polymer-element-meta>
-  <polymer-element-meta name="polymer-ui-theme-aware"></polymer-element-meta>
   <polymer-element-meta name="polymer-ui-toggle-button"></polymer-element-meta>
   <polymer-element-meta name="polymer-ui-toolbar"></polymer-element-meta>
 </meta>

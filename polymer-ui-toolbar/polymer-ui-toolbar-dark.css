@@ -1,4 +1,10 @@
-.polymer-ui-elements-dark ^^ polymer-ui-toolbar, body ^^ polymer-ui-toolbar.polymer-ui-elements-dark {
+/*
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+*/
+
+body ^^ .polymer-ui-elements-dark ^^ polymer-ui-toolbar, body ^^ polymer-ui-toolbar.polymer-ui-elements-dark {
   background: #444444 none;
   color: #f3f3f3;
 }
