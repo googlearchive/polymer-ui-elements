@@ -4,7 +4,8 @@ Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 */
 
-body ^^ .polymer-ui-elements-light ^^ polymer-ui-sidebar-menu, body ^^ polymer-ui-sidebar-menu.polymer-ui-elements-light {
+.polymer-ui-elements-light ^^ polymer-ui-sidebar-menu, 
+body ^^ polymer-ui-sidebar-menu.polymer-ui-elements-light {
   color: #333333;
   box-shadow: inset -8px 0px 8px -4px rgba(0, 0, 0, 0.15);
 }

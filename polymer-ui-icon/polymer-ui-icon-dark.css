@@ -4,6 +4,7 @@ Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 */
 
-body ^^ .polymer-ui-elements-dark ^^ polymer-ui-icon, body ^^ polymer-ui-icon.polymer-ui-elements-dark {
+.polymer-ui-elements-dark ^^ polymer-ui-icon, 
+body ^^ polymer-ui-icon.polymer-ui-elements-dark {
   background-position: -72px 0;
 }

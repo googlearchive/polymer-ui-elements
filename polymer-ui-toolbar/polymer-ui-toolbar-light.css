@@ -4,7 +4,8 @@ Use of this source code is governed by a BSD-style
 license that can be found in the LICENSE file.
 */
 
-body ^^ .polymer-ui-elements-light ^^ polymer-ui-toolbar, body ^^ polymer-ui-toolbar.polymer-ui-elements-light {
+.polymer-ui-elements-light ^^ polymer-ui-toolbar, 
+body ^^ polymer-ui-toolbar.polymer-ui-elements-light {
   background: #f2f2f2 -webkit-linear-gradient(top, rgba(197,197,197,0), rgba(197,197,197,0.15));
   background: #f2f2f2 -moz-linear-gradient(top, rgba(197,197,197,0), rgba(197,197,197,0.15));
   background: #f2f2f2 -ms-linear-gradient(top, rgba(197,197,197,0), rgba(197,197,197,0.15));
