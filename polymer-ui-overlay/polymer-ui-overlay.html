@@ -11,16 +11,15 @@
         bottom: 0;
         right: 0;
         z-index: -1;
+        visibility: hidden;
       }
-      #container {
-        background: white;
+      :host(.polymer-overlay.opened:not(.animating)) #backdrop {
+        visibility: visible;
       }
     </style>
     <polymer-overlay id="overlay" opened="{{active}}" autoCloseDisabled="{{modal}}" transitions="{{transitions}}"></polymer-overlay>
-    <div id="backdrop" hidden?="{{!backdrop}}" pseudo="x-backdrop" on-click="{{toggle: !modal}}"></div>
-    <div id="container" pseudo="x-overlay">
-      <content></content>
-    </div>
+    <div id="backdrop" hidden?="{{!backdrop}}" on-click="{{toggle: !modal}}"></div>
+    <content></content>
   </template>
   <script>
     Polymer('polymer-ui-overlay', {
