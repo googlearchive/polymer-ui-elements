@@ -1,6 +1,6 @@
 {
   "name": "polymer-ui-elements",
-  "version": "0.0.20131107",
+  "version": "0.0.20131108",
   "homepage": "https://github.com/Polymer/polymer-ui-elements",
   "authors": [
     "Polymer Authors <polymer-dev@googlegroups.com>"
@@ -12,7 +12,7 @@
     "web components"
   ],
   "dependencies": {
-    "polymer-elements": ">=0.0.20131107"
+    "polymer-elements": ">=0.0.20131108"
   },
   "license": "BSD",
   "ignore": [
