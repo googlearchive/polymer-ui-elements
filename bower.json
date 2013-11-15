@@ -1,27 +1,37 @@
 {
   "name": "polymer-ui-elements",
-  "version": "0.0.20131108",
-  "homepage": "https://github.com/Polymer/polymer-ui-elements",
+  "version": "0.0.0",
   "authors": [
-    "Polymer Authors <polymer-dev@googlegroups.com>"
-  ],
-  "description": "Common polymer UI elements",
-  "keywords": [
-    "polymer",
-    "web-components",
-    "web components"
+    "The Polymer Authors"
   ],
   "dependencies": {
-    "polymer-elements": ">=0.0.20131108"
-  },
-  "license": "BSD",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests",
-    "docs",
-    "tools"
-  ]
+      "polymer-ui-accordion": "polymer/polymer-ui-accordion#master",
+      "polymer-ui-arrow": "polymer/polymer-ui-arrow#master",
+      "polymer-ui-breadcrumbs": "polymer/polymer-ui-breadcrumbs#master",
+      "polymer-ui-card": "polymer/polymer-ui-card#master",
+      "polymer-ui-collapsible": "polymer/polymer-ui-collapsible#master",
+      "polymer-ui-field": "polymer/polymer-ui-field#master",
+      "polymer-ui-icon": "polymer/polymer-ui-icon#master",
+      "polymer-ui-icon-button": "polymer/polymer-ui-icon-button#master",
+      "polymer-ui-menu": "polymer/polymer-ui-menu#master",
+      "polymer-ui-menu-button": "polymer/polymer-ui-menu-button#master",
+      "polymer-ui-menu-item": "polymer/polymer-ui-menu-item#master",
+      "polymer-ui-nav-arrow": "polymer/polymer-ui-nav-arrow#master",
+      "polymer-ui-overlay": "polymer/polymer-ui-overlay#master",
+      "polymer-ui-pages": "polymer/polymer-ui-pages#master",
+      "polymer-ui-ratings": "polymer/polymer-ui-ratings#master",
+      "polymer-ui-scaffold": "polymer/polymer-ui-scaffold#master",
+      "polymer-ui-sidebar": "polymer/polymer-ui-sidebar#master",
+      "polymer-ui-sidebar-header": "polymer/polymer-ui-sidebar-header#master",
+      "polymer-ui-sidebar-menu": "polymer/polymer-ui-sidebar-menu#master",
+      "polymer-ui-splitter": "polymer/polymer-ui-splitter#master",
+      "polymer-ui-submenu-item": "polymer/polymer-ui-submenu-item#master",
+      "polymer-ui-tabs": "polymer/polymer-ui-tabs#master",
+      "polymer-ui-theme-aware": "polymer/polymer-ui-theme-aware#master",
+      "polymer-ui-toggle-button": "polymer/polymer-ui-toggle-button#master",
+      "polymer-ui-toolbar": "polymer/polymer-ui-toolbar#master"
+    },
+    "license": "BSD",
+    "private": true
 }
+
