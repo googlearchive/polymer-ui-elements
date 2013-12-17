@@ -2,6 +2,7 @@
   "name": "polymer-ui-elements",
   "private": true,
   "dependencies": {
+    "polymer-ui-base-css": "Polymer/polymer-ui-base-css#master",
     "polymer-ui-accordion": "Polymer/polymer-ui-accordion#master",
     "polymer-ui-arrow": "Polymer/polymer-ui-arrow#master",
     "polymer-ui-breadcrumbs": "Polymer/polymer-ui-breadcrumbs#master",
