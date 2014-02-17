@@ -8,6 +8,8 @@
     "polymer-ui-breadcrumbs": "Polymer/polymer-ui-breadcrumbs#master",
     "polymer-ui-card": "Polymer/polymer-ui-card#master",
     "polymer-ui-collapsible": "Polymer/polymer-ui-collapsible#master",
+    "polymer-ui-dropdown": "Polymer/polymer-ui-dropdown#master",
+    "polymer-ui-dropup": "Polymer/polymer-ui-dropup#master",
     "polymer-ui-field": "Polymer/polymer-ui-field#master",
     "polymer-ui-icon": "Polymer/polymer-ui-icon#master",
     "polymer-ui-icon-button": "Polymer/polymer-ui-icon-button#master",
